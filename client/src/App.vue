@@ -13,6 +13,7 @@
 import io from 'socket.io-client';
 import ChatRoom from './components/ChatRoom';
 
+
 export default {
 	name: 'app',
 	components: {
@@ -48,6 +49,7 @@ export default {
 			});
 		},
 		sendMessage: function (message) {
+            console.log( "sendMessage called...");
 			this.socket.emit('msg', message);
 		}
 	},

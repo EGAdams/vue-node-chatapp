@@ -1,26 +1,28 @@
-const app = require("express")();
-const http = require("http").Server(app);
-const io = require("socket.io")(http);
-const mongoose = require("mongoose");
+const app = require( "express" )();
+const http = require( "http" ).Server(app);
+const io    = require( "socket.io"  )( http );
+// const mongoose = require("mongoose");
 let users = [];
 let messages = [];
+let index = 0;
 
-mongoose.connect("mongodb://localhost:27017/chatapp");
+// mongoose.connect("mongodb://localhost:27017/chatapp");
 
-const ChatSchema = mongoose.Schema({
-	username: String,
-	msg: String
-});
+// const ChatSchema = mongoose.Schema({
+// 	username: String,
+// 	msg: String
+// });
 
-const ChatModel = mongoose.model("chat", ChatSchema);
+// const ChatModel = mongoose.model("chat", ChatSchema);
 
-ChatModel.find((err, result) => {
-	if (err) throw err;
+// ChatModel.find((err, result) => {
+// 	if (err) throw err;
 
-	messages = result;
-});
+// 	messages = result;
+// });
 
 io.on("connection", socket => {
+    console.log( "someone connected.");
 	socket.emit('loggedIn', {
 		users: users.map(s => s.username),
 		messages: messages
@@ -36,18 +38,15 @@ io.on("connection", socket => {
 	});
 
 	socket.on('msg', msg => {
-		let message = new ChatModel({
-			username: socket.username,
-			msg: msg
-		});
+        let message = {
+            index: index,
+            username: socket.username,
+            msg:msg
+        }
 
-		message.save((err, result) => {
-			if (err) throw err;
-
-			messages.push(result);
-
-			io.emit('msg', result);
-		});
+        messages.push( messages );
+        io.emit( 'msg', message );
+        index++;
 	});
 	
 	// Disconnect
