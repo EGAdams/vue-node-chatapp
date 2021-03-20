@@ -1,4 +1,5 @@
 <template>
+   
 	<div class="chat-window">
 		<div class="messages">
 			<div class="message" v-for="message in messages" v-bind:key="message._id">
@@ -6,10 +7,26 @@
 				<div class="message-text">{{message.msg}}</div>
 			</div>
 		</div>
+        <div>
+            <button v-on:click="alertCheck">Alert Check</button>
+            <button v-on:click="blotterCheck">Blotter Check</button>
+            <button v-on:click="checkRunStatus">Check Run Status</button>
+            <button v-on:click="sendCommand">Send Command</button>
+        </div>
 		<form class="input-container" v-on:submit="sendMessage">
 			<input type="text" v-model="msg">
 			<button v-on:click="sendMessage" v-bind:disabled="!msg">Send</button>
 		</form>
+            <div class="statusTable">
+        <table>
+            <tr>
+                <td style="background-color: yellow">status1</td>
+            </tr>
+            <tr>
+                <td>status2</td>
+            </tr>
+        </table>        
+    </div> 
 	</div>
 </template>
 
@@ -31,7 +48,29 @@ export default {
 
 			this.$emit('sendMessage', this.msg);
 			this.msg = "";
-		}
+		},
+        sendCommand: function() {
+            console.log( "emitting send command..." );
+            var commandObject = {};
+            commandObject.name          = "ls";
+            commandObject.targetMachine = "dev";
+            this.$emit('sendCommand', commandObject );
+        },
+
+        checkRunStatus: function() {
+            console.log( "emitting check run status command..." );
+            this.$emit('checkRunStatus', 'test' );
+        },
+
+        alertCheck: function() {
+            console.log( "emitting alert check command..." );
+            this.$emit('alertCheck', 'test alert check' );
+        }, 
+
+        blotterCheck: function() {
+            console.log( "emitting blotter check command..." );
+            this.$emit('blotterCheck', 'test blotter check' );
+        }
 	}
 }
 </script>

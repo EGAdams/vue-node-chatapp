@@ -9,7 +9,8 @@
   "dependencies": {
     "express": "*",
     "mongoose": "^5.4.13",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "ssh2": "^0.8.9"
   },
   "devDependencies": {
     "nodemon": "*"
