@@ -1,0 +1,21 @@
+total 96
+-rw-r--r--.  1 adamsl developers   231 Mar 31  2020 .bashrc
+-rw-r--r--.  1 adamsl developers    18 Mar 31  2020 .bash_logout
+drwx------.  4 adamsl developers  4096 Nov  4 09:53 .ansible
+-rwxr-xr-x.  1 adamsl developers    87 Nov  9 09:34 blotterCheck.sh
+-rwxr-xr-x.  1 adamsl developers    82 Nov  9 09:34 alertCheck.sh
+-rwxr-xr-x.  1 adamsl developers   407 Nov  9 11:48 ~
+-rw-------.  1 adamsl developers    44 Nov 11 11:13 .lesshst
+drwxr-xr-x. 13 root   root        4096 Nov 17 12:44 ..
+-rwxr-xr-x.  1 adamsl developers   861 Nov 19 11:59 colors.sh
+-rw-r--r--.  1 adamsl developers   479 Nov 25 08:25 .bash_profile
+drwxr-xr-x.  2 adamsl developers  4096 Nov 25 11:55 tools
+-rwxr-xr-x.  1 adamsl developers    62 Nov 25 11:55 cdrul.sh
+-rwxr-xr-x.  1 adamsl developers    80 Jan  6 09:07 tacCheck.sh
+-rwxr-xr-x.  1 adamsl developers    84 Jan 28 13:00 cronLogCheck.sh
+-rwxr-xr-x.  1 adamsl developers    82 Feb 10 12:03 checkTACAlerts.sh
+drwx------.  2 adamsl developers  4096 Feb 25 12:34 .ssh
+-rw-r--r--.  1 adamsl developers  3616 Mar 22 13:28 blot_mar_22_temp.txt
+-rw-------.  1 adamsl developers  6741 Mar 25 18:23 .viminfo
+drwx------.  5 adamsl developers  4096 Mar 25 18:23 .
+-rw-------.  1 adamsl developers 13529 Mar 26 14:21 .bash_history

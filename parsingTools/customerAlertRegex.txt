@@ -1,0 +1,7 @@
+#
+#
+alertCustomerName<--*-->ok: \[(\w+)\] =>
+numberOfAlerts<--*-->^\s+"(\d+)"
+#
+# end of file
+

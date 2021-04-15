@@ -4,6 +4,7 @@ const fileSystem  = require( 'fs' );
 // i wanted this to be a storage place for anything.  using a file name
 // prefix to initialize this object may be forcing the store to file systems
 // only.  may have to re-think this constructor.
+
 function Storage( filenamePrefix ) {
 
     var dateobject = new Date();
@@ -20,6 +21,7 @@ function Storage( filenamePrefix ) {
 
     this.store = function( dataToStore ) {
         var self = this;
+            
             // store data
 
         fileSystem.appendFile( this.filename + ".txt", dataToStore, function (err) {

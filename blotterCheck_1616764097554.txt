@@ -1,0 +1,124 @@
+
+PLAY [ibmcloud] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [acp]
+ok: [allaria]
+ok: [aegis]
+ok: [allied]
+ok: [bdb]
+ok: [gamma]
+ok: [kovack]
+ok: [ldl]
+ok: [newb]
+ok: [ofs]
+ok: [ucap]
+ok: [wcm]
+ok: [ultralat]
+ok: [dev]
+
+TASK [command] *****************************************************************
+changed: [allied]
+changed: [bdb]
+changed: [allaria]
+changed: [aegis]
+changed: [gamma]
+changed: [acp]
+changed: [dev]
+changed: [ldl]
+changed: [ofs]
+changed: [newb]
+changed: [ultralat]
+changed: [wcm]
+changed: [ucap]
+changed: [kovack]
+
+TASK [Trade Count] *************************************************************
+ok: [acp] => {
+    "msg": [
+        "215"
+    ]
+}
+ok: [aegis] => {
+    "msg": [
+        "858"
+    ]
+}
+ok: [allaria] => {
+    "msg": [
+        "352"
+    ]
+}
+ok: [allied] => {
+    "msg": [
+        "82"
+    ]
+}
+ok: [bdb] => {
+    "msg": [
+        "72"
+    ]
+}
+ok: [dev] => {
+    "msg": [
+        "2278"
+    ]
+}
+ok: [gamma] => {
+    "msg": [
+        "0"
+    ]
+}
+ok: [kovack] => {
+    "msg": [
+        "0"
+    ]
+}
+ok: [newb] => {
+    "msg": [
+        "0"
+    ]
+}
+ok: [ldl] => {
+    "msg": [
+        "90"
+    ]
+}
+ok: [ofs] => {
+    "msg": [
+        "17"
+    ]
+}
+ok: [ucap] => {
+    "msg": [
+        "29"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+acp                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+aegis                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+allaria                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+allied                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+bdb                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dev                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+gamma                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+kovack                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ldl                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+newb                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ofs                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ucap                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ultralat                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+wcm                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+ok: [ultralat] => {
+    "msg": [
+        "119"
+    ]
+}
+ok: [wcm] => {
+    "msg": [
+        "62"
+    ]
+}
+/home/adamsl

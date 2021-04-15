@@ -1,0 +1,124 @@
+
+PLAY [ibmcloud] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [acp]
+ok: [aegis]
+ok: [allaria]
+ok: [allied]
+ok: [bdb]
+ok: [gamma]
+ok: [kovack]
+ok: [ldl]
+ok: [newb]
+ok: [ofs]
+ok: [ucap]
+ok: [ultralat]
+ok: [dev]
+ok: [wcm]
+
+TASK [command] *****************************************************************
+changed: [acp]
+changed: [aegis]
+changed: [allaria]
+changed: [allied]
+changed: [bdb]
+changed: [gamma]
+changed: [ldl]
+changed: [kovack]
+changed: [newb]
+changed: [dev]
+changed: [ofs]
+changed: [wcm]
+changed: [ultralat]
+changed: [ucap]
+
+TASK [debug] *******************************************************************
+ok: [acp] => {
+    "msg": [
+        "688"
+    ]
+}
+ok: [aegis] => {
+    "msg": [
+        "808"
+    ]
+}
+ok: [allaria] => {
+    "msg": [
+        "100"
+    ]
+}
+ok: [allied] => {
+    "msg": [
+        "21"
+    ]
+}
+ok: [bdb] => {
+    "msg": [
+        "124"
+    ]
+}
+ok: [dev] => {
+    "msg": [
+        "0"
+    ]
+}
+ok: [gamma] => {
+    "msg": [
+        "0"
+    ]
+}
+ok: [kovack] => {
+    "msg": [
+        "0"
+    ]
+}
+ok: [ldl] => {
+    "msg": [
+        "156"
+    ]
+}
+ok: [newb] => {
+    "msg": [
+        "0"
+    ]
+}
+ok: [ofs] => {
+    "msg": [
+        "10"
+    ]
+}
+ok: [ucap] => {
+    "msg": [
+        "153"
+    ]
+}
+ok: [ultralat] => {
+    "msg": [
+        "130"
+    ]
+}
+ok: [wcm] => {
+    "msg": [
+        "326"
+    ]
+}
+aegis                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+bdb                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dev                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+allaria                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+allied                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+PLAY RECAP *********************************************************************
+acp                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+gamma                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+kovack                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ldl                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+newb                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ofs                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ucap                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ultralat                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+wcm                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+/home/adamsl

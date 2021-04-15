@@ -1,0 +1,6 @@
+#
+#
+alertCustomerName <--*-->ok: \[(\w+)\] =>
+
+#
+# end of file

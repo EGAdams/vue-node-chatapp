@@ -3,65 +3,65 @@ PLAY [ibmcloud] ****************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [acp]
-ok: [aegis]
-ok: [bdb]
 ok: [allaria]
+ok: [aegis]
 ok: [allied]
+ok: [bdb]
 ok: [gamma]
+ok: [kovack]
 ok: [ldl]
 ok: [newb]
-ok: [kovack]
 ok: [dev]
-ok: [ofs]
-ok: [wcm]
 ok: [ucap]
+ok: [wcm]
 ok: [ultralat]
+ok: [ofs]
 
 TASK [command] *****************************************************************
 changed: [acp]
-changed: [bdb]
-changed: [allied]
-changed: [allaria]
 changed: [aegis]
+changed: [allaria]
+changed: [allied]
+changed: [bdb]
 changed: [gamma]
+changed: [kovack]
+changed: [newb]
 changed: [dev]
 changed: [ldl]
-changed: [newb]
 changed: [ofs]
+changed: [wcm]
 changed: [ucap]
 changed: [ultralat]
-changed: [wcm]
-changed: [kovack]
 
-TASK [Trade Count] *************************************************************
+TASK [debug] *******************************************************************
 ok: [acp] => {
     "msg": [
-        "392"
+        "654"
     ]
 }
 ok: [aegis] => {
     "msg": [
-        "1562"
-    ]
-}
-ok: [allied] => {
-    "msg": [
-        "557"
+        "0"
     ]
 }
 ok: [allaria] => {
     "msg": [
-        "431"
+        "78"
     ]
 }
 ok: [bdb] => {
     "msg": [
-        "79"
+        "131"
+    ]
+}
+ok: [allied] => {
+    "msg": [
+        "19"
     ]
 }
 ok: [dev] => {
     "msg": [
-        "2278"
+        "0"
     ]
 }
 ok: [gamma] => {
@@ -76,7 +76,7 @@ ok: [kovack] => {
 }
 ok: [ldl] => {
     "msg": [
-        "170"
+        "233"
     ]
 }
 ok: [newb] => {
@@ -84,27 +84,30 @@ ok: [newb] => {
         "0"
     ]
 }
-ok: [ucap] => {
-    "msg": [
-        "18"
-    ]
-}
 ok: [ofs] => {
     "msg": [
-        "2"
+        "8"
     ]
 }
 ok: [ultralat] => {
     "msg": [
-        "260"
+        "73"
+    ]
+}
+ok: [ucap] => {
+    "msg": [
+        "137"
     ]
 }
 ok: [wcm] => {
     "msg": [
-        "53"
+        "372"
     ]
 }
+
+PLAY RECAP *********************************************************************
 acp                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+aegis                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 allaria                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 allied                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 bdb                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
@@ -112,9 +115,6 @@ dev                        : ok=3    changed=1    unreachable=0    failed=0    s
 gamma                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 kovack                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ldl                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-
-PLAY RECAP *********************************************************************
-aegis                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 newb                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ofs                        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ucap                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

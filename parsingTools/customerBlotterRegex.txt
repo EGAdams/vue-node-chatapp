@@ -1,0 +1,6 @@
+#
+#
+blotterCustomerName<--*-->ok: \[(\w+)\] =>
+blotterCount<--*-->^\s+"(\d+)"
+#
+# end of file

@@ -1,38 +1,24 @@
-const app = require( "express" )();
-const http = require( "http" ).Server(app);
-const io    = require( "socket.io"  )( http );
-const Storage = require( './Storage' )
+
+
+const app   = require( "express"    )();            // app is used to build the http object
+const http  = require( "http"       ).Server(app);  // http is needed for the main io socket
+const io    = require( "socket.io"  )( http );      // the main socket
+
+const Storage       = require( './Storage'          );
+const Command       = require( './Command'          );
+const ClientFactory = require( './ClientFactory'    );
+
+require( './parsingTools/Utils' );
+const AlertPopulator    = require( './parsingTools/AlertPopulator'   );
+const ArrayPopulator    = require( './parsingTools/ArrayPopulator'   );
+const FileManager       = require( './parsingTools/FileManager'      );
+const Regex             = require( './parsingTools/Regex'            );
 
 let users = [];
 let messages = [];
 let output = [];
 let index = 0;
 let command = "";
-
-var Client = require('ssh2').Client;
-
-;
-
-var conn = new Client();
-conn.on('ready', function() {
-  console.log('Client :: ready');
-  conn.shell(function(err, stream) {
-    if (err) throw err;
-    stream.on('close', function() {
-      console.log('Stream :: close');
-      conn.end();
-    }).on('data', function(data) {
-      console.log('OUTPUT: ' + data);
-      // emitter.emit( 'gotData', data.toString());
-    });
-    // stream.end('./alertCheck.sh\n./blotterCheck.sh\nexit\n');
-  });
-}).connect({
-  host: '10.170.150.4',
-  //port: 22,
-  username: 'adamsl',
-  privateKey: require('fs').readFileSync('/home/adamsl/.ssh/id_rsa')
-});
 
 io.on("connection", socket => {
     console.log( "someone connected.");
@@ -49,6 +35,42 @@ io.on("connection", socket => {
         console.log( "emitting user on line..." );
 		io.emit('userOnline', socket.username);
 	});
+	
+    socket.on('processCommand', commandObject => {
+		console.log( commandObject.outputPath + "  was used as a path for processing a command" );
+        console.log( "processing command... " );
+
+        // var filename = "/mnt/c/Users/eg197/tools/vue_projects/vue-node-chatapp/alertCheck_1615899731770.txt";
+        var fileManager = new FileManager();
+        var freshArray = fileManager.populateArray( commandObject.outputPath );
+
+
+        console.log( "array populated.  size is: " + freshArray.length );
+
+        var regexMapFile = "./parsingTools/customerAlertRegex.txt"
+
+            // set up populator for regex
+
+        var populator   = new ArrayPopulator( fileManager, regexMapFile );
+
+
+            // regex needs a populator to fill it's clip
+            // populators have a populateArray() method
+
+        var regex   = new Regex( populator );
+        var alertCheckPopulator = new AlertPopulator();
+
+        var customers = alertCheckPopulator.populateAlerts( freshArray, regex );
+
+        console.log( customers.acp.numberOfAlerts );
+        
+        
+            // emit result object
+        console.log( "emitting got data in the console!" );
+        io.emit( 'gotData', customers );   
+        console.log( "done with emit." );
+
+	});
 
 	socket.on('msg', msg => {
         let message = {
@@ -62,10 +84,11 @@ io.on("connection", socket => {
         index++;
 	});
 
-    socket.on( 'sendCommand' , command => {
+    socket.on( 'sendCommand' , function command( commandObject ) {
         console.log( 'catching send command...' );
+        var storage = new Storage( commandObject.name )
         // stream.end('ls\nexit\n');
-        conn.exec('./alertCheck.sh', function(err, stream) {
+        conn.exec( commandObject.executable, function(err, stream) {
             if (err) {
               console.log('SECOND :: exec error: ' + err);
               return conn1.end();
@@ -77,8 +100,12 @@ io.on("connection", socket => {
 
                 // store this data somewhere
 
-              storage.store( data.toString())
+              storage.store( data.toString());
               
+                // emit data
+              
+              commandObject[ "output" ] = data.toString();
+              io.emit("gotData", commandObject );   
             });
           });
     });
@@ -111,10 +138,13 @@ io.on("connection", socket => {
           });
     });
 
-    socket.on( 'alertCheck' , command => {
+    socket.on( 'alertCheck' , function command( commandObject ) {
         var storage = new Storage( "alertCheck" );
-        console.log( 'catching alert check command...' );
+        
+        var command = new Command( commandObject );
 
+        console.log( command.name + " command..." );
+        
         conn.exec('./alertCheck.sh', function(err, stream) {
             if (err) {
               console.log('SECOND :: exec error: ' + err);
@@ -135,13 +165,15 @@ io.on("connection", socket => {
               console.log( "output length: [" + output.length + "]" );
               console.log( output[0].toString());
               console.log( "done storing text to " + storage.getFilename());
+              commandObject.output = output[0].toString();
+              commandObject.process();
             });
           });
     });
 
     socket.on( 'blotterCheck' , command => {
         var storage = new Storage( "blotterCheck" );
-        console.log( 'catching alert check command...' );
+        console.log( 'catching blotter check command...' );
 
         conn.exec('./blotterCheck.sh', function(err, stream) {
             if (err) {
