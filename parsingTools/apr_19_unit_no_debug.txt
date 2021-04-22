@@ -1,0 +1,2542 @@
+rulesUnitTest starting at 19/04/2021% H:37:54...
+Testing all rules
+
+Rule 89:
+	Name: Incoming Wire amount > 60% of Net Worth
+	Description: Incoming Wire amount >60% of Net Worth
+	Alert Text: Incoming wire amount significantly larger than customer's Net Worth
+	Last changed on 07/31/2020 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: after 1 minute
+	Conditions:
+		Value of Incoming Wire Amount is greater than Net Worth * 60 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1385 results
+		Pass: Build SQL returned 1385 results
+	Rule 89 passed.
+ 
+Rule 90:
+	Name: Incoming wire greater than 20% of Customer Stated Income
+	Description: Incoming wire greater than 20% of Customer Stated Income
+	Alert Text: Incoming wires larger than 15% of customer's Income Level.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: after 1 minute
+	Conditions:
+		Value of Incoming Wire Amount is greater than Income Level * 5 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1506 results
+		Pass: Build SQL returned 1506 results
+	Rule 90 passed.
+ 
+Rule 91:
+	Name: Outgoing Wire Amount greater than 80% of Account Equity
+	Description: Outgoing Wire Amount greater than 80% of Account Equity
+	Alert Text: Outgoing wires greater than 80% of Account Equity.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 10 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 678 results
+		Pass: Build SQL returned 678 results
+	Rule 91 passed.
+ 
+Rule 92:
+	Name: When outgoing wire amount > 30% of account equity
+	Description: When outgoing wire amount > 30% of account equity
+	Alert Text: Outgoing wires larger than 30% of Account Equity.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 30 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 92 passed.
+ 
+Rule 93:
+	Name: When debit card Cash Advances > 30 % of account equity over 30 days
+	Description: When debit card Cash Advances > 30 % of account equity over 30 days
+	Alert Text: Large debit card withdrawals greater than 30% of Account Equity.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than Account Equity * 30
+		percent over  a 30 day period and Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 93 passed.
+ 
+Rule 95:
+	Name: Low priced securities purchased
+	Description: Low priced securities purchased
+	Alert Text: Low priced security purchase...
+	Last changed on 08/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less than 5
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 95 passed.
+ 
+Rule 97:
+	Name: Incoming wire greater than $1
+	Description: Incoming wire greater than $1
+	Alert Text: Large incoming wire transfers ($1 or more)
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: after 1 minute
+	Conditions:
+		Value of Incoming Wire Amount is greater than 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), FWT  Guest (6), Manager  Finwebtech (2)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 9 results
+		Pass: Build SQL returned 9 results
+	Rule 97 passed.
+ 
+Rule 98:
+	Name: Outgoing Wire greater than $1
+	Description: Outgoing Wire greater than $1
+	Alert Text: Outgoing wire greater than $1
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every 5min
+	Conditions:
+		Value of Outgoing Wire Amount is greater than 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), FWT  Guest (6), Manager  Finwebtech (2)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 98 passed.
+ 
+Rule 99:
+	Name: Outgoing Wire frequency greater than 5 per month
+	Description: Outgoing Wire frequency greater than 5 per month
+	Alert Text: More than 5 outgoing wires per month
+	Last changed on 05/19/2020 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: after 1 minute
+	Conditions:
+		Count of Outgoing Wire is greater than 5 over  a 30 day period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), FWT  Guest (6), Manager  Finwebtech (2)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 99 passed.
+ 
+Rule 100:
+	Name: Low priced security trade in elderly account
+	Description: Low priced security trade in elderly account
+	Alert Text: Elderly client with a low priced security.
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less or equal to 5 and Value of Customer Age
+		is greater than 65
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), FWT  Guest (6), Manager  Finwebtech (2)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 100 passed.
+ 
+Rule 101:
+	Name: Security purchases greater than 7 per Week
+	Description: Security purchases greater than 7 per Week
+	Alert Text: 7 or more security purchases over the last week
+	Last changed on 08/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Security Purchase is greater than 7 over  a 7 day period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), FWT  Guest (6), Manager  Finwebtech (2)
+		Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 630 results
+		Pass: Build SQL returned 630 results
+	Rule 101 passed.
+ 
+Rule 104:
+	Name: Outgoing wire greater than  5% of account equity
+	Description: Outgoing wire greater than  5% of account equity
+	Alert Text: This account has outgoing wires greater than 5% of  Account Equity
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 5 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), FWT  Guest (6), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 104 passed.
+ 
+Rule 105:
+	Name: Incoming wire greater than 50% of net worth
+	Description: Incoming wire greater than 50% of net worth
+	Alert Text: This account has incoming wire(s) greater than 50% of net worth.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: after 1 minute
+	Conditions:
+		Value of Incoming Wire Amount is greater than Net Worth * 50 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1397 results
+		Pass: Build SQL returned 1397 results
+	Rule 105 passed.
+ 
+Rule 106:
+	Name: Outgoing debit card transactions greater than 5 over 30 days
+	Description: Outgoing debit card transactions greater than 5 over 30 days
+	Alert Text: This account had 5 or more debit card cash advances over 30 days.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Debit Card Transactions is greater than 5 over  a 30 day
+		period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 106 passed.
+ 
+Rule 116:
+	Name: Outgoing Debit Card transfers > $1k
+	Description: Outgoing debit card transactions greater than $1,000
+	Alert Text: Debit card transactions over $1,000
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: after 2 minute
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than 10
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 116 passed.
+ 
+Rule 117:
+	Name: Outgoing Debit Card tranactions > 10K 3
+	Description: Very large transactions 3
+	Alert Text: Outgoing Debit Card transactions greater than $10000 3 mark made me do it
+	Last changed on 07/08/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than 10003
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Jennifer  Gatherer - terminated (7)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 117 passed.
+ 
+Rule 120:
+	Name: Outgoing Debit Card Transaction > $5K
+	Description: Outgoing Debit Card Transaction > $5K
+	Alert Text: Large debit card transactions (over $5,000)..
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than 5000
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 120 passed.
+ 
+Rule 128:
+	Name: High Risk customer outgoing wire transactions exceeding expected number
+	Description: High Risk customer outgoing wire transactions exceeding expected number
+	Alert Text: High Risk customer with wire transactions exceeding expected number.
+	Last changed on 08/06/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Wire is greater than Anticipated # Wire Trans * 1 over  a 30
+		day period and Value of Risk Score is greater than 75
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 115
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 128 failed.
+ 
+Rule 129:
+	Name: High Risk Account Incoming Wire Alert greater than $50,000
+	Description: High Risk Account Incoming Wire Alert greater than $50,000
+	Alert Text: High Risk customer has an incoming wire greater than $50,000
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 50000 and Value of Risk Score is
+		greater than 75
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 129 passed.
+ 
+Rule 160:
+	Name: Concentrated positions greater than 25% of account equity
+	Description: Concentrated positions greater than 25% of account equity
+Note: large results; set to every 12 months
+	Alert Text: This account has a concentrated position greater than 25% of account equity
+	Last changed on 04/19/2021 by Marie  Santana (8)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: after 1 year
+	Conditions:
+		Value of Holding Market Value is greater than Account Market Value * 25 percent
+		and Value of Has Concentration Letter 12 Month or Less is equal to N and Value
+		of Is Institutional Account is equal to N
+	Users:
+		CO  Finwebtech (1), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1877 results
+		Pass: Build SQL returned 1877 results
+	Rule 160 passed.
+ 
+Rule 162:
+	Name: Find all high risk customers
+	Description: Find all high risk customers
+	Alert Text: High risk customers with a score greater than 75
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater than 75
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 162 passed.
+ 
+Rule 178:
+	Name: Account Turnover Ratio Greater than 3 over 120 days
+	Description: Account Turnover Ratio Greater than 3 over 120 days - dup deactivate
+	Alert Text: Please review this alert
+	Last changed on 10/16/2018 by Broker  Finwebtech (3)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 3 over  a 120 day period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 4 results
+		Pass: Build SQL returned 4 results
+	Rule 178 passed.
+ 
+Rule 179:
+	Name: Medium Risk account placing a trade
+	Description: Medium Risk account placing a trade
+	Alert Text: Medium Risk account placing a trade
+	Last changed on 08/24/2020 by Marie  Santana (8)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 3.1 and Value of Risk Score is less
+		or equal to 6.5 and Value of Security Transaction is greater than 0
+	Users:
+		CO  Finwebtech (1), Miguel  Melendez- Terminated (19)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 327 results
+		Pass: Build SQL returned 327 results
+	Rule 179 passed.
+ 
+Rule 180:
+	Name: High Risk Account receiving a wire
+	Description: High Risk Account receiving a wire
+	Alert Text: Please review this alert
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Incoming Wire is
+		greater or equal to 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 180 passed.
+ 
+Rule 181:
+	Name: Turnover Ratio > 2 in Long term growth Account
+	Description: Turnover Ratio is greater than 2 in an account with an investment objective  of Long term growth
+	Alert Text: Turnover ratio is greater than 2 in accounts with Long term growth investment objectives
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 2 over  a 2 month period and
+		Value of Investment Objective (text) is equal to Long term growth
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 181 passed.
+ 
+Rule 182:
+	Name: Turnover Ratio > 4 in Income Account
+	Description: The turnover ratio is greater than 4 in accounts with Income investment objectives.
+	Alert Text: Turnover ratio is greater than 4 in accounts with Income investment objectives.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 over  a 4 month period and
+		Value of Investment Objective (text) is equal to Income
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 182 passed.
+ 
+Rule 183:
+	Name: Turnover Ratio > 6 in Growth and Income accounts
+	Description: The turnover ratio is greater than 6 in an account with a Growth and Income investment objective
+	Alert Text: Turnover ratio is greater than 6 in an account with a Growth and Income investment objective
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 6 over  a 3 month period and
+		Value of Investment Objective (text) is equal to Growth and Income
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 183 passed.
+ 
+Rule 184:
+	Name: Turnover Ratio > 8 in Balanced account
+	Description: The turnover ratio is greater than 8 in an account with a Balanced account investment objective
+	Alert Text: Turnover ratio is greater than 8 in an account with a Balanced account investment objective
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 8 and Value of Investment
+		Objective (text) is equal to Balanced
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 184 passed.
+ 
+Rule 186:
+	Name: Turnover Ratio > 10 in Speculative account
+	Description: The turnover ratio is greater than 10 in an account with a Speculative investment objective
+	Alert Text: Turnover ratio is greater than 10 in an account with a Speculative investment objective
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 10 over  a 2 month period and
+		Value of Investment Objective (text) is equal to Speculative
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 186 passed.
+ 
+Rule 187:
+	Name: Turnover Ratio > 2 in Conservative account
+	Description: Turnover Ratio is greater than 2 in an account with an investment objective of Conservative
+	Alert Text: Turnover ratio is greater than 2 in accounts with Conservative investment objectives
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 2 over  a 2 month period and
+		Value of Investment Objective (text) is equal to Conservative
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 187 passed.
+ 
+Rule 188:
+	Name: Turnover Ratio > 4 in Moderate Account
+	Description: The turnover ratio is greater than 4 in accounts with Moderate investment objectives
+	Alert Text: Turnover ratio is greater than 4 in accounts with Moderate investment objectives
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 over  a 2 month period and
+		Value of Investment Objective (text) is equal to Moderate
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 188 passed.
+ 
+Rule 189:
+	Name: Commissions to Equity Ratio is between 12.5 and 14.99
+	Description: The commissions to equity ratio is between 12.5 and 14.99
+	Alert Text: The commissions to equity ratio is between 12.5 and 14.99.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between12.5 and 14.99
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 189 passed.
+ 
+Rule 190:
+	Name: Commissions to Equity Ratio is between 15 and 17.49
+	Description: The commissions to equity ratio is between 15 and 17.49
+	Alert Text: The commissions to equity ratio is between 15 and 17.49.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between15 and 17.49
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 190 passed.
+ 
+Rule 191:
+	Name: Commissions to Equity Ratio between 17.5 and 20
+	Description: The commissions to equity ratio is between 17.5 and 20
+	Alert Text: The commissions to equity ratio is between 17.5 and 20
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between17.5 and 20
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 191 passed.
+ 
+Rule 192:
+	Name: Turnover Ratio > 1
+	Description: Turnover Ratio > 1
+	Alert Text: Turnover Ratio is greater than 1.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 31 results
+		Pass: Build SQL returned 31 results
+	Rule 192 passed.
+ 
+Rule 193:
+	Name: Commission To Equity Ratio is between 1 and 20
+	Description: Commission To Equity Ratio is between 1 and 20
+	Alert Text: Commission to Equity Ratio is between 1 and 20
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between1 and 20
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 3 results
+		Pass: Build SQL returned 3 results
+	Rule 193 passed.
+ 
+Rule 194:
+	Name: PEP trade over 1 days
+	Description: PEP conducting a trade over 1 days
+	Alert Text: Please review alert
+	Last changed on 03/18/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Count of Security Purchase is greater or
+		equal to 1 over  a 1 day period and Value of RepCode is not equal to 000
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 194 passed.
+ 
+Rule 195:
+	Name: PEP Wire over 30 days
+	Description: PEP wire over 30 days
+	Alert Text: Please review alert
+	Last changed on 03/11/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Political Exposed Person (text) is equal to Y and Count of Wires is
+		greater than 1 over  a 30 day period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 10 results
+		Pass: Build SQL returned 10 results
+	Rule 195 passed.
+ 
+Rule 201:
+	Name: High Risk Customer Conducted Security Transaction
+	Description: High Risk Customer Conducted Security Transaction
+	Alert Text: High Risk Customer Conducted Security Transaction
+	Last changed on 05/21/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater than 6.5 and Value of Security Transaction is
+		greater than 0
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 36 results
+		Pass: Build SQL returned 36 results
+	Rule 201 passed.
+ 
+Rule 203:
+	Name: High Risk Customers Conducting Outgoing Wire Transaction
+	Description: High Risk Customers Conducting Outgoing Wire Transaction
+	Alert Text: High Risk Customers Conducting Outgoing Wire Transaction
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Outgoing Wire is
+		greater or equal to 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 203 passed.
+ 
+Rule 205:
+	Name: High Risk account debit card withdrawals
+	Description: High Risk account with  more than 1 debit card withdrawals
+	Alert Text: High Risk account with more than 1 debit card withdrawals
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Debit Card Withdrawal is greater than 1 and Value of Risk Level (text)
+		is equal to High
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 205 passed.
+ 
+Rule 206:
+	Name: Account Equity drops by 10% from previous day
+	Description: Account Equity drop of 10% or more
+	Alert Text: Account Equity drop of 10% or more
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Equity Drop is greater than 0.1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 4 results
+		Pass: Build SQL returned 4 results
+	Rule 206 passed.
+ 
+Rule 207:
+	Name: High Fixed Income Markup
+	Description: Fixed Income Markup Over 2.5%
+	Alert Text: High Fixed Income Markup
+	Last changed on 08/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Bonds and Value of Commission is
+		greater than Trade Principle * 2.5 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 207 passed.
+ 
+Rule 208:
+	Name: Structured Deposits
+	Description: Three or more low value deposits in 30 days
+	Alert Text: Three or more deposits under $10,000 in last 30 days
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Incoming Funds is greater or equal to 3 over  a 30 day period and Value
+		of Incoming Funds is less than 10000
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 4 results
+		Pass: Build SQL returned 4 results
+	Rule 208 passed.
+ 
+Rule 209:
+	Name: Employee Trade
+	Description: Trades made by employees
+	Alert Text: Trades made by employees
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Flagged Party (text) is equal to Employee
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 209 passed.
+ 
+Rule 210:
+	Name: Check Withdrawals
+	Description: Account Check Withdrawals
+	Alert Text: Check Withdrawals
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Check Withdrawal is greater than 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 210 passed.
+ 
+Rule 211:
+	Name: Mutual Fund Purchase
+	Description: Fires on any MF purchase
+	Alert Text: A Mutual Fund has been purchased.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds and Value of Buy/Sell
+		Code is equal to B
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 20 results
+		Pass: Build SQL returned 20 results
+	Rule 211 passed.
+ 
+Rule 212:
+	Name: Mutual Fund Buy/Sell Alert
+	Description: Alerts when mutual funds are purchased and sold within 90 days regardless of fund family. - dup deactivate
+	Alert Text: A Mutual Fund has been bought or sold.
+	Last changed on 10/16/2018 by Broker  Finwebtech (3)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds over  a 90 day period and
+		Value of Buy/Sell Code is equal to B over  a 90 day period or Value of Buy/Sell
+		Code is equal to S over  a 90 day period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 67 results
+		Pass: Build SQL returned 67 results
+	Rule 212 passed.
+ 
+Rule 213:
+	Name: Concentrated bond positions greater than 25% of account equity
+	Description: Concentrated positions greater than 25% of account equity
+***NOTE: not used for BDB, 160 used instead
+	Alert Text: This account has a concentrated position greater than 25% of account equity.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Holding Market Value is greater than Account Equity * 25 percent and
+		Value of Holding Type (text) is equal to Bonds
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1021 results
+		Pass: Build SQL returned 1021 results
+	Rule 213 passed.
+ 
+Rule 214:
+	Name: Turnover Ratio > 4 in High Risk account
+	Description: The turnover ratio is greater than 4 in an account with a High Risk tolerance
+	Alert Text: Turnover ratio is greater than 4 over 30 days an account with a High Risk tolerance
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 over  a 30 day period and
+		Value of Risk Tolerance is equal to High Risk
+	Users:
+		CO  Finwebtech (1), Jennifer  Gatherer - terminated (7), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 214 passed.
+ 
+Rule 215:
+	Name: Turnover Ratio > 8 in Unknown account
+	Description: The turnover ratio is greater than 8 in an account with an Unknown risk tolerance
+	Alert Text: Turnover ratio is greater than 8 in an account with an Unknown risk tolerance
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 8 and Value of Risk Tolerance is
+		equal to Unknown
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 215 passed.
+ 
+Rule 216:
+	Name: Turnover Ratio > 4 in Conservative account
+	Description: Turnover Ratio is greater than 4 in an account with risk tolerance of Conservative
+	Alert Text: Turnover ratio is greater than 4 in accounts with Conservative risk tolerance
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 over  a 4 month period and
+		Value of Risk Tolerance is equal to Conservative
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 216 passed.
+ 
+Rule 217:
+	Name: Turnover Ratio > 6 in Moderate Account
+	Description: The turnover ratio is greater than 6 in accounts with Moderate risk tolerance
+	Alert Text: Turnover ratio is greater than 6 in accounts with Moderate risk tolerance
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 6 over  a 4 month period and
+		Value of Risk Tolerance is equal to Moderate
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 217 passed.
+ 
+Rule 218:
+	Name: Commissions to Equity Ratio is between 12.5 and 14.99
+	Description: The commissions to equity ratio is between 12.5 and 14.99
+	Alert Text: The commissions to equity ratio is between 12.5 and 14.99
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between12.5 and 14.99
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 218 passed.
+ 
+Rule 219:
+	Name: Commissions to Equity Ratio is between 15 and 17.49
+	Description: The Commissions to Equity Ratio is between 15 and 17.49
+	Alert Text: The Commissions to Equity Ratio is between 15 and 17.49
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between15 and 17.49
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 219 passed.
+ 
+Rule 220:
+	Name: Commissions to Equity Ratio is 3 or higher
+	Description: The Commissions to Equity Ratio is 3 or higher
+	Alert Text: The Commissions to Equity Ratio is 3 or higher
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is greater or equal to 3 and Value of Client
+		Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 220 passed.
+ 
+Rule 221:
+	Name: PEP Wire over 30 days
+	Description: PEP Wire over 30 days
+	Alert Text: PEP Wire over the last 30 days
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Count of Wires is greater than 1 and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 221 passed.
+ 
+Rule 222:
+	Name: Option security purchased in low risk account
+	Description: Option security purchased in low risk account based on customer investment profile
+	Alert Text: Option security purchased in low risk account based on customer investment profile
+	Last changed on 08/06/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Options Purchase is greater or equal to 1 and Value of Risk Tolerance
+		is equal to Conservative and Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 222 passed.
+ 
+Rule 224:
+	Name: Elderly customer investing in options
+	Description: Customer 65 and older purchasing options
+	Alert Text: Customer 65 and older purchasing options
+	Last changed on 04/06/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Options and Value of Customer Age is
+		greater or equal to 65
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 224 passed.
+ 
+Rule 225:
+	Name: Customer deposits between $9500 and $9999
+	Description: Customer deposits just below the $10,000 threshold
+	Alert Text: Customer deposits just below the $10,000 threshold
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Customer Deposits is between9500 and 9999 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 225 passed.
+ 
+Rule 226:
+	Name: Cash advances over 30 days greater than 30% of account equity
+	Description: Outgoing Cash advances ATM card greater than 30% of account equity over 30 days.
+	Alert Text: Outgoing Cash advances ATM card greater than 30% of account equity over 30 days.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Outgoing Debit Card Cash Advances is greater than Account Equity * 30
+		percent over  a 30 day period and Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 226 passed.
+ 
+Rule 227:
+	Name: Outgoing Checks over 30 days greater than 30% of account equity
+	Description: Outgoing Checks over 30 days greater than 30% of account equity
+	Alert Text: Outgoing Checks over 30 days greater than 30% of account equity
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Outgoing Debit Card Check is greater than Account Equity * 30 percent
+		over  a 30 day period and Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 227 passed.
+ 
+Rule 228:
+	Name: Low priced security deposit
+	Description: Low priced security deposit less than $5.00
+	Alert Text: Low priced security deposit less than $5.00
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Deposit is between0.01 and 5
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 228 passed.
+ 
+Rule 229:
+	Name: Deposit and subsequent wires in accounts marked long term
+	Description: Deposit and subsequent wires in accounts marked long term
+	Alert Text: Deposit and subsequent wires in accounts marked long term
+	Last changed on 03/22/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Has Deposits and Withdrawals Within 30 Days is equal to Y and Value of
+		Investment Objective (text) is equal to Long term growth
+	Users:
+		CO  Finwebtech (1), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 229 passed.
+ 
+Rule 230:
+	Name: Account Turnover Ratio Greater than 3 over 120 days
+	Description: Account Turnover Ratio Greater than 3 over 120 days
+	Alert Text: Account Turnover Ratio Greater than 3 over 120 days
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater or equal to 3 over  a 120 day period
+		and Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 230 passed.
+ 
+Rule 231:
+	Name: Low priced security purchased in Low Risk account
+	Description: Low priced security purchased in accounts with low risk tolerance
+	Alert Text: Low priced security purchased in accounts with low risk tolerance
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less or equal to 2 and Value of Risk
+		Tolerance is equal to Conservative and Value of Client Type (text) is equal to
+		Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 231 passed.
+ 
+Rule 232:
+	Name: High Risk Account Incoming Wire Alert greater than $1
+	Description: High Risk Account Incoming Wire Alert greater than $1
+	Alert Text: High Risk Account Incoming Wire Alert greater than $1
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 1 and Value of Risk Level (text)
+		is equal to High and Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 232 passed.
+ 
+Rule 233:
+	Name: Outgoing debit card transactions with no securities purchases over 30 days
+	Description: Customer use of debit card with no securities purchased over a 30 days period.
+	Alert Text: Customer use of debit card with no securities purchased over a 30 days period.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Debit Card Transactions is greater than 1 over  a 30 day
+		period and Count of Security Purchase is equal to 0 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 233 passed.
+ 
+Rule 234:
+	Name: Incoming Wire and Outgoing Wire less than 30 days
+	Description: Incoming wire and subsequent outgoing wire within 30 days of deposit
+	Alert Text: Incoming wire and subsequent outgoing wire within 30 days of deposit
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Incoming Wire is greater or equal to 1 over  a 30 day period and Count
+		of Outgoing Wire is greater or equal to 1 over  a 30 day period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 106
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 234 failed.
+ 
+Rule 235:
+	Name: Incoming Security Deposit, Liquidation and Outgoing Wire within 30 days
+	Description: Security Deposit, subsequent liquidation and outgoing wire all within 30 days of deposit.
+	Alert Text: Security Deposit, subsequent liquidation and outgoing wire all within 30 days of deposit.
+	Last changed on 03/11/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Account Age In Days is greater than Sum Account Age In Days
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 235 passed.
+ 
+Rule 236:
+	Name: Stock Commission greater than 1.5% in Retail account
+	Description: Stock Commission greater than 1.5% in Retail account
+	Alert Text: Stock Commission greater than 1.5% in Retail account
+	Last changed on 10/19/2020 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Security Purchase * 1.5 percent and Value of
+		Security Type (text) is equal to %Stock% and Value of Commission is greater than
+		50
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 3 results
+		Pass: Build SQL returned 3 results
+	Rule 236 passed.
+ 
+Rule 237:
+	Name: Expiring IDs
+	Description: IDs expiring within 30 days (this is an old rule)
+	Alert Text: IDs expiring within 30 days
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Days Until ID Expiration is between0 and 30 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 237 passed.
+ 
+Rule 238:
+	Name: SAR Filing Reminder
+	Description: SAR Filing reminder 30 days after date of suspicion
+	Alert Text: SAR Filing reminder 30 days after date of suspicion
+	Last changed on 05/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Investigation Age is greater than 30
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 238 passed.
+ 
+Rule 239:
+	Name: Account Value exceeds stated Net Worth
+	Description: Account Value exceeds stated Net Worth
+	Alert Text: Account Value exceeds stated Net Worth
+	Last changed on 11/04/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every quarter
+	Conditions:
+		Value of Account Equity is greater than Net Worth
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 42 results
+		Pass: Build SQL returned 42 results
+	Rule 239 passed.
+ 
+Rule 240:
+	Name: Wires in accounts domiciled in high risk jurisdictions
+	Description: Customer wires in accounts in High Risk Countries (Basel Score >= 6.501)
+	Alert Text: Customer wires in accounts in High Risk Countries (Basel Score >= 6.501)
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Wires is greater or equal to 1 and Value of Basel Score is greater or
+		equal to 6.501 and Value of Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 99
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 240 failed.
+ 
+Rule 241:
+	Name: Account Added
+	Description: Shows accounts that were automatically added
+	Alert Text: Shows accounts that were automatically added
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Age In Days is equal to 0
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 241 passed.
+ 
+Rule 242:
+	Name: Purchases greater than 40% of account equity in low risk
+	Description: Concentration alert for purchases greater than 40% of account equity in low risk
+	Alert Text: Concentration alert for purchases greater than 40% of account equity in low risk
+	Last changed on 06/04/2020 by Don  Lee (5)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is greater than Account Equity * 40 percent and Value
+		of Client Type (text) is equal to Retail and Value of Risk Level (text) is equal
+		to Low
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 242 passed.
+ 
+Rule 243:
+	Name: Outgoing debit card transactions with no securities purchases over 30 days
+	Description: Customer use of debit card with no securities purchased over a 60 days period.
+	Alert Text: Customer use of debit card with no securities purchased over a 60 days period.
+	Last changed on 04/16/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Debit Card Transactions is greater or equal to 1 and Count of
+		Security Purchase is equal to 0 and Value of Client Type (text) is equal to
+		Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 243 passed.
+ 
+Rule 244:
+	Name: Stock concentration > 30% in low tolerance risk account (34 years old)
+	Description: Stock concentration > 30% in low tolerance risk account (34 years old)
+	Alert Text: Stock concentration > 30% in low tolerance risk account (34 years old)
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Equity is greater than Account Market Value * 30 percent and
+		Value of Holding Type (text) is equal to Stock and Value of Customer Age is less
+		or equal to 34 and Value of Risk Tolerance is equal to Conservative and Value of
+		Client Type (text) is equal to Retail
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 339
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'Account.ID' in 'on clause']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 244 failed.
+ 
+Rule 245:
+	Name: PEP trade in low priced security
+	Description: PEP trade in low priced security
+	Alert Text: PEP trade in low priced security
+	Last changed on 03/22/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Count of Security Transaction is greater
+		or equal to 1 and Value of Security Purchase Price is less or equal to 5
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 245 passed.
+ 
+Rule 246:
+	Name: Wash Trade
+	Description: When the value of a purchase transaction = sale transation
+	Alert Text: Wash Trade Alert
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is equal to Security Sale
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 246 passed.
+ 
+Rule 247:
+	Name: Incoming Wire in PEP account
+	Description: Incoming wire transaction conducted by account marked PEP
+	Alert Text: Incoming wire transaction conducted by account marked PEP
+	Last changed on 03/19/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Count of Incoming Wire is greater or
+		equal to 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 247 passed.
+ 
+Rule 248:
+	Name: Outgoing Wire in PEP account
+	Description: Outgoing wire transaction conducted by account marked PEP
+	Alert Text: Outgoing wire transaction conducted by account marked PEP
+	Last changed on 03/10/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Value of Outgoing Wire is greater or
+		equal to 1
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 248 passed.
+ 
+Rule 249:
+	Name: Transaction in PEP account
+	Description: Any transaction conducted by account marked PEP
+	Alert Text: Any transaction conducted by account marked PEP
+	Last changed on 05/21/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Value of Security Transaction is greater
+		than 0
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 5 results
+		Pass: Build SQL returned 5 results
+	Rule 249 passed.
+ 
+Rule 250:
+	Name: Number of security transactions exceeding expected number
+	Description: Accounts with security transactions exceeding stated expected amount of securities trades.
+	Alert Text: Accounts with security transactions exceeding stated expected amount of securities trades.
+	Last changed on 10/16/2018 by NA
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Security Transaction is greater than Anticipated # Security Trans
+		over  a 30 day period
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 103
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 363 results
+		Pass: Build SQL returned 363 results
+	Rule 250 failed.
+ 
+Rule 251:
+	Name: Account purchase greater than 50% of account equity
+	Description: Rule turned off on 6/3/2020- Email Request from Jen
+	Alert Text: Concentration alert for purchases greater than 60% of account equity
+	Last changed on 06/04/2020 by Don  Lee (5)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is greater than Account Equity * 50 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 258 results
+		Pass: Build SQL returned 258 results
+	Rule 251 passed.
+ 
+Rule 254:
+	Name: KYC Updated
+	Description: The KYC information has been updated
+	Alert Text: The KYC information for this account has been updated by the overnight process
+	Last changed on 08/26/2020 by Marie  Santana (8)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Inv. Profile Age is equal to 0 and Value of Inv. Profile Update Time is
+		less than 07:15:00
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 9 results
+		Pass: Build SQL returned 9 results
+	Rule 254 passed.
+ 
+Rule 255:
+	Name: Commission Policy over 5%
+	Description: Commissions over 5%
+	Alert Text: Transactions with commissions that exceed 5%.
+	Last changed on 08/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Security Transaction * 5 percent
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 255 passed.
+ 
+Rule 258:
+	Name: New Account Opened and Customer Age > 65
+	Description: New Account Opened and Customer Age > 65
+	Alert Text: New Account Opened and Customer Age > 65
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Age In Days is less or equal to 1 and Value of Customer Age is
+		greater or equal to 65
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 258 passed.
+ 
+Rule 259:
+	Name: Big Option alert - transaction quantity greater than 200 contracts
+	Description: Big Option alert
+	Alert Text: Big Option alert
+	Last changed on 05/13/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Quantity is greater than 200 and Value of Security Type (text) is
+		equal to Option
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 259 passed.
+ 
+Rule 261:
+	Name: Mutual Fund Buy/Sell Alert in 90 Days
+	Description: Alerts when mutual funds are purchased and sold within 90 days regardless of fund family.
+	Alert Text: Any Mutual Fund has been bought then any Mutual Fund is sold within 90 days
+	Last changed on 02/08/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Has Mutual Funds Trades And Sells Within 90 Days is equal to Y
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Manager  Finwebtech (2)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 45 results
+		Pass: Build SQL returned 45 results
+	Rule 261 passed.
+ 
+Rule 262:
+	Name: Repcode Not Managed
+	Description: Checks to see if a rep code is not on any users list
+	Alert Text: This repcode is not on any users list
+	Last changed on 07/08/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 0, Ignore RepCode: 1, Period: Daily
+	Conditions:
+		Value of Rep Code Not On List is equal to true
+	Users:
+		CO  Finwebtech (1), Jennifer  Gatherer - terminated (7), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 262 passed.
+ 
+Rule 263:
+	Name: Mutual Fund purchase and sale within 3 days
+	Description: A Mutual Fund purchase followed by a sell within 3 days
+	Alert Text: A Mutual Fund has been bought and sold within 3 days
+	Last changed on 04/14/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Type (text) is equal to Mutual Funds and Value of
+		Next Position Trade Buy/Sell is equal to S and Value of Next Position Trade Time
+		(days) is between0 and 3 and Value of Next Position Trade ID is greater than 0
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 263 passed.
+ 
+Rule 264:
+	Name: Mutual Fund sold between 2 and 15 days ago
+	Description: A Mutual Fund has been sold between 2 and 15 days ago
+	Alert Text: A Mutual Fund has been sold between 2 and 15 days ago
+	Last changed on 05/13/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Age (days) is between2 and 15 and Value of Security Type (text)
+		is equal to Mutual Funds and Value of Security Sale is greater than 0
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 88
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 264 failed.
+ 
+Rule 265:
+	Name: Mutual Fund Switch within 3 Days
+	Description: A Mutual Fund has been switched within 3 days
+	Alert Text: A mutual fund was switched within 3 days
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds and Value of Next Flip
+		Trade Age (Days) is between0 and 3 and Value of Next Flip Trade is not equal to
+		0
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 599
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 265 failed.
+ 
+Rule 266:
+	Name: Mutual Fund sold on Previous Business Day
+	Description: A mutual fund was sold on the previous Business Day
+	Alert Text: A mutual fund was sold yesterday
+	Last changed on 05/13/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Age (days) is equal to 1 and Value of Security Type (text) is
+		equal to Mutual Funds
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 88
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 25 results
+	Rule 266 failed.
+ 
+Rule 267:
+	Name: ETF Holding Age
+	Description: Shows ETF holdings that are 2 days or older
+	Alert Text: ETF Holding held longer than 2 days
+	Last changed on 05/13/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of ETF Holding Age is greater or equal to 2
+	Users:
+		CO  Finwebtech (1), Don  Lee (5), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 311
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 267 failed.
+ 
+Rule 268:
+	Name: Trades in Restricted Securities
+	Description: Trades in Restricted Securities
+	Alert Text: Trades in Restricted Securities
+	Last changed on 05/13/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Restricted Security is equal to Y
+	Users:
+		CO  Finwebtech (1), Jennifer  Gatherer - terminated (7), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 268 passed.
+ 
+Rule 269:
+	Name: Account Market Value Greater Than Net Worth
+	Description: Account Market Value Greater Than Net Worth
+	Alert Text: Account Market Value Greater Than Net Worth
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every quarter
+	Conditions:
+		Value of Account Market Value is greater than Net Worth
+	Users:
+		CO  Finwebtech (1), Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 35 results
+		Pass: Build SQL returned 35 results
+	Rule 269 passed.
+ 
+Rule 270:
+	Name: Account Market Value Greater Than Liquid Net Worth
+	Description: Account Market Value Greater Than Liquid Net Worth
+	Alert Text: Account Market Value Greater Than Liquid Net Worth
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every quarter
+	Conditions:
+		Value of Account Market Value is greater than Liguid Net Worth
+	Users:
+		CO  Finwebtech (1), Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 85 results
+		Pass: Build SQL returned 85 results
+	Rule 270 passed.
+ 
+Rule 271:
+	Name: Mutual Fund Traded and Mutual Fund Experience = None
+	Description: Mutual Fund Traded and Mutual Fund Experience = None
+	Alert Text: Mutual Fund Traded and Mutual Fund Experience = None
+	Last changed on 11/18/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds and Value of Pershing
+		Mutual Fund Experience Code is equal to N
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Manager  Finwebtech (2)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 271 passed.
+ 
+Rule 272:
+	Name: Equity Traded and Equity Experience = None
+	Description: Equity Traded and Equity Experience = None
+	Alert Text: Equity Traded and Equity Experience = None
+	Last changed on 11/18/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Stock and Value of Pershing Equity
+		Experience Code is equal to N
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Manager  Finwebtech (2), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 272 passed.
+ 
+Rule 273:
+	Name: Fixed Income Traded and Fixed Income Experience = None
+	Description: Fixed Income Traded and Fixed Income Experience = None
+	Alert Text: Fixed Income Traded and Fixed Income Experience = None
+	Last changed on 11/18/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Bonds and Value of Pershing Fixed
+		Income Experience Code is equal to N
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Manager  Finwebtech (2)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 273 passed.
+ 
+Rule 274:
+	Name: Account Trade with Risk Tolerance = Conservative
+	Description: Account Trade with Risk Tolerance = Conservative
+	Alert Text: Account Trade with Risk Tolerance = Conservative
+	Last changed on 03/19/2021 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Trade Quantity is greater or equal to 1 and Value of Risk Tolerance is
+		equal to Conservative
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 274 passed.
+ 
+Rule 275:
+	Name: Account with Expired W-8
+	Description: Account with Expired W-8
+	Alert Text: Account with Expired W-8
+	Last changed on 11/01/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Value of W-8 Is Expired (text) is equal to Y
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Manager  Finwebtech (2)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 275 passed.
+ 
+Rule 276:
+	Name: Account with W-8 Expiring within 30 days
+	Description: Account with W-8 Expiring within 30 days
+Note: deactivating no longer want to use
+	Alert Text: Account with W-8 Expiring within 30 days
+	Last changed on 05/13/2019 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of W-8 Days To Expire is less or equal to 30
+	Users:
+		CO  Finwebtech (1), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 276 passed.
+ 
+Rule 277:
+	Name: Margin Account Makes a Trade
+	Description: Margin Account Makes a Trade
+	Alert Text: Margin Account Makes a Trade
+	Last changed on 08/06/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Is Margin (text) is equal to Y
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 28 results
+		Pass: Build SQL returned 28 results
+	Rule 277 passed.
+ 
+Rule 278:
+	Name: Equity trade with largest commission on previous business day
+	Description: Equity trade with largest commission on previous business day
+	Alert Text: Equity trade with largest commission on previous business day
+	Last changed on 05/21/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Max Stock Commission is equal to Y
+	Users:
+		CO  Finwebtech (1), Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 278 passed.
+ 
+Rule 279:
+	Name: No Alerts in 30 Days
+	Description: Alerts when a Rule has not generated an Alert in the last 30 days
+	Alert Text: Rules that have not generated an Alert in 30 days
+	Last changed on 07/31/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Value of Last Alert Age in Days is greater or equal to 30 or Value of Last Alert
+		Age in Days is equal to -1 and Value of Rule Status (1/0) is equal to 1
+	Users:
+		CO  Finwebtech (1), Jennifer  Gatherer - terminated (7), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 54 results
+		Pass: Build SQL returned 54 results
+	Rule 279 passed.
+ 
+Rule 280:
+	Name: Fixed Income trade with largest commission on previous business day
+	Description: Fixed Income trade with largest commission on previous business day
+	Alert Text: Fixed Income trade with largest commission on previous business day
+	Last changed on 05/21/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Max Fixed Income Commission is equal to Y
+	Users:
+		CO  Finwebtech (1), Jennifer  Gatherer - terminated (7), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 280 passed.
+ 
+Rule 281:
+	Name: ETF Trade and Experience = None
+	Description: ETF Trade and Experience = None
+	Alert Text: ETF Trade and Experience = None
+	Last changed on 08/06/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Pershing ETF Experience Code is equal to N and Value of ETF Trade is
+		equal to Y and Value of Account Number (text) is not equal to NA889%
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Marie  Santana (8)
+		Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 281 passed.
+ 
+Rule 282:
+	Name: Low priced security purchases greater than 10 in one year
+	Description: Low priced security purchases greater than 10 in one year
+	Alert Text: Low priced security purchases greater than 10 in one year
+	Last changed on 07/16/2019 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Stock Purchase Price is less than 5 and Count of Security Purchase is
+		greater than 10 over  a 1 year period
+	Users:
+		CO  Finwebtech (1), Francielly  Franca (9), Jennifer  Gatherer - terminated (7)
+		Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 551 results
+		Pass: Build SQL returned 551 results
+	Rule 282 passed.
+ 
+Rule 283:
+	Name: Medium risk account placing a trade
+	Description: Medium risk account placing a trade
+	Alert Text: Medium risk account placing a trade
+	Last changed on 05/13/2019 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater than 10
+	Users:
+		Jennifer  Gatherer - terminated (7), Marie  Santana (8)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 545 results
+		Pass: Build SQL returned 545 results
+	Rule 283 passed.
+ 
+Rule 284:
+	Name: Employee/Client Trading
+	Description: One or more Clients made a trade on the same day as an employee
+	Alert Text: Shows a list of trades where an employee and one or more clients made the same trade
+	Last changed on 05/21/2020 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Employee Trade is equal to Y and Value of Customer Has Employee
+		Trade is equal to Y
+	Users:
+		CO  Finwebtech (1), Don  Lee (5)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 284 passed.
+ 
+Rule 285:
+	Name: Emp/Client Same Side Trading
+	Description: One or more clients made a trade on the same side as an employee at a worse price
+	Alert Text: One or more clients made a trade on the same side as an employee at a worse price
+	Last changed on 05/21/2020 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Employee Trade is equal to Y and Value of Customer Same Side Trade
+		is equal to Y
+	Users:
+		CO  Finwebtech (1), Don  Lee (5)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 285 passed.
+ 
+Rule 286:
+	Name: Emp/Client Opposite Trading
+	Description: One or more clients made a trade on the opposite side as an employee at a worse price
+	Alert Text: One or more clients made a trade on the opposite side as an employee at a worse price
+	Last changed on 05/21/2020 by CO  Finwebtech (1)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Employee Trade is equal to Y and Value of Customer Opp Side Trade is
+		equal to Y
+	Users:
+		CO  Finwebtech (1), Don  Lee (5)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 286 passed.
+ 
+Rule 287:
+	Name: Concentration Rule - Purchase in concentrated position > 25%
+	Description: Concentration Rule - Purchase in concentrated position > 25%
+	Alert Text: Concentration Rule - Purchase in concentrated position > 25%
+	Last changed on 08/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is greater than 0 and Value of Holding Position (abs)
+		is greater than Account Equity (abs) * 25 percent and Value of Trade Market
+		Symbol (text) is equal to Holding Market Symbol (text)   and Value of Is
+		Institutional Account is equal to N
+	Users:
+		CO  Finwebtech (1), Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 3 results
+		Pass: Build SQL returned 3 results
+	Rule 287 passed.
+ 
+Rule 288:
+	Name: Concentration Rule - Concentration > 25% in other positions on trade sell
+	Description: Concentration Rule - Concentration > 25% in other positions on trade sell
+	Alert Text: Concentration Rule - Concentration > 25% in other positions on trade sell
+	Last changed on 08/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Sale is greater than 0 and Value of Holding Position (abs) is
+		greater than Account Equity (abs) * 25 percent and Value of Is Institutional
+		Account is equal to N
+	Users:
+		CO  Finwebtech (1), Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 6 results
+		Pass: Build SQL returned 6 results
+	Rule 288 passed.
+ 
+Rule 289:
+	Name: Concentration Rule - Purchase with concentrated net worth > 10%
+	Description: Concentration Rule - Purchase with concentrated net worth > 10%
+	Alert Text: Concentration Rule - Purchase with concentrated net worth > 10%
+	Last changed on 06/09/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is greater than 0 and Value of Holding Position (abs)
+		is greater than Net Worth * 10 percent and Value of Trade Market Symbol (text)
+		is equal to Holding Market Symbol (text)   and Value of Is Institutional Account
+		is equal to N
+	Users:
+		CO  Finwebtech (1), Jennifer  Gatherer - terminated (7), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 289 passed.
+ 
+Rule 290:
+	Name: Concentration Rule - concentrated net worth > 10% in other positions on a trade sell
+	Description: Concentration Rule - concentrated net worth > 10% in other positions on a trade sell
+	Alert Text: Concentration Rule - concentrated net worth > 10% in other positions on a trade sell
+	Last changed on 08/05/2020 by Jennifer  Gatherer - terminated (7)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Sale is greater than 0 and Value of Holding Position (abs) is
+		greater than Net Worth * 10 percent and Value of Is Institutional Account is
+		equal to N
+	Users:
+		CO  Finwebtech (1), Marie  Santana (8), Nina  Torres (10)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 290 passed.
+ 
+Number of rules tested: 120 out of 120
+
+Done at 12:46:45

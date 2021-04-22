@@ -19,6 +19,10 @@
       v-bind:customers = "customers"
     />
 
+    <GenericCommand 
+    
+    />
+
   </div>
 </template>
 
@@ -26,12 +30,14 @@
 import io from "socket.io-client";
 import ChatRoom from "./components/ChatRoom";
 import Monitor from './components/Monitor.vue';
+import GenericCommand from './components/genericCommand.vue';
 
 export default {
   name: "app",
   components: {
     ChatRoom,
     Monitor,
+    GenericCommand
   },
   data: function () {
     return {
@@ -45,7 +51,7 @@ export default {
   methods: {
     joinServer: function () {
       this.socket.on("loggedIn", (data) => {
-        console.log( "loggedIn fired!" );
+        // console.log( "loggedIn fired!" );
         this.messages = data.messages;
         this.users = data.users;
         this.socket.emit("newuser", this.username);
@@ -57,12 +63,12 @@ export default {
     listen: function () {
       
       this.socket.on("userOnline", (user) => {
-        console.log( "userOnline fired!" );
+        // console.log( "userOnline fired!" );
         this.users.push(user);
       });
       
       this.socket.on("userLeft", (user) => {
-        console.log( "user left!" );
+        // console.log( "user left!" );
         this.users.splice(this.users.indexOf(user), 1);
       });
       
@@ -71,8 +77,8 @@ export default {
       });
 
       this.socket.on( "gotData" , ( customers) => {
-          console.log( "got data!" );
-          console.log( "command output: customers.acp = ["+ customers.acp.numberOfAlerts + "]" );
+        //   console.log( "got data!" );
+        //   console.log( "command output: customers.acp = ["+ customers.acp.numberOfAlerts + "]" );
           this.customers = customers;
       });
     },
@@ -83,35 +89,35 @@ export default {
     },
 
     sendCommand: function ( commandObject ) {
-      console.log( 'caught sendCommand.' );
-      console.log( 'command object name: ' + commandObject.name );
-      console.log( 'commandObject target: ' + commandObject.targetMachine );
+    //   console.log( 'caught sendCommand.' );
+    //   console.log( 'command object name: ' + commandObject.name );
+    //   console.log( 'commandObject target: ' + commandObject.targetMachine );
       this.socket.emit("sendCommand", commandObject );
     },
 
     checkRunStatus: function (message) {
-      console.log("caught sendCommand.  sending command..." + message);
+    //   console.log("caught sendCommand.  sending command..." + message);
       this.socket.emit("checkRunStatus", message);
     },
 
     alertCheck: function (message) {
-      console.log("caught alertcheck.  sending command..." + message);
+    //   console.log("caught alertcheck.  sending command..." + message);
       this.socket.emit("alertCheck", message);
     },
 
     blotterCheck: function (message) {
-      console.log("caught blotterCheck.  sending command..." + message);
+    //   console.log("caught blotterCheck.  sending command..." + message);
       this.socket.emit("blotterCheck", message);
     },
 
     processCommand: function( commandObject ) {
-        console.log( "emitting process command to socket from App.vue... " );
+        // console.log( "emitting process command to socket from App.vue... " );
         this.socket.emit( "processCommand", commandObject );
     }
 
   },
   mounted: function () {
-    this.username = prompt("What is your username?", "Anonymous");
+    this.username = "jane doe"; //prompt("What is your username?", "Anonymous");
 
     if (!this.username) {
       this.username = "Anonymous";

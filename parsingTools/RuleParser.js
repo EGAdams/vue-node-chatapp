@@ -23,10 +23,10 @@ function RuleParser( fileArrayArg ) {
     this.dataObject = new DataObject( this.emitter );
 
     this.config     = {
-        host     : '10.170.150.27',
+        host     : '10.170.150.26',
         user     : 'webapp',
         password : 'ASDF2asdf!',
-        database : 'fwtNEWB'
+        database : 'fwtBDB'
     }
 
     this.buildRules = function() {
@@ -371,10 +371,8 @@ function RuleParser( fileArrayArg ) {
     
         if ( debug = false ) {
             trace( "RuleParser.parseData called..." );
-        }
-
-        if ( debug ) {
             trace( "filling array with file contents..." );
+
         }
         
         fileContents = data.toString().replace( /\r\n/g,'\n' ).split( '\n' );
@@ -385,6 +383,7 @@ function RuleParser( fileArrayArg ) {
         
         var RuleParser = new RuleParser( fileContents ); 
         RuleParser.buildRules();
+        
         trace( "RuleParser rules length: [" + RuleParser.rules.length + "]" );
         trace( "process.rules length = [" + RuleParser.rules.length + "]" );
         trace( "process.argv = " + process.argv[ 2 ]);

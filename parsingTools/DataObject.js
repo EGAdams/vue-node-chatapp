@@ -2,7 +2,7 @@
  *  The DataObject
  */
 var mysqlObject     = require( 'mysql' );
-const Rule = require('./Rule');
+const Rule = require( './Rule' );
 const QueryObject = require( './QueryObject' );
 const { exit } = require('process');
 var debug           = true;

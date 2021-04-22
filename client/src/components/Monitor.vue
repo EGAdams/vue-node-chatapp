@@ -34,7 +34,7 @@
 <script>
     export default {
         name: "monitor",
-        props: ["customers"]
+        //props: ["customers"]
     };    
 </script>
 

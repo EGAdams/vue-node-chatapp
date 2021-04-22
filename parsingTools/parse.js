@@ -5,7 +5,7 @@ const { parse }         = require('path');
 var     RuleParser          = require( "./RuleParser" );
 const { exit } = require('process');
 
-var sourceFile          = 'rulesUnitTestFriday26.txt';
+var sourceFile          = 'parsingTools/apr_19_unit_no_debug.txt';
 
 //const   ObjectsToCsv    = require( 'objects-to-csv' );
 
