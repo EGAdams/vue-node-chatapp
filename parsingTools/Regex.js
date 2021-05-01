@@ -36,7 +36,7 @@ function Regex( populator ) {
 
 
     //
-    // Boolean matchedString( String line ) -- this is the outside interface
+    // Boolean matchedString( String line ) -- this is an outside interface
     //
     var match;
     this.matchedString = function ( line ) {

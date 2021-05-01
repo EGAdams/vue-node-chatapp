@@ -34,7 +34,9 @@ function AlertPopulator( initObj ) {
     // Should be defined as self.<functionName> = function( <params> ) {}
 
     //
-    // CustomersData populateAlerts( Array[ String] rawArray, Regex regex ) -- 
+    // CustomersData populateAlerts( Array[ String] rawArray, Regex regex ) -- populates number of alerts for each customer.
+    //
+    // the regex argument here can be anything that takes a string and returns a bool.
     //
     // raw array contains the output of alertCheck.sh
     // customersData is presumably blank in this object.  so call alert check 1st !!
