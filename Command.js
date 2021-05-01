@@ -28,13 +28,15 @@ function Command( initObj ) {
     //
     // process() -- use the command output for something
     //
-    self.process = function(  ) {
+    self.process = function() {
         if ( debug ) {
             trace( "In process" );
         }
     
-        // process implementation
+            // process implementation
+            
         console.log( "processing output: " + self.output + "... " );
+        so.commandProcessor.process();
     
         if ( debug ) {
             trace( "*** Done process", 1 );
@@ -49,9 +51,19 @@ function Command( initObj ) {
     // **********************************************************************************
 
         // Save the passed in settings
-
+    
+    var foundProcessor = false;
     for ( var key in initObj ) {
         so[ key ]	= initObj[ key ];
+        if ( key == "commandProcessor" ) {
+            foundProcessor = true;
+        }    
+    }
+
+    if ( !foundProcessor ) {
+        trace( "*** ERROR: Command needs a processor to function! ***" );
+        trace( "Please pass in a command processor with key \"commandProcessor\"." );
+        return null;
     }
 
     if ( so.debug ) {

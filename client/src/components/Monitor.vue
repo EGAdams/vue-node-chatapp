@@ -13,7 +13,8 @@
       <div class="grid-item"></div>
 
       <div class="grid-item">Alert Count</div>
-      <div class="grid-item">{{ customers.acp.numberOfAlerts }}</div>
+      <div class="grid-item">{{  }}</div>
+      <!-- <div class="grid-item">{{ customers.acp.numberOfAlerts }}</div> -->
       <div class="grid-item"></div>
       <div class="grid-item"></div>
 
@@ -34,7 +35,7 @@
 <script>
     export default {
         name: "monitor",
-        //props: ["customers"]
+        props: ["customers"]
     };    
 </script>
 

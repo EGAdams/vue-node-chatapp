@@ -4,6 +4,10 @@
  *  populator already constructed at this point.
  *  all that needs to be done is fire the populate array
  *  method.
+ * 
+ *  this object is used to find any string of interest in an array of strings
+ *  it was originally designed to pull a list of targeted regular expresions
+ *  from a file.  I was working on this before I left FPL.
  *
  */
 function Regex( populator ) {
@@ -30,6 +34,10 @@ function Regex( populator ) {
     raw_regex_source_file_array   = populator.populateArray();
     this.fillClip( raw_regex_source_file_array );
 
+
+    //
+    // Boolean matchedString( String line ) -- this is the outside interface
+    //
     var match;
     this.matchedString = function ( line ) {
         for ( x = 0; x < this.regexClip.length; x++ ) {

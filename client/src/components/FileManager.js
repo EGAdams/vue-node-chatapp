@@ -7,7 +7,7 @@ class FileManager {
             var data = filesystem.readFileSync( path ).toString().split( "\n" );
             var debug = true;
             if ( debug ) {
-                console.log( "reading source file in " + path + "..." );
+                // console.log( "reading source file in " + path + "..." );
             }
             return data;
         };
@@ -19,5 +19,9 @@ class FileManager {
         };
     }
 }
+
+
+var dummy = FileManager;
+dummy.getCommands;
 
 module.exports = FileManager;

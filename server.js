@@ -9,10 +9,12 @@ const Command       = require( './Command'          );
 const ClientFactory = require( './ClientFactory'    );
 
 require( './parsingTools/Utils' );
-const AlertPopulator    = require( './parsingTools/AlertPopulator'   );
-const ArrayPopulator    = require( './parsingTools/ArrayPopulator'   );
-const FileManager       = require( './parsingTools/FileManager'      );
-const Regex             = require( './parsingTools/Regex'            );
+const AlertPopulator        = require( './parsingTools/AlertPopulator'     );
+const ArrayPopulator        = require( './parsingTools/ArrayPopulator'     );
+const FileManager           = require( './parsingTools/FileManager'        );
+const Regex                 = require( './parsingTools/Regex'              );
+const CommandProcessor    = require( './parsingTools/CommandProcessor' );
+const ServerManager         = require( './parsingTools/ServerManager'      );
 
 let users = [];
 let messages = [];
@@ -85,29 +87,33 @@ io.on("connection", socket => {
 	});
 
     socket.on( 'sendCommand' , function command( commandObject ) {
-        console.log( 'catching send command...' );
-        var storage = new Storage( commandObject.name )
+        console.log( 'catching send command in server.js ...' );
+        // var processor = eval( "new " + commandObject.commandObject + "()");
+        var processor = new CommandProcessor();
+        processor.processCommand( commandObject, io );
+        
+        // var storage = new Storage( commandObject.name )
         // stream.end('ls\nexit\n');
-        conn.exec( commandObject.executable, function(err, stream) {
-            if (err) {
-              console.log('SECOND :: exec error: ' + err);
-              return conn1.end();
-            }
-            stream.on('end', function() {
-              // conn.end(); // close parent (and this) connection
-            }).on('data', function(data) {
-              console.log(data.toString());
+        // conn.exec( commandObject.executable, function(err, stream) {
+        //     if (err) {
+        //       console.log('SECOND :: exec error: ' + err);
+        //       return conn1.end();
+        //     }
+        //     stream.on('end', function() {
+        //       // conn.end(); // close parent (and this) connection
+        //     }).on('data', function(data) {
+        //       console.log(data.toString());
 
-                // store this data somewhere
+        //         // store this data somewhere
 
-              storage.store( data.toString());
+        //       storage.store( data.toString());
               
-                // emit data
+        //         // emit data
               
-              commandObject[ "output" ] = data.toString();
-              io.emit("gotData", commandObject );   
-            });
-          });
+        //       commandObject[ "output" ] = data.toString();
+        //       io.emit("gotData", commandObject );   
+        //     });
+        //   });
     });
 
     socket.on( 'checkRunStatus' , command => {

@@ -9,7 +9,7 @@
       v-bind:messages =     "messages"
       v-on:checkRunStatus = "this.checkRunStatus"
       v-on:alertCheck =     "this.alertCheck"
-      v-on:blotterCheck =     "this.blotterCheck"
+      v-on:blotterCheck =   "this.blotterCheck"
       v-on:sendMessage =    "this.sendMessage"
       v-on:sendCommand =    "this.sendCommand"
       v-on:processCommand = "this.processCommand"
@@ -20,7 +20,9 @@
     />
 
     <GenericCommand 
-    
+         v-on:sendCommand   = "this.sendCommand"
+         v-bind:output      = "output"
+         v-bind:styleObject = "styleObject"
     />
 
   </div>
@@ -37,7 +39,7 @@ export default {
   components: {
     ChatRoom,
     Monitor,
-    GenericCommand
+    GenericCommand,
   },
   data: function () {
     return {
@@ -45,7 +47,13 @@ export default {
       socket: io("http://localhost:3000"),
       messages: [],
       customers: [],
+      commands: {},
       users: [],
+      output: "",
+      currentCommand: "ls",
+      styleObject: {
+          background: "blue"
+      }
     };
   },
   methods: {
@@ -76,10 +84,10 @@ export default {
         this.messages.push(message);
       });
 
-      this.socket.on( "gotData" , ( customers) => {
-        //   console.log( "got data!" );
-        //   console.log( "command output: customers.acp = ["+ customers.acp.numberOfAlerts + "]" );
-          this.customers = customers;
+      this.socket.on( "gotData" , ( commandObject ) => {
+          alert( this.styleObject.background );
+          this.output = commandObject.output;
+          this.styleObject.background = "lightgreen";
       });
     },
 
@@ -89,10 +97,8 @@ export default {
     },
 
     sendCommand: function ( commandObject ) {
-    //   console.log( 'caught sendCommand.' );
-    //   console.log( 'command object name: ' + commandObject.name );
-    //   console.log( 'commandObject target: ' + commandObject.targetMachine );
-      this.socket.emit("sendCommand", commandObject );
+        // console.log( "sending " + commandObject.description );
+        this.socket.emit("sendCommand", commandObject );
     },
 
     checkRunStatus: function (message) {
