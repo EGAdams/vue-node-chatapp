@@ -1,13 +1,22 @@
 
 
-class CommandProcessor {
+class CommandExecutor {
 
     constructor() {}
 
-    processCommand( commandObjectArg, ioArg ) {
+    /*
+     *  public void executeCommand( CommandObject commandObjectArg, Socket ioArg )
+     *  
+     *  produces 2 side effects:
+     * 
+     *  ( 1 ) the command objcet passed to executeCommand is executed and it's output is populated.
+     *  ( 2 ) server is then notified and sent the populated command object.
+     * 
+     */
+    executeCommand( commandObjectArg, ioArg ) {
         this.commandObject  = commandObjectArg;
         this.io             = ioArg;
-        console.log( "loaded " + commandObjectArg.description + " into CommandProcessor... " );
+        console.log( "loaded " + commandObjectArg.description + " into CommandExecutor... " );
         console.log( "processing command..." );
   
 
@@ -15,6 +24,10 @@ class CommandProcessor {
         this.execute();
     }
 
+    /*
+     *  private void execute()
+     *
+     */
     execute() {
         
         const { exec } = require( "child_process" );
@@ -36,4 +49,4 @@ class CommandProcessor {
     }
 }
 
-module.exports = CommandProcessor;
+module.exports = CommandExecutor;

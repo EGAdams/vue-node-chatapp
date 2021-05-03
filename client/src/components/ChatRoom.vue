@@ -40,28 +40,27 @@ export default {
       this.msg = "";
     },
     sendCommand: function () {
-      console.log("emitting send command...");
-      var commandObject = {};
-      commandObject.name = "showAlerts"; // for filename prefix
-      commandObject.executable = "";
-      commandObject.targetMachine = "dev";
-      this.$emit("sendCommand", commandObject);
+      //console.log("emitting send command...");
+      this.commandObject.name = "showAlerts"; // for filename prefix
+      this.commandObject.executable = "";
+      this.commandObject.targetMachine = "dev";
+      this.$emit("sendCommand", this.commandObject);
     },
 
     checkRunStatus: function () {
-      console.log("emitting check run status command...");
+      //console.log("emitting check run status command...");
       this.$emit("checkRunStatus", "test");
     },
 
     processCommand: function () {
-      console.log("emitting process command from chat room component...");
+      //console.log("emitting process command from chat room component...");
       var commandObject = {};
       commandObject.outputPath = "./parsingTools/alertCheck_1615899731770.txt";
       this.$emit("processCommand", commandObject );
     },
 
     alertCheck: function () {
-      console.log("emitting alert check command...");
+      //console.log("emitting alert check command...");
       var commandObject = {};
       commandObject.name = "alertCheck";
       commandObject.executable = "./alertCheck.sh";
@@ -69,7 +68,7 @@ export default {
     },
 
     blotterCheck: function () {
-      console.log("emitting blotter check command...");
+      //console.log("emitting blotter check command...");
       this.$emit("blotterCheck", "test blotter check");
     },
   },
