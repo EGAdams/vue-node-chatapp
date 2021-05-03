@@ -6,25 +6,23 @@
       <p class="online">Online: {{ users.length }}</p>
     </div>
     <ChatRoom
-      v-bind:messages =     "messages"
-      v-on:checkRunStatus = "this.checkRunStatus"
-      v-on:alertCheck =     "this.alertCheck"
-      v-on:blotterCheck =   "this.blotterCheck"
-      v-on:sendMessage =    "this.sendMessage"
-      v-on:sendCommand =    "this.sendCommand"
-      v-on:processCommand = "this.processCommand"
+      v-bind:messages="messages"
+      v-on:checkRunStatus="this.checkRunStatus"
+      v-on:alertCheck="this.alertCheck"
+      v-on:blotterCheck="this.blotterCheck"
+      v-on:sendMessage="this.sendMessage"
+      v-on:sendCommand="this.sendCommand"
+      v-on:processCommand="this.processCommand"
     />
 
-    <Monitor
-      v-bind:customers = "customers"
-    />
+    <Monitor v-bind:customers="customers" />
 
-    <GenericCommand 
-         v-on:sendCommand   = "this.sendCommand"
-         v-bind:output      = "output"
-         v-bind:styleObject = "styleObject"
+    <GenericCommand
+      v-on:sendCommand="this.sendCommand"
+      v-bind:output="output"
+      v-bind:styleObject="styleObject"
+      v-bind:commandObject="commandObject"
     />
-
   </div>
 </template>
 
@@ -36,6 +34,20 @@ import GenericCommand from './components/genericCommand.vue';
 
 export default {
   name: "app",
+//   props: {
+//     outputText: {
+//       type: String,
+//       default: "generic-command default",
+//     },
+//   },
+  computed: {
+    output: function () {
+        return this.outputText
+    },
+    commandObject: function() {
+        return this.command
+    }
+  },  
   components: {
     ChatRoom,
     Monitor,
@@ -47,9 +59,10 @@ export default {
       socket: io("http://localhost:3000"),
       messages: [],
       customers: [],
+      command: {},
       commands: {},
       users: [],
-      output: "",
+      outputText: "generic default.",
       currentCommand: "ls",
       styleObject: {
           background: "blue"
@@ -85,9 +98,10 @@ export default {
       });
 
       this.socket.on( "gotData" , ( commandObject ) => {
-          alert( this.styleObject.background );
-          this.output = commandObject.output;
-          this.styleObject.background = "lightgreen";
+          this.outputText = commandObject.output;
+          this.styleObject.background = "yellow";
+          this.command = commandObject;
+          
       });
     },
 

@@ -13,7 +13,7 @@ const AlertPopulator        = require( './parsingTools/AlertPopulator'     );
 const ArrayPopulator        = require( './parsingTools/ArrayPopulator'     );
 const FileManager           = require( './parsingTools/FileManager'        );
 const Regex                 = require( './parsingTools/Regex'              );
-const CommandProcessor    = require( './parsingTools/CommandProcessor' );
+const CommandExecutor    = require( './parsingTools/CommandExecutor' );
 const ServerManager         = require( './parsingTools/ServerManager'      );
 
 let users = [];
@@ -88,9 +88,24 @@ io.on("connection", socket => {
 
     socket.on( 'sendCommand' , function command( commandObject ) {
         console.log( 'catching send command in server.js ...' );
-        // var processor = eval( "new " + commandObject.commandObject + "()");
-        var processor = new CommandProcessor();
-        processor.processCommand( commandObject, io );
+        console.log( "getting regex map from server..." );
+
+        var fileManager = new FileManager();
+
+        var regexMapFile = "./parsingTools/" + commandObject.regex_map_filename
+
+            // set up populator for regex
+
+        var populator   = new ArrayPopulator( fileManager, regexMapFile );
+
+            // populate regexmap
+
+        commandObject.regex_map = new Regex( populator );
+
+            // execute command...
+
+        var executor = new CommandExecutor();
+        executor.executeCommand( commandObject, io );
         
         // var storage = new Storage( commandObject.name )
         // stream.end('ls\nexit\n');

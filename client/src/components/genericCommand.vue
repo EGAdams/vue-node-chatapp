@@ -15,6 +15,12 @@
       </div>
     </div>
     <div class="output">{{ output }}</div>
+    
+    <check-server-ouput-processor class="checkserver" 
+        v-bind:output = "output"
+        v-bind:commandObject="commandObject"
+    />
+    
     <div :style="styleObject" class="stat">status</div>
     <div class="execute">
       <button @click="execute">Execute Command</button>
@@ -23,12 +29,19 @@
 </template>
 
 <script>
+import CheckServerOuputProcessor from './CheckServerOuputProcessor.vue';
 export default {
+  components: { CheckServerOuputProcessor },
   name: "generic-command",
   props: {
     output: {
       type: String,
-      default: "",
+      default: "generic-command default",
+    },
+
+    commandObject: {
+        type: Object,
+        default: function(){}
     },
 
     styleObject: {
@@ -61,20 +74,22 @@ export default {
       args:" -la ",
       description: "Directory Listing",
       targetMachine: "thispc",
-      commandObject: "CommandProcessor",
+      commandObject: "CommandExecutor",
       output: "",
       status: "",
       commandMethod: "execute",
+      regex_map_filename: "lsRegex.txt"
     }),
       (this.commands[ "checkServer" ] = {
         executable: "ps ",
         args: " -ef ",
         description: "Check Server Status",
         targetMachine: "thispc",
-        commandObject: "CommandProcessor",
+        commandObject: "CommandExecutor",
         output: "",
         status: "",
         commandMethod: "execute",
+        regex_map_filename: "checkServerRegex.txt"
       });
   },
 };
@@ -88,7 +103,7 @@ export default {
   grid-template-rows: 14.8fr 0.8fr 1.4fr;
   gap: 0px 0px;
   grid-template-areas:
-    " output output"
+    " checkserver output"
     " dropdown stat"
     " . execute";
 }
@@ -96,6 +111,7 @@ export default {
 .dropdown,
 .output,
 .stat,
+.checkserver,
 .execute {
   border: solid 1px;
 }
