@@ -19,6 +19,7 @@
     <check-server-ouput-processor class="checkserver" 
         v-bind:output = "output"
         v-bind:commandObject="commandObject"
+        v-bind:styleObject="styleObject"
     />
     
     <div :style="styleObject" class="stat">status</div>

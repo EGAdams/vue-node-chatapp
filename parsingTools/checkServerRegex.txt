@@ -1,5 +1,5 @@
 #
 #
-serverRunningText<--*-->server\.js
+serverRunningText<--*-->nodemon
 #
 # end of file
