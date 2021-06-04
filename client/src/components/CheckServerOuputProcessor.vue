@@ -16,30 +16,24 @@ export default {
   props: {
     output: {
       type: String,
-      default: "generic-command default",
+      magIdefault: "generic-command default",
     },
     commandObject: {
       type: Object,
       default: function () {},
     },
     
+    
     styleObject: {
       background: "yellow",
     },
     
   },
-  data() {
-    return {
-      counter: 0,
-    };
-  },
   computed: {
     processedOutput: function () {
         if ( !( typeof this.commandObject.regex_map  == "undefined" )) {
-            // alert(this.commandObject.regex_map.regexClip[0].name);
 
             this.regex.setClip( this.commandObject.regex_map.regexClip );
-
             var serverRunning = this.checkServerStatus( this.commandObject.output.split( /\r?\n/ ));
 
             if ( serverRunning ) {
@@ -68,7 +62,6 @@ export default {
       setGreen: function() {
         this.styleObject.background = "lightgreen"
       }
-
   }
 };
 </script>

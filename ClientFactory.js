@@ -9,7 +9,8 @@ var ClientFactoryDebug =	true;
     // Main object definition
 
 function ClientFactory( initObj ) {
-    var self=	this;		// Capture this as self for use inside anon functions
+
+    var self    =	this;		// Capture this as self for use inside anon functions
 
         // Default settings
 
@@ -32,7 +33,8 @@ function ClientFactory( initObj ) {
             trace( "In getClient" );
         }
     
-        // getClient implementation
+            // getClient implementation
+        
         console.log( "getClient() called with config: " + clientConfig );
     
         if ( debug ) {
@@ -48,7 +50,8 @@ function ClientFactory( initObj ) {
             trace( "In createClient" );
         }
     
-        // createClient implementation
+            // createClient implementation
+        
         console.log( "createClient() called with config: " + clientConfig );
 
         var Client = require('ssh2').Client;
@@ -68,10 +71,10 @@ function ClientFactory( initObj ) {
             // stream.end('./alertCheck.sh\n./blotterCheck.sh\nexit\n');
         });
         }).connect({
-        host: '10.170.150.4',
-        //port: 22,
-        username: 'adamsl',
-        privateKey: require('fs').readFileSync('/home/adamsl/.ssh/id_rsa')
+            host: '10.170.150.4',
+            //port: 22,
+            username: 'adamsl',
+            privateKey: require('fs').readFileSync('/home/adamsl/.ssh/id_rsa')
         });
 
 

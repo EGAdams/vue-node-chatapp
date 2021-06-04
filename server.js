@@ -20,7 +20,6 @@ let users = [];
 let messages = [];
 let output = [];
 let index = 0;
-let command = "";
 
 io.on("connection", socket => {
     console.log( "someone connected.");

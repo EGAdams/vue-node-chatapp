@@ -1,5 +1,6 @@
-
-
+/*
+ *  CommandExecutor
+ */
 class CommandExecutor {
 
     constructor() {}
@@ -26,26 +27,32 @@ class CommandExecutor {
 
     /*
      *  private void execute()
-     *
      */
     execute() {
         
-        const { exec } = require( "child_process" );
+        if ( this.commandObject.targetMachine == "thispc" ) {
+            const { exec } = require( "child_process" );
 
-        exec( this.commandObject.executable + " " + this.commandObject.args, ( error, stdout, stderr ) => {
-            if ( error ) {
-                console.log( `error: ${error.message}` );
-                return;
-            }
-            if ( stderr ) {
-                console.log( `stderr: ${stderr}` );
-                return;
-            }
-
-            this.commandObject.output = stdout;
-            this.io.emit( 'gotData', this.commandObject );
-            console.log( `stdout: ${stdout}` );
-        } );
+            exec( this.commandObject.executable + " " + this.commandObject.args, ( error, stdout, stderr ) => {
+                if ( error ) {
+                    console.log( `error: ${error.message}` );
+                    return;
+                }
+                if ( stderr ) {
+                    console.log( `stderr: ${stderr}` );
+                    return;
+                }
+    
+                this.commandObject.output = stdout;             // populate output here
+                this.io.emit( 'gotData', this.commandObject );  // send to main vue component through socket
+                console.log( `stdout: ${stdout}` );
+            } );
+        } else {
+            
+                // execute command on target machine
+            
+        
+        }
     }
 }
 
