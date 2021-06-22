@@ -6,8 +6,7 @@
           <option
             v-for="option in options"
             :key="option.id"
-            :value="option.value"
-          >
+            :value="option.value">
             {{ option.text }}
           </option>
         </select>
@@ -15,13 +14,16 @@
       </div>
     </div>
     <div class="output">{{ output }}</div>
-    
-    <check-server-ouput-processor class="checkserver" 
-        v-bind:output = "output"
-        v-bind:commandObject="commandObject"
-        v-bind:styleObject="styleObject"
+
+    <check-server-ouput-processor
+      class="checkserver"
+      v-bind:output="output"
+      v-bind:commandObject="commandObject"
+      v-bind:styleObject="styleObject"
     />
-    
+
+    <Monitor v-bind:customers="customers" />
+
     <div :style="styleObject" class="stat">status</div>
     <div class="execute">
       <button @click="execute">Execute Command</button>
@@ -30,9 +32,12 @@
 </template>
 
 <script>
-import CheckServerOuputProcessor from './CheckServerOuputProcessor.vue';
+import CheckServerOuputProcessor from "./CheckServerOuputProcessor.vue";
+import Monitor from './Monitor.vue';
 export default {
-  components: { CheckServerOuputProcessor },
+  components: { CheckServerOuputProcessor,
+                Monitor 
+  },
   name: "generic-command",
   props: {
     output: {
@@ -41,8 +46,8 @@ export default {
     },
 
     commandObject: {
-        type: Object,
-        default: function(){}
+      type: Object,
+      default: function () {},
     },
 
     styleObject: {
@@ -54,34 +59,41 @@ export default {
     return {
       currentCommand: "",
       commands: {},
+      customers: {
+          acp: {
+              numberOfAlerts: "0",
+          },
+      },
       selected: "A",
       options: [
         { text: "Directory Listing", value: "ls" },
-        { text: "Change Directory", value: "cd" },
+        { text: "Show Alert Status", value: "./alertCheck.sh" },
+        { text: "Test Alert Status", value: "testAlertCheck" },
         { text: "Present Working Directory", value: "pwd" },
         { text: "Check Server Status", value: "checkServer" },
       ],
     };
   },
+
   methods: {
     execute() {
-      this.$emit("sendCommand", this.commands[ this.selected ]);
+      this.$emit( "sendCommand", this.commands[ this.selected ]);
     },
   },
 
   mounted: function () {
     (this.commands[ "ls" ] = {
-      executable: "ls",
-      args:" -la ",
-      description: "Directory Listing",
-      targetMachine: "thispc",
-      commandObject: "CommandExecutor",
-      output: "",
-      status: "",
-      commandMethod: "execute",
-      regex_map_filename: "lsRegex.txt"
+        executable: "ls",
+        args: " -la ",
+        description: "Directory Listing",
+        targetMachine: "thispc",
+        commandObject: "CommandExecutor",
+        output: "",
+        status: "",
+        commandMethod: "execute",
+        regex_map_filename: "lsRegex.txt",
     }),
-      (this.commands[ "checkServer" ] = {
+    (this.commands[ "checkServer" ] = {
         executable: "ps ",
         args: " -ef ",
         description: "Check Server Status",
@@ -90,8 +102,30 @@ export default {
         output: "",
         status: "",
         commandMethod: "execute",
-        regex_map_filename: "checkServerRegex.txt"
-      });
+        regex_map_filename: "checkServerRegex.txt",
+    }),
+    (this.commands[ "testAlertCheck" ] = {
+        executable: "cat ",
+        args: " alertCheck_1615899731770.txt ",
+        description: "Test Alert Monitor",
+        targetMachine: "thispc",
+        commandObject: "CommandExecutor",
+        output: "",
+        status: "",
+        commandMethod: "execute",
+        regex_map_filename: "customerAlertRegex.txt",
+    }),
+    (this.commands[ "showAlerts" ] = {
+        executable: "alertCheck.sh ",
+        args: "",
+        description: "Show Alert Status",
+        targetMachine: "dev",
+        commandObject: "CommandExecutor",
+        output: "",
+        status: "",
+        commandMethod: "execute",
+        regex_map_filename: "customerAlertRegex.txt",
+    });
   },
 };
 </script>

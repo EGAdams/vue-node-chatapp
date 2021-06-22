@@ -3,7 +3,10 @@
 //
 //	This object is reponsible for populating the alerts for a customer
 //
-// populateAlerts -- 
+// populateAlerts -- populates number of alerts for each customer. 
+// 
+// CustomersData populateAlerts( Array[ String ] rawArray, Regex regex ) 
+// 
 
 var debug = true;
 function trace( texttowrite ) {
@@ -34,7 +37,7 @@ function AlertPopulator( initObj ) {
     // Should be defined as self.<functionName> = function( <params> ) {}
 
     //
-    // CustomersData populateAlerts( Array[ String] rawArray, Regex regex ) -- populates number of alerts for each customer.
+    // CustomersData populateAlerts( Array[ String ] rawArray, Regex regex ) -- populates number of alerts for each customer.
     //
     // the regex argument here can be anything that takes a string and returns a bool.
     //
@@ -55,7 +58,12 @@ function AlertPopulator( initObj ) {
             
             var line    = rawArray[ index ];
             console.log( "line: [" + line + "]" );
+
+
+                // anything of interest in this line?
+
             var result  = regex.matchedString( line );
+            
             if ( result ) {
 
                     // check for customer name
@@ -78,6 +86,9 @@ function AlertPopulator( initObj ) {
                     if ( searchstatus != "looking for alert count" ) {
                         throw console.error( "*** ERROR: this should be an alert.  possible corrupt alert check file. ***");
                     }
+
+                        // populate the alert count
+
                     customersData[ currentCustomer ][ "numberOfAlerts" ] = result.matchedString;
                     searchstatus            = "looking for customer";
                 }

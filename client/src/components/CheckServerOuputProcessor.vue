@@ -14,15 +14,16 @@ import Regex from "../../src/Regex.js";
 export default {
   name: "check-server-output-processor",
   props: {
+    
     output: {
       type: String,
-      magIdefault: "generic-command default",
+      default: "generic-command default",
     },
+
     commandObject: {
       type: Object,
       default: function () {},
     },
-    
     
     styleObject: {
       background: "yellow",

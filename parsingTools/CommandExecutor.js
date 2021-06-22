@@ -10,8 +10,8 @@ class CommandExecutor {
      *  
      *  produces 2 side effects:
      * 
-     *  ( 1 ) the command objcet passed to executeCommand is executed and it's output is populated.
-     *  ( 2 ) server is then notified and sent the populated command object.
+     *  ( 1 ) the command object passed to executeCommand is executed and it's output is populated.
+     *  ( 2 ) server is then notified and sent this populated command object.
      * 
      */
     executeCommand( commandObjectArg, ioArg ) {
@@ -35,17 +35,17 @@ class CommandExecutor {
 
             exec( this.commandObject.executable + " " + this.commandObject.args, ( error, stdout, stderr ) => {
                 if ( error ) {
-                    console.log( `error: ${error.message}` );
+                    console.log( `error: ${ error.message }` );
                     return;
                 }
                 if ( stderr ) {
-                    console.log( `stderr: ${stderr}` );
+                    console.log( `stderr: ${ stderr }` );
                     return;
                 }
     
                 this.commandObject.output = stdout;             // populate output here
                 this.io.emit( 'gotData', this.commandObject );  // send to main vue component through socket
-                console.log( `stdout: ${stdout}` );
+                console.log( `stdout: ${ stdout }` );
             } );
         } else {
             
