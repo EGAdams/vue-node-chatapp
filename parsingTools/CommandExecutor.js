@@ -44,6 +44,11 @@ class CommandExecutor {
                 }
     
                 this.commandObject.output = stdout;             // populate output here
+
+                    // process output
+                   
+                    
+
                 this.io.emit( 'gotData', this.commandObject );  // send to main vue component through socket
                 console.log( `stdout: ${ stdout }` );
             } );
