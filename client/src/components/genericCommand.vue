@@ -22,7 +22,8 @@
       v-bind:styleObject="styleObject"
     />
 
-    <Monitor v-bind:customers="customers" />
+    <Monitor v-bind:customers="customers"
+             v-bind:commandObject="commandObject" />
 
     <div :style="styleObject" class="stat">status</div>
     <div class="execute">

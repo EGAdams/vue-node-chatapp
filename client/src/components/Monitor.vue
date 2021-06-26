@@ -32,6 +32,10 @@
 
 
 <script>
+
+import Regex from "../../src/Regex";
+
+
 export default {
   name: "monitor",
   props: {
@@ -39,7 +43,40 @@ export default {
       type: Object,
       default: function () {},
     },
+
+    commandObject: {
+      type: Object,
+      default: function () {},
+    },
+
   },
+
+  computed: {
+    processedOutput: function () {
+        if ( !( typeof this.commandObject.regex_map  == "undefined" )) {
+
+            this.regex.setClip( this.commandObject.regex_map.regexClip );
+            this.customers = this.alertPopulator.populateAlerts( this.commandObject.output.split( /\r?\n/ ), this.regex ) 
+        }
+        return "output changed to this on Saturday:" + this.output;
+    },
+  },  
+    
+  mounted() {
+      this.regex            = new Regex();
+      this.alertPopulator   = require ( "../../../parsingTools/AlertPopulator.js" );
+  },
+
+  methods: {
+      checkServerStatus: function( rawArrayArg ) {
+            for ( var x = 0; x < rawArrayArg.length; x++ ) {
+                if ( this.regex.matchedString( rawArrayArg[ x ])) {
+                    return true;
+                }
+            }
+            return false;
+      },
+  }
 };
 </script>
 
@@ -50,9 +87,9 @@ export default {
   --normal_cell_width: 0.6fr;
 
   display: grid;
-  grid-template-columns: var(--normal_cell_width) var(--normal_cell_width) var(
-      --normal_cell_width
-    ) 1.9fr;
+  grid-template-columns:
+    var(--normal_cell_width) var(--normal_cell_width) var(--normal_cell_width)
+    1.9fr;
   grid-template-rows: 0.8fr 0.3fr 0.3fr 0.3fr 0.3fr 4fr;
   gap: 0px 0px;
 }
@@ -63,3 +100,4 @@ export default {
   padding: 10px;
 }
 </style>
+

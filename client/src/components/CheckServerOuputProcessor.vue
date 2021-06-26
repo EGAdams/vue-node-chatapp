@@ -13,8 +13,8 @@ import Regex from "../../src/Regex.js";
 
 export default {
   name: "check-server-output-processor",
-  props: {
-    
+
+  props: {  
     output: {
       type: String,
       default: "generic-command default",
@@ -22,7 +22,7 @@ export default {
 
     commandObject: {
       type: Object,
-      default: function () {},
+      default: function(){},
     },
     
     styleObject: {
@@ -30,6 +30,7 @@ export default {
     },
     
   },
+
   computed: {
     processedOutput: function () {
         if ( !( typeof this.commandObject.regex_map  == "undefined" )) {
@@ -51,7 +52,6 @@ export default {
 
   methods: {
       checkServerStatus: function( rawArrayArg ) {
-
             for ( var x = 0; x < rawArrayArg.length; x++ ) {
                 if ( this.regex.matchedString( rawArrayArg[ x ])) {
                     return true;
