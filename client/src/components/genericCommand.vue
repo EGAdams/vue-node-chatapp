@@ -115,6 +115,7 @@ export default {
         status: "",
         commandMethod: "execute",
         regex_map_filename: "customerAlertRegex.txt",
+        outputProcessor: "AlertPopulator"
     }),
     (this.commands[ "showAlerts" ] = {
         executable: "alertCheck.sh ",
@@ -126,6 +127,7 @@ export default {
         status: "",
         commandMethod: "execute",
         regex_map_filename: "customerAlertRegex.txt",
+        outputProcessor: "AlertPopulator"
     });
   },
 };

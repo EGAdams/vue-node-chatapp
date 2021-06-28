@@ -12,7 +12,7 @@
       <div class="grid-item"></div>
 
       <div class="grid-item">Alert Count</div>
-      <div class="grid-item">{{ customers.acp.numberOfAlerts }}</div>
+      <div class="grid-item">{{ commandObject.customers.acp.numberOfAlerts }}</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
@@ -52,14 +52,10 @@ export default {
   },
 
   computed: {
-    processedOutput: function () {
-        if ( !( typeof this.commandObject.regex_map  == "undefined" )) {
-
-            this.regex.setClip( this.commandObject.regex_map.regexClip );
-            this.customers = this.alertPopulator.populateAlerts( this.commandObject.output.split( /\r?\n/ ), this.regex ) 
-        }
-        return "output changed to this on Saturday:" + this.output;
-    },
+    // vueProcessedOutput: function () {
+    //     this.customers = this.commandObject.processedOutput; 
+    //     return "output changed to this on Saturday:" + this.output;
+    // },
   },  
     
   mounted() {

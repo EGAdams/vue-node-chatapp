@@ -8,6 +8,8 @@
 // CustomersData populateAlerts( Array[ String ] rawArray, Regex regex ) 
 // 
 
+const { raw } = require( "express" );
+
 var debug = true;
 function trace( texttowrite ) {
     console.log( texttowrite );
@@ -30,6 +32,10 @@ function AlertPopulator( initObj ) {
         debug:	true
     };
 
+
+    self.processOutput = function( rawArrayArg, regexArg ) {
+        return self.populateAlerts( rawArrayArg, regexArg );
+    } 
 
     //
     // Methods
