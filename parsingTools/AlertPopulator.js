@@ -53,6 +53,7 @@ function AlertPopulator( initObj ) {
     self.populateAlerts = function( rawArray, regex ) {
         if ( debug ) {
             trace( "In populateAlerts" );
+            trace( "raw array length: " + rawArray.length );
         }
         
         var currentCustomer = "";

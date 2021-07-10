@@ -3,7 +3,9 @@
  */
 class CommandExecutor {
 
-    constructor() {}
+    constructor( commandObjectArg ) {
+        this.commandObject = commandObjectArg;
+    }
 
     /*
      *  public void executeCommand( CommandObject commandObjectArg, Socket ioArg )
@@ -14,10 +16,10 @@ class CommandExecutor {
      *  ( 2 ) server is then notified and sent this populated command object.
      * 
      */
-    executeCommand( commandObjectArg, ioArg ) {
-        this.commandObject  = commandObjectArg;
+    executeCommand( ioArg ) {
+        // this.commandObject  = commandObjectArg;
         this.io             = ioArg;
-        console.log( "loaded " + commandObjectArg.description + " into CommandExecutor... " );
+        // console.log( "loaded " + commandObjectArg.description + " into CommandExecutor... " );
         console.log( "processing command..." );
   
 
@@ -29,7 +31,8 @@ class CommandExecutor {
      *  private void execute()
      */
     execute() {
-        
+        var that = this;
+        console.log( "executable: " + this.commandObject.executable );
         if ( this.commandObject.targetMachine == "thispc" ) {
             const { exec } = require( "child_process" );
 
@@ -42,8 +45,9 @@ class CommandExecutor {
                     console.log( `stderr: ${ stderr }` );
                     return;
                 }
-    
-                this.commandObject.output = stdout;             // populate output here
+                
+                console.log( "stdout: " + stdout );
+                that.commandObject.output = stdout;             // populate output here
                 
             } );
         } else {

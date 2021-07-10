@@ -78,6 +78,7 @@ export default {
 
   methods: {
     execute() {
+        
       this.$emit( "sendCommand", this.commands[ this.selected ]);
     },
   },

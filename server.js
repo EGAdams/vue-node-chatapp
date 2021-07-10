@@ -103,17 +103,18 @@ io.on("connection", socket => {
 
             // execute command...
 
-        var executor = new CommandExecutor();
-        executor.executeCommand( commandObject, io );
+        var executor = new CommandExecutor( commandObject );
+        executor.executeCommand( io );
 
             // process output here or in the Vue component
 
             // let's do it here until we find out how vue components can use the code on this machine easier
-
+        console.log( "executor output: " + executor.commandObject.output );
+        commandObject.output = executor.commandObject.output;
         var outputProcessor = new AlertPopulator();
         commandObject.processedOutput = outputProcessor.processOutput( commandObject.output, commandObject.regex_map );
 
-        io.emit( 'gotData', this.commandObject );  // send it to the main vue component through the socket
+        io.emit( 'gotData', commandObject );  // send it to the main vue component through the socket
         console.log( `stdout: ${ commandObject.output }` );
         
         // var storage = new Storage( commandObject.name )

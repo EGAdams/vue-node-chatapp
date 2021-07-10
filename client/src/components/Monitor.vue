@@ -12,7 +12,7 @@
       <div class="grid-item"></div>
 
       <div class="grid-item">Alert Count</div>
-      <div class="grid-item">{{ commandObject.customers.acp.numberOfAlerts }}</div>
+      <div class="grid-item">{{ customers.acp.numberOfAlerts }}</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
