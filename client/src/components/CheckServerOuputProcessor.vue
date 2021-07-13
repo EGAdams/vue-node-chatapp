@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     processedOutput: function () {
-      alert( this.commandObject.regex_map.regexClip[0].name )
+      alert( this.commandObject.regex_map.regexClip[ 0 ].name )
       return "output changed to this:" + this.output;
 
     },
