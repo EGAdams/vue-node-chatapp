@@ -5,9 +5,9 @@ const { parse }         = require('path');
 var     RuleParser          = require( "./RuleParser" );
 const { exit } = require('process');
 
-var sourceFile          = 'parsingTools/apr_19_unit_no_debug.txt';
+var sourceFile          = 'June2AfterHaystackNeedleFix.txt';
 
-//const   ObjectsToCsv    = require( 'objects-to-csv' );
+// const   ObjectsToCsv    = require( 'objects-to-csv' );
 
     // check parser rules array and exit when it is finished populating
 
@@ -97,7 +97,6 @@ function trace( text ) {
     console.log( text );
 }
 
-var fileContents = [];
 
 if ( debug ) {
     trace( "calling readfile..." );

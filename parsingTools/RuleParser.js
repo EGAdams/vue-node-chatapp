@@ -23,10 +23,10 @@ function RuleParser( fileArrayArg ) {
     this.dataObject = new DataObject( this.emitter );
 
     this.config     = {
-        host     : '10.170.150.26',
+        host     : '52.179.23.229',
         user     : 'webapp',
         password : 'ASDF2asdf!',
-        database : 'fwtBDB'
+        database : 'fwtBT'
     }
 
     this.buildRules = function() {
@@ -100,7 +100,7 @@ function RuleParser( fileArrayArg ) {
                     var usersmatch = this.fileArray[ x ].match( usersregex );
                     if ( usersmatch ) {
                         var counter = x;
-                        while( !this.fileArray[ ++counter ].includes( "dbSQL" ) ||
+                        while( !this.fileArray[ ++counter ].includes( "dbSQL" ) && !this.fileArray[ counter ].includes( "Checking DB" ) ||
                                !this.fileArray[ counter]) {
                             rule.users += this.fileArray[ counter ];
                         }
@@ -147,9 +147,9 @@ function RuleParser( fileArrayArg ) {
         }
         if ( debug ) {
             trace( "rules array length = " + this.rules.length );
-            trace( "emitting rulesBuilt event...");
+            //trace( "emitting rulesBuilt event...");
         }
-        this.emitter.emit( 'rulesBuilt' /* , arg1, arg2, argn... */ );
+        // this.emitter.emit( 'rulesBuilt' /* , arg1, arg2, argn... */ );
     };
 
         // assign callback for when the database actually got the date and time
@@ -370,9 +370,11 @@ function RuleParser( fileArrayArg ) {
     this.parseData = function( err, data ) {
     
         if ( debug = false ) {
-            trace( "RuleParser.parseData called..." );
-            trace( "filling array with file contents..." );
+            trace( "this.parseData called..." );
+        }
 
+        if ( debug ) {
+            trace( "filling array with file contents..." );
         }
         
         fileContents = data.toString().replace( /\r\n/g,'\n' ).split( '\n' );
@@ -381,115 +383,117 @@ function RuleParser( fileArrayArg ) {
             trace( "file contents length: " + fileContents.length );
         }
         
-        var RuleParser = new RuleParser( fileContents ); 
-        RuleParser.buildRules();
-        
-        trace( "RuleParser rules length: [" + RuleParser.rules.length + "]" );
-        trace( "process.rules length = [" + RuleParser.rules.length + "]" );
-        trace( "process.argv = " + process.argv[ 2 ]);
-        var ruleindex = process.argv[ 2 ];
+        // var this.= new this. fileContents ); 
+        // this.buildRules();
+        this.fileArray = fileContents;
+        this.buildRules();
+        trace( "this.rules length: [" + this.rules.length + "]" );
+        trace( "process.rules length = [" + this.rules.length + "]" );
+        // trace( "process.argv = " + process.argv[ 2 ]);
+        // var ruleindex = process.argv[ 2 ];
     
 
-        const conn      = mysql.createConnection( this.config );
-        var dateregex   = /(\d\d\d\d-\d\d-\d\d)T(\d\d:\d\d:\d\d)/;
-        var countregex  = /:(\d+)/;
+        // const conn      = mysql.createConnection( this.config );
+        // var dateregex   = /(\d\d\d\d-\d\d-\d\d)T(\d\d:\d\d:\d\d)/;
+        // var countregex  = /:(\d+)/;
         
         // node native promisify
 
-        const query = util.promisify( conn.query ).bind( conn );
+        //const query = util.promisify( conn.query ).bind( conn );
         
-        (async () => {
-          try {
-            for ( var x=0; x < RuleParser.rules.length; x++ ) {
-                if ( RuleParser.rules[ x ] == undefined ){
-                    if ( debug ) {
-                        trace( "x: " + x + " this rule is undefined.  continuing..." );
-                        continue;
-                    }
-                }
-                console.log( "populating rule " + RuleParser.rules[ x ].id + " ..." );
-                try {
-                    results = await query("select min( DateAdded ) from Alert where RuleID='" + RuleParser.rules[ x ].id + "'");
-                } catch( error ) {
-                    if ( debug ) {
-                        trace( "error: " + error.toString() );
-                    }
+        
+        //   try {
+        //     for ( var x=0; x < this.rules.length; x++ ) {
+        //         if ( this.rules[ x ] == undefined ){
+        //             if ( debug ) {
+        //                 trace( "x: " + x + " this rule is undefined.  continuing..." );
+        //                 continue;
+        //             }
+        //         }
+                // console.log( "populating rule " + this.rules[ x ].id + " ..." );
+                // try {
+                //     results = await query("select min( DateAdded ) from Alert where RuleID='" + this.rules[ x ].id + "'");
+                // } catch( error ) {
+                //     if ( debug ) {
+                //         trace( "error: " + error.toString() );
+                //         continue;
+                //     }
                     
-                }
+                // }
                 
-                var resultString    = JSON.stringify( results );
-                trace( "resultString = [" + resultString + "]");
-                if ( resultString.includes( "null" )){
-                    RuleParser.rules[ x ].dateAdded = "null"
-                    RuleParser.rules[ x ].timeAdded = "null";
+                // var resultString    = JSON.stringify( results );
+                // trace( "resultString = [" + resultString + "]");
+                // if ( resultString.includes( "null" )){
+                //     this.rules[ x ].dateAdded = "null"
+                //     this.rules[ x ].timeAdded = "null";
 
-                }else {
-                    var theDatematch    = resultString.match( dateregex );
-                    console.log( "theDatematch[ 1 ] = [" + theDatematch[ 1 ] + "]  theDatematch[ 2 ] = [" + theDatematch[ 2 ] + "]" );
-                    RuleParser.rules[ x ].dateAdded = theDatematch[ 1 ];
-                    RuleParser.rules[ x ].timeAdded = theDatematch[ 2 ];
-                }
+                // }else {
+                //     var theDatematch    = resultString.match( dateregex );
+                //     console.log( "theDatematch[ 1 ] = [" + theDatematch[ 1 ] + "]  theDatematch[ 2 ] = [" + theDatematch[ 2 ] + "]" );
+                //     this.rules[ x ].dateAdded = theDatematch[ 1 ];
+                //     this.rules[ x ].timeAdded = theDatematch[ 2 ];
+                // }
                 
             
-                console.log( "getting number of alerts for rule " + RuleParser.rules[ x ].id + " ..." );
-                try {
-                    results = await query( "select count( * ) from Alert where RuleID = '" + RuleParser.rules[ x ].id + "'" );
-                } catch( error ) {
-                    if ( debug ) {
-                        trace( "error: " + error.toString() );
-                    }
+                // console.log( "getting number of alerts for rule " + this.rules[ x ].id + " ..." );
+                // try {
+                //     results = await query( "select count( * ) from Alert where RuleID = '" + this.rules[ x ].id + "'" );
+                // } catch( error ) {
+                //     if ( debug ) {
+                //         trace( "error: " + error.toString() );
+                //     }
                     
-                }
+                // }
                 
-                var resultString    = JSON.stringify( results );
-                var theCountMatch   = resultString.match( countregex );
-
-                if ( debug ) {
-                    trace( "count = [" + theCountMatch[ 1 ] + "]");
-                }
-                
-                if ( resultString.includes( "null" )){
-                    if ( debug ) {
-                        trace( "Result string has null!  continuing..." );
-                    }
-                    RuleParser.rules[ x ].alertsSinceAdded = "db null.";
-                    //continue;
-                }else{
-                    RuleParser.rules[ x ].alertsSinceAdded = theCountMatch[ 1 ];
-                }
-                
-                    // get ond data
-
-                console.log( "getting OND data for rule " + RuleParser.rules[ x ].id + " ..." );
-                try {
-                    results = await query( "select OnlyNewData from Rule where ID='" + RuleParser.rules[ x ].id + "'" );
-                } catch( error ) {
-                    if ( debug ) {
-                        trace( "error: " + error.toString() );
-                    }
-                    
-                }
-                
-                var resultString    = JSON.stringify( results );
+                // var resultString    = JSON.stringify( results );
                 // var theCountMatch   = resultString.match( countregex );
-                
-                if ( resultString.includes( "null" )){
-                    if ( debug ) {
-                        trace( "Result string has null!  continuing..." );
-                    }
-                    RuleParser.rules[ x ].onlyNewData = "db null.";
-                    continue;
-                }
-                
-                if ( debug ) {
-                    trace( "ond = [" + results[ 0 ].OnlyNewData + "]");
-                }
-                RuleParser.rules[ x ].onlyNewData = results[ 0 ].OnlyNewData;
-            }
 
+                // if ( debug ) {
+                //     trace( "count = [" + theCountMatch[ 1 ] + "]");
+                // }
+                
+                // if ( resultString.includes( "null" )){
+                //     if ( debug ) {
+                //         trace( "Result string has null!  continuing..." );
+                //     }
+                //     this.rules[ x ].alertsSinceAdded = "db null.";
+                //     //continue;
+                // }else{
+                //     this.rules[ x ].alertsSinceAdded = theCountMatch[ 1 ];
+                // }
+                
+                //     // get ond data
+
+                // console.log( "getting OND data for rule " + this.rules[ x ].id + " ..." );
+                // try {
+                //     results = await query( "select OnlyNewData from Rule where ID='" + this.rules[ x ].id + "'" );
+                // } catch( error ) {
+                //     if ( debug ) {
+                //         trace( "error: " + error.toString() );
+                //     }
+                    
+                // }
+                
+                // var resultString    = JSON.stringify( results );
+                // // var theCountMatch   = resultString.match( countregex );
+                
+                // if ( resultString.includes( "null" )){
+                //     if ( debug ) {
+                //         trace( "Result string has null!  continuing..." );
+                //     }
+                //     this.rules[ x ].onlyNewData = "db null.";
+                //     continue;
+                // }
+                
+            //     if ( debug ) {
+            //         trace( "ond = [" + results[ 0 ].OnlyNewData + "]");
+            //     }
+            //     this.rules[ x ].onlyNewData = results[ 0 ].OnlyNewData;
+            // }
+        // (async () => {
             var cleanArray = [];
-            for ( rule in RuleParser.rules ) {
-                if ( !RuleParser.rules[ rule ]) {
+            for ( rule in this.rules ) {
+                if ( !this.rules[ rule ]) {
                     if ( debug ) {
                         trace( "rule undefined.  continue cleaning array..." );
                     }
@@ -497,9 +501,9 @@ function RuleParser( fileArrayArg ) {
                     continue;
                 }
                 if ( debug ) {
-                    trace( "RuleParser.rules[ rule ].id = " + RuleParser.rules[ rule ].id );
+                    trace( "this.rules[ rule ].id = " + this.rules[ rule ].id );
                 }
-                cleanArray.push( RuleParser.rules[ rule ]);
+                cleanArray.push( this.rules[ rule ]);
             }
 
             csv = new ObjectsToCsv( cleanArray );
@@ -509,7 +513,7 @@ function RuleParser( fileArrayArg ) {
             try {
                     // Save to file:
 
-                await csv.toDisk('./test.csv');
+                csv.toDisk('./test.csv');
                 exit();
 
             } catch( error ) {
@@ -518,12 +522,49 @@ function RuleParser( fileArrayArg ) {
                 }
                 exit();
             }
-          } finally {
-            conn.end();
-            exit();
-          }
-        })()
+        // });
+
+        //   } finally {
+        //     conn.end();
+        //     exit();
+        //   }
+        // })();
+        // var cleanArray = [];
+        // for ( rule in this.rules ) {
+        //     if ( !this.rules[ rule ]) {
+        //         if ( debug ) {
+        //             trace( "rule undefined.  continue cleaning array..." );
+        //         }
+                
+        //         continue;
+        //     }
+        //     if ( debug ) {
+        //         trace( "this.rules[ rule ].id = " + this.rules[ rule ].id );
+        //     }
+        //     cleanArray.push( this.rules[ rule ]);
+        // }
+
+        // var csv = new ObjectsToCsv( cleanArray );
+        // if ( debug ) {
+        //     trace( "self.rules.length inside csv maker: " + cleanArray.length );
+        // }  
+        // try {
+        //         // Save to file:
+
+        //     csv.toDisk('./test.csv');
+        //     exit();
+
+        // } catch( error ) {
+        //     if ( debug ) {
+        //         trace( "*** ERROR: [" + error.toString() + "] ***" );
+        //     }
+        //     exit();
     }
+
+    //    } finally {
+    //     conn.end();
+    //     exit();
+    //  }
 } 
 
 module.exports = RuleParser;

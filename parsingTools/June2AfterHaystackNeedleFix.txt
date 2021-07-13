@@ -1,0 +1,1703 @@
+rulesUnitTest starting at 12:36:46...
+Testing all rules
+
+Rule 89:
+	Name: Incoming Wire amount > 70% of Net Worth
+	Description: Incoming Wire amount > 70% of Net Worth
+	Alert Text: Incoming wire amount significantly larger than customer's Net Worth.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than Net Worth * 70 percent and Value
+		of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 89 passed.
+ 
+Rule 90:
+	Name: Incoming wire greater than 15% of Customer Stated Income
+	Description: Incoming wire greater than 15% of Customer Stated Income
+	Alert Text: Incoming wires larger than 15% of customer's Income Level
+	Last changed on 05/19/2020 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than Income Level * 15 percent and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 90 passed.
+ 
+Rule 91:
+	Name: Outgoing Wire Amount greater than 80% of Account Equity
+	Description: Outgoing Wire Amount greater than 80% of Account Equity
+	Alert Text: Outgoing wires greater than 80% of Account Equity
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 80 percent and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 133
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'Account.ID' in 'on clause']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 91 failed.
+ 
+Rule 92:
+	Name: When outgoing wire amount > 30% of account equity
+	Description: When outgoing wire amount > 30% of account equity
+	Alert Text: Outgoing wires larger than 30% of Account Equity
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 30 percent and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 133
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'Account.ID' in 'on clause']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 92 failed.
+ 
+Rule 93:
+	Name: When debit card Cash Advances > 30 % of account equity over 30 days
+	Description: When debit card Cash Advances > 30 % of account equity over 30 days
+	Alert Text: Large debit card withdrawals greater than 30% of Account Equity
+	Last changed on 06/03/2019 by Marlo  Fullerton (183)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than Account Equity * 30
+		percent over  a 30 day period and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 93 passed.
+ 
+Rule 95:
+	Name: Low priced securities purchased
+	Description: Low priced securities purchased
+	Alert Text: Low priced security purchase.
+	Last changed on 12/03/2019 by Marlo  Fullerton (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less or equal to 1 and Value of Client Type
+		(text) is equal to Retail and Value of Security Type (text) is equal to Stock
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 995
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 95 failed.
+ 
+Rule 97:
+	Name: Incoming wire greater than $10,000
+	Description: Incoming wire greater than $10,000
+	Alert Text: Large incoming wire transfers ($10,000 or more)
+	Last changed on 05/19/2020 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 10000 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 97 passed.
+ 
+Rule 98:
+	Name: Outgoing Wire greater than $500,000
+	Description: Outgoing Wire greater than $500,000
+	Alert Text: Outgoing wire greater than $500,000.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than 500000 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 98 passed.
+ 
+Rule 99:
+	Name: Outgoing Wire frequency greater than 5 per month
+	Description: Outgoing Wire frequency greater than 5 per month
+	Alert Text: More than 5 outgoing wires per month.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Wire is greater than 5 over  a 30 day period and Value of
+		Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 99 passed.
+ 
+Rule 100:
+	Name: Low priced security trade in elderly account
+	Description: Low priced security trade in elderly account
+	Alert Text: Elderly client with a low priced security
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less or equal to 2 and Value of Customer Age
+		is greater than 60 and Sum of Security Type (text) is equal to Stock and Value
+		of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1441
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 100 failed.
+ 
+Rule 101:
+	Name: Security purchases greater than 3 per month
+	Description: Security purchases greater than 3 per month
+	Alert Text: 3 or more security purchases over the last month
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Security Purchase is greater or equal to 3 over  a 30 day period and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 3 results
+		Pass: Build SQL returned 3 results
+	Rule 101 passed.
+ 
+Rule 104:
+	Name: Outgoing wire greater than  5% of account equity
+	Description: Outgoing wire greater than  5% of account equity
+	Alert Text: This account has outgoing wires greater than 5% of  Account Equity.
+	Last changed on 06/03/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 5 percent and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 104 passed.
+ 
+Rule 105:
+	Name: Incoming wire greater than 50% of net worth
+	Description: Incoming wire greater than 50% of net worth
+	Alert Text: This account has incoming wire(s) greater than 50% of net worth.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than Net Worth * 50 percent and Value
+		of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Donald One Lee (159), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 105 passed.
+ 
+Rule 106:
+	Name: Outgoing debit card transactions greater than 30 over 30 days
+	Description: Outgoing debit card transactions greater than 30 over 30 days
+	Alert Text: This account had 30 or more debit card transactions over 30 days.
+	Last changed on 07/11/2019 by Jeferson  Moreira (180)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Debit Card Transactions is greater than 60 over  a 30 day
+		period and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 238 results
+		Pass: Build SQL returned 238 results
+	Rule 106 passed.
+ 
+Rule 116:
+	Name: Outgoing Debit Card transfers > $1k
+	Description: Outgoing debit card transactions greater than $1,000
+	Alert Text: Debit card transactions over $1,000.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than 1000 and Value of
+		Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Donald One Lee (159), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 116 passed.
+ 
+Rule 117:
+	Name: Outgoing Wire Tranasctions > 10K
+	Description: Very large outgoing wire transactions
+	Alert Text: Outgoing Wire Transactions greater than $10000.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than 10000 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Donald One Lee (159), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 117 passed.
+ 
+Rule 128:
+	Name: High Risk customer outgoing wire transactions exceeding expected number
+	Description: High Risk customer outgoing wire transactions exceeding expected number
+	Alert Text: High Risk customer with wire transactions exceeding expected number
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Wire is greater than Anticipated # Wire Trans * 1 over  a 30
+		day period and Value of Risk Score is greater than 75 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 115
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 128 failed.
+ 
+Rule 129:
+	Name: High Risk Account Incoming Wire Alert greater than $50,000
+	Description: High Risk Account Incoming Wire Alert greater than $50,000
+	Alert Text: High Risk customer has an incoming wire greater than $50,000.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 50000 and Value of Risk Score is
+		greater than 75 and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 129 passed.
+ 
+Rule 160:
+	Name: Concentrated bond positions greater than 5% of account equity
+	Description: Concentrated positions greater than 5% of account equity
+	Alert Text: This account has a concentrated position greater than 5% of account equity.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Holding Bond is greater than Account Equity * 5 percent or Value of
+		Account Cash Balance is greater than Check Withdrawal * 5 percent or Value of
+		Holding Market Value is greater than Customer Deposits * 5 percent and Value of
+		Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 281
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'Account.ID' in 'on clause']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 17414 results
+	Rule 160 failed.
+ 
+Rule 161:
+	Name: Incoming wire over $1000
+	Description: Incoming wire over $1000
+	Alert Text: Incoming wire greater than $1000 detected.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 1000
+	Users:
+		Bartosz  Daszkiewicz (185), Donald One Lee (159), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 161 passed.
+ 
+Rule 178:
+	Name: Account Turnover Ratio Greater than 3 over 120 days
+	Description: Account Turnover Ratio Greater than 3 over 120 days
+	Alert Text: Turnover Ratio - Please review this alert
+	Last changed on 08/12/2019 by Jeferson  Moreira (180)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 3 over  a 120 day period and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 9 results
+		Pass: Build SQL returned 9 results
+	Rule 178 passed.
+ 
+Rule 179:
+	Name: High Risk account placing a trade
+	Description: High Risk account placing a trade
+	Alert Text: Please review this alert
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Trade Quantity is
+		greater or equal to 1 and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 145
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 179 failed.
+ 
+Rule 180:
+	Name: High Risk Account receiving a wire
+	Description: High Risk Account receiving a wire
+	Alert Text: Please review this alert
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Incoming Wire is
+		greater or equal to 1 and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 163
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 180 failed.
+ 
+Rule 181:
+	Name: Turnover Ratio > 2 in Long term growth Account
+	Description: Turnover Ratio is greater than 2 in an account with an investment objective  of Long term growth
+	Alert Text: Turnover ratio is greater than 2 in accounts with Long term growth investment objectives.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 2 and Value of Investment
+		Objective (text) is equal to Long term growth and Value of Client Type (text) is
+		equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 4 results
+		Pass: Build SQL returned 4 results
+	Rule 181 passed.
+ 
+Rule 182:
+	Name: Turnover Ratio > 4 in Retail Accounts
+	Description: The turnover ratio is greater than 4 in Retail accounts
+	Alert Text: Turnover ratio is greater than 4 in accounts with Income investment objectives..
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 and Value of Investment
+		Objective (text) is equal to Retail and Value of Client Type (text) is equal to
+		Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 182 passed.
+ 
+Rule 183:
+	Name: Turnover Ratio > 6 in Growth and Income accounts
+	Description: The turnover ratio is greater than 6 in an account with a Growth and Income investment objective
+	Alert Text: Turnover ratio is greater than 6 in an account with a Growth and Income investment objective.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 6 and Value of Investment
+		Objective (text) is equal to Growth and Income and Value of Client Type (text)
+		is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 183 passed.
+ 
+Rule 184:
+	Name: Turnover Ratio > 8 in Balanced account
+	Description: The turnover ratio is greater than 8 in an account with a Balanced account investment objective
+	Alert Text: Turnover ratio is greater than 8 in an account with a Balanced account investment objective.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 8 and Value of Investment
+		Objective (text) is equal to Balanced and Value of Client Type (text) is equal
+		to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 184 passed.
+ 
+Rule 186:
+	Name: Turnover Ratio > 10 in Speculative account
+	Description: The turnover ratio is greater than 10 in an account with a Speculative investment objective
+	Alert Text: Turnover ratio is greater than 10 in an account with a Speculative investment objective.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 10 and Value of Investment
+		Objective (text) is equal to Speculative and Value of Client Type (text) is
+		equal to REtail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 186 passed.
+ 
+Rule 187:
+	Name: Turnover Ratio > 2 in Conservative account
+	Description: Turnover Ratio is greater than 2 in an account with an investment objective of Conservative
+	Alert Text: Turnover ratio is greater than 2 in accounts with Conservative investment objectives.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 2 and Value of Investment
+		Objective (text) is equal to Conservative and Value of Client Type (text) is
+		equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 187 passed.
+ 
+Rule 188:
+	Name: Turnover Ratio > 4 in Moderate Account
+	Description: The turnover ratio is greater than 4 in accounts with Moderate investment objectives
+	Alert Text: Turnover ratio is greater than 4 in accounts with Moderate investment objectives.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every week
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 and Value of Investment
+		Objective (text) is equal to Moderate and Value of Client Type (text) is equal
+		to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 188 passed.
+ 
+Rule 189:
+	Name: Commissions to Equity Ratio is between 12.5 and 14.99
+	Description: The commissions to equity ratio is between 12.5 and 14.99
+	Alert Text: The commissions to equity ratio is between 12.5 and 14.99
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between12.5 and 14.99 and Value of Client
+		Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 189 passed.
+ 
+Rule 190:
+	Name: Commissions to Equity Ratio is between 15 and 17.49
+	Description: The commissions to equity ratio is between 15 and 17.49
+	Alert Text: The commissions to equity ratio is between 15 and 17.49
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between15 and 17.49 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 190 passed.
+ 
+Rule 191:
+	Name: Commissions to Equity Ratio between 17.5 and 20
+	Description: The commissions to equity ratio is between 17.5 and 20
+	Alert Text: The commissions to equity ratio is between 17.5 and 20.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between17.5 and 20 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 191 passed.
+ 
+Rule 192:
+	Name: Turnover Ratio > 1
+	Description: Turnover Ratio > 1
+	Alert Text: Turnover Ratio is greater than 1.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 1 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 20 results
+		Pass: Build SQL returned 20 results
+	Rule 192 passed.
+ 
+Rule 193:
+	Name: Commission To Equity Ratio is between 1 and 20
+	Description: Commission To Equity Ratio is between 1 and 20
+	Alert Text: Commission to Equity Ratio is between 1 and 20.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between1 and 20 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Maria Andreina Diaz (186), Mark David Edwards (2), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 193 passed.
+ 
+Rule 194:
+	Name: PEP conducting a trade
+	Description: PEP conducting a trade
+	Alert Text: PEP conducting a trade
+	Last changed on 04/27/2021 by Marlo  Fullerton (183)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Value of Trade Principle is greater than
+		0 and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don C1 Lee (153), Don Christopher Lee (3)
+		Don JR Lee (77), Maria Andreina Diaz (186), Mark David Edwards (2)
+		Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 194 passed.
+ 
+Rule 195:
+	Name: PEP conducting a Wire
+	Description: PEP conducting a Wire
+	Alert Text: PEP conducting a Wire
+	Last changed on 05/03/2021 by Marlo  Fullerton (183)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Value of Wire Amount is greater than 0
+		and Value of Client Type (text) is equal to Retail and Value of Wire Type (text)
+		is equal to Wire Transfer
+	Users:
+		Bartosz  Daszkiewicz (185), Don C1 Lee (153), Don Christopher Lee (3)
+		Don JR Lee (77), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 975
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 195 failed.
+ 
+Rule 201:
+	Name: High Risk Customer Conducted Security Transaction
+	Description: High Risk Customer Conducted Security Transaction
+	Alert Text: High Risk Customer Conducted Security Transaction
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater than 75 and Count of Security Purchase is greater
+		than 1 and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don C1 Lee (153), Don Christopher Lee (3)
+		Donald One Lee (159), Maria Andreina Diaz (186), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 148
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 201 failed.
+ 
+Rule 203:
+	Name: High Risk Customers Conducting Outgoing Wire Transaction
+	Description: High Risk Customers Conducting Outgoing Wire Transaction
+	Alert Text: High Risk Customers Conducting Outgoing Wire Transaction.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Outgoing Wire is
+		greater or equal to 1 and Value of Client Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Don C1 Lee (153), Don Christopher Lee (3)
+		Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 163
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 203 failed.
+ 
+Rule 205:
+	Name: New Account Added
+	Description: Fired when a new account has been added by the overnight batch job
+	Alert Text: A new account has been added.
+	Last changed on 05/26/2021 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Age is equal to 0 and Value of Client Type (text) is equal to
+		Retail
+	Users:
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 113
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+	Exception caught in getResults: [1054 (42S22): Unknown column 'cust.CustomerNumber' in 'on clause']
+		FAIL: Error returned for Build SQL
+	Rule 205 failed.
+ 
+Rule 206:
+	Name: Concentrated positions over 40 percent
+	Description: Concentrated positions over 40 percent
+	Alert Text: Concentration alert.
+	Last changed on 06/12/2020 by Jeferson  Moreira (180)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Value of Holding Market Value is greater than Account Market Value * 40 percent
+		and Value of Client Type (text) is equal to Retail and Value of Account Market
+		Value is greater or equal to 1000
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Maria Andreina Diaz (186)
+		Mark David Edwards (2), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 185 results
+		Pass: Build SQL returned 185 results
+	Rule 206 passed.
+ 
+Rule 207:
+	Name: Wires from High Risk Countries
+	Description: Wires from countries with a BASEL Score above 7
+	Alert Text: Wires from countries with a BASEL Score above 6
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Inc. Wire/High Risk Country is greater than 7
+	Users:
+		Bartosz  Daszkiewicz (185), Donald One Lee (159), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 207 passed.
+ 
+Rule 208:
+	Name: Wires to High Risk Countries
+	Description: Wires to countries with a BASEL Score above 6
+	Alert Text: Wires to countries with a BASEL Score above 6
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Out. Wire/High Risk Country is greater than 6
+	Users:
+		Bartosz  Daszkiewicz (185), Donald One Lee (159), Maria Andreina Diaz (186)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 208 passed.
+ 
+Rule 209:
+	Name: Account Added to Excluded Accounts
+	Description: A new 50D account has been added to the excluded accounts table
+	Alert Text: A new account has been added to the excluded accounts table.
+	Last changed on 06/02/2021 by Mark David Edwards (2)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Excluded Account Number Age in Days is equal to 0
+	Users:
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 209 passed.
+ 
+Rule 210:
+	Name: Risk Level changed and Wire Activity Increases
+	Description: Risk Level changed and Wire Activity Increases
+	Alert Text: Customer Risk Level changed and Wire Activity Increased.
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Level and Wire Activity Increase is equal to true
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Maria Andreina Diaz (186)
+		Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 210 passed.
+ 
+Rule 211:
+	Name: Equity vs Net Worth
+	Description: indicates when equity in an account is higher than the stated net worth, triggering a review of the KYC
+	Alert Text: Review and update KYC and net worth information
+	Last changed on 07/16/2019 by Jeferson  Moreira (180)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Equity is greater than Net Worth
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 211 passed.
+ 
+Rule 212:
+	Name: Incoming wire transfers greater than 70% of net worth over 1 year
+	Description: Incoming wire transfers in the previous year adding to more than 70% of net worth
+	Alert Text: Incoming transfers greater than 70% of net worth over 1 year
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire is greater or equal to Net Worth * 70 percent over  a 365
+		day period
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 212 passed.
+ 
+Rule 213:
+	Name: Outgoing transfers greater than 70% of net worth over 1 year
+	Description: Outgoing transfers in the previous year adding to more than 70% of net worth
+	Alert Text: Outgoing transfers greater than 70% of net worth over 1 year
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire is greater or equal to Net Worth * 70 over  a 365 day
+		period
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 213 passed.
+ 
+Rule 214:
+	Name: Outgoing debit card transactions average of 12 months greater than 10
+	Description: Outgoing debit card transactions average of 12 months greater than 10
+	Alert Text: Outgoing debit card transactions average of 12 months greater than 10
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Avg of Outgoing Debit Card Transactions is greater than 10 and Value of Client
+		Type (text) is equal to Retail
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 47 results
+		Pass: Build SQL returned 47 results
+	Rule 214 passed.
+ 
+Rule 215:
+	Name: Incoming wires first party
+	Description: Incoming wires first party - working on this
+	Alert Text: Incoming wires first party
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Wire Type (text) is equal to Wire Transfer and Value of Direction
+		(text) is equal to deposit and Value of Party Indicator (text) is not equal to 3
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 139
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'TradeBlotter.PartyIndicator' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 1 results
+	Rule 215 failed.
+ 
+Rule 216:
+	Name: Incoming wires third party
+	Description: Incoming wires third party - working on
+	Alert Text: Incoming wires third party
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Wire Type (text) is equal to Wire Transfer and Value of Direction
+		(text) is equal to deposit and Value of Party Indicator (text) is equal to 3
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 139
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'TradeBlotter.PartyIndicator' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 216 failed.
+ 
+Rule 217:
+	Name: Incoming checks
+	Description: Incoming checks
+	Alert Text: Incoming checks
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Wire Type (text) is equal to Check deposit
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 217 passed.
+ 
+Rule 218:
+	Name: Outgoing checks
+	Description: Outgoing checks
+	Alert Text: Outgoing checks
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Wire Type (text) is equal to Check withdrawal
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 218 passed.
+ 
+Rule 219:
+	Name: Outgoing wires first party
+	Description: Outgoing wires first party
+	Alert Text: Outgoing wires first party
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Wire Type (text) is equal to Wire Transfer and Value of Direction
+		(text) is equal to withdrawal and Value of Party Indicator (text) is not equal
+		to 3
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 139
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'TradeBlotter.PartyIndicator' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 6 results
+	Rule 219 failed.
+ 
+Rule 220:
+	Name: Outgoing wires third party
+	Description: Outgoing wires third party
+	Alert Text: Outgoing wires third party
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Wire Type (text) is equal to Wire Transfer and Value of Direction
+		(text) is equal to withdrawal and Value of Party Indicator (text) is equal to 3
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 139
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'TradeBlotter.PartyIndicator' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 220 failed.
+ 
+Rule 221:
+	Name: Incoming wire transfers greater than 50% of income over 1 year
+	Description: Incoming wire transfers greater than 50% of income over 1 year
+	Alert Text: Incoming wire transfers greater than 50% of income over 1 year
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire is greater or equal to Income Level * 50 percent over  a
+		365 day period
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 221 passed.
+ 
+Rule 222:
+	Name: Outgoing wire transfers greater than 50% of income over 1 year
+	Description: Outgoing wire transfers greater than 50% of income over 1 year
+	Alert Text: Outgoing wire transfers greater than 50% of income over 1 year
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire is greater or equal to Income Level * 50 percent over  a
+		365 day period
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 6 results
+		Pass: Build SQL returned 6 results
+	Rule 222 passed.
+ 
+Rule 223:
+	Name: Incoming third party transfers > 5 over 1 year
+	Description: Incoming third party transfers > 5 over 1 year
+	Alert Text: Incoming third party transfers > 5 over 1 year
+	Last changed on 06/03/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Incoming Wire is greater than 5 over  a 365 day period and Value of
+		Party Indicator (text) is equal to 3
+	Users:
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 106
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 223 failed.
+ 
+Rule 224:
+	Name: Outgoing third party transfers > 5 over 1 year
+	Description: Outgoing third party transfers > 5 over 1 year
+	Alert Text: Outgoing third party transfers > 5 over 1 year
+	Last changed on 06/03/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Wire is greater than 5 over  a 365 day period and Value of
+		Party Indicator (text) is equal to 3
+	Users:
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 106
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 224 failed.
+ 
+Rule 225:
+	Name: Advisory Accounts - Stock commission greater than ticket charge $35
+	Description: Advisory Accounts - Stock commission greater than ticket charge $35
+	Alert Text: Advisory Accounts - Stock commission greater than ticket charge $35
+	Last changed on 09/24/2020 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Advisory Account (repcode) is equal to Y and Value of Commission is
+		greater than 35 and Value of Security Type (text) is equal to %Stock%
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Mark David Edwards (2)
+		Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1062
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 225 failed.
+ 
+Rule 226:
+	Name: Advisory Accounts - Mutual Fund commission greater than $35
+	Description: Advisory Accounts - Mutual Fund commission greater than $35
+	Alert Text: Advisory Accounts - Mutual Fund commission greater than $0
+	Last changed on 08/12/2019 by Marlo  Fullerton (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Advisory Account (repcode) is equal to Y and Value of Commission is
+		greater than 35 and Value of Security Type (text) is equal to Mutual Funds
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Mark David Edwards (2)
+		Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 43
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 226 failed.
+ 
+Rule 227:
+	Name: Outgoing debit card transactions > 120 over 12 months
+	Description: Outgoing debit card transactions > 120 over 12 months
+	Alert Text: Outgoing debit card transactions > 120 over 12 months
+	Last changed on 06/03/2019 by Bartosz  Daszkiewicz (185)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Count of Debit Card Transaction is greater than 120 over  a 365 day period and
+		Value of Direction (text) is equal to withdrawal
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 124
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 3837 results
+		Pass: Build SQL returned 3837 results
+	Rule 227 failed.
+ 
+Rule 228:
+	Name: Outgoing debit card transactions > 5 over 30 days
+	Description: Outgoing debit card transactions > 5 over 30 days
+	Alert Text: Outgoing debit card transactions > 5 over 30 days
+	Last changed on 06/03/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Debit Card Transaction is greater than 5 over  a 30 day period and
+		Value of Direction (text) is equal to withdrawal
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1163
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 42 results
+		Pass: Build SQL returned 42 results
+	Rule 228 failed.
+ 
+Rule 229:
+	Name: Sum of outgoing debit card transactions > $1000 over 30 days
+	Description: Sum of outgoing debit card transactions > $1000 over 30 days
+	Alert Text: Sum of outgoing debit card transactions > $1000 over 30 days
+	Last changed on 06/18/2019 by Bartosz  Daszkiewicz (185)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Sum of Debit Card Transaction Amount is greater than 1000 over  a 30 day period
+		and Value of Direction (text) is equal to withdrawal
+	Users:
+		Bartosz  Daszkiewicz (185), Maria Andreina Diaz (186), Mark David Edwards (2)
+		Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 620 results
+		Pass: Build SQL returned 620 results
+	Rule 229 passed.
+ 
+Rule 230:
+	Name: Repcode Not Managed
+	Description: Checks to see if a rep code is not on any users list
+	Alert Text: This repcode is not on any users list
+	Last changed on 06/03/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 0, Ignore RepCode: 1, Period: Daily
+	Conditions:
+		Value of Rep Code Not On List is equal to true
+	Users:
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 935 results
+		Pass: Build SQL returned 935 results
+	Rule 230 passed.
+ 
+Rule 231:
+	Name: Sum of outgoing debit card transactions > $2000 over 1 day
+	Description: Sum of outgoing debit card transactions > $000 over 1 day
+	Alert Text: Lal
+	Last changed on 06/18/2019 by Bartosz  Daszkiewicz (185)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Outgoing Debit Card Transactions is greater than 2000 over  a 1 day
+		period
+	Users:
+		Bartosz  Daszkiewicz (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 231 passed.
+ 
+Rule 232:
+	Name: Mutual Funds Switch - Buy and sell any mutal fund on the same day
+	Description: Mutual Funds Switch - Buy and sell any mutal fund on the same day
+	Alert Text: Mutual Funds Switch - Buy and sell any mutal fund on the same day
+	Last changed on 09/17/2019 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds and Value of Next Same
+		Day Flip Trade is not equal to 0
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 625
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 232 failed.
+ 
+Rule 233:
+	Name: High Fixed Income Markup Over 2%
+	Description: Fixed Income Markup Over 2%
+	Alert Text: High Fixed Income Markup Over 2%
+	Last changed on 07/29/2019 by Marlo  Fullerton (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Bonds and Value of Commission is
+		greater than Trade Principle * 2 percent
+	Users:
+		Bartosz  Daszkiewicz (185), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 775
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 233 failed.
+ 
+Rule 234:
+	Name: Advisory Accounts With Sales Credit > 0
+	Description: Advisory Accounts With Sales Credit > 0
+	Alert Text: Advisory Accounts With Sales Credit > 0
+	Last changed on 08/12/2019 by Marlo  Fullerton (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Bonds and Value of Commission is
+		greater than 0 and Value of Advisory Account (repcode) is equal to Y
+	Users:
+		Jeferson  Moreira (180), Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 237
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 234 failed.
+ 
+Rule 235:
+	Name: Non-Advisory Accounts With Sales Credit > 150bps
+	Description: Non-Advisory Accounts With Sales Credit > 150bps
+	Alert Text: Non-Advisory Accounts With Sales Credit > 150bps
+	Last changed on 09/17/2019 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to %Bond% and Value of Bond BPS is
+		greater than 150 and Value of Advisory Account (repcode) is equal to N
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Donald One Lee (159)
+		Marlo  Fullerton (183)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 155
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 235 failed.
+ 
+Rule 236:
+	Name: No Alerts in 30 Days
+	Description: Alerts when a Rule has not generated an Alert in the last 30 days
+	Alert Text: Rules that have not generated an Alert in 30 days
+	Last changed on 09/16/2019 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Value of Last Alert Age in Days is greater or equal to 30 or Value of Last Alert
+		Age in Days is equal to -1
+	Users:
+		Don Christopher Lee (3), fwtCO  Test (179), Jeferson  Moreira (180)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 54 results
+		Pass: Build SQL returned 54 results
+	Rule 236 passed.
+ 
+Rule 237:
+	Name: Concentration GREATER than 20%
+	Description: Concentration GREATER than 20%
+	Alert Text: Concentrated positions over 20 percent
+	Last changed on 06/11/2020 by Jeferson  Moreira (180)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Value of Holding Market Value is greater than Account Market Value * 20 percent
+		and Value of Account Market Value is greater than 1000
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 578 results
+		Pass: Build SQL returned 578 results
+	Rule 237 passed.
+ 
+Rule 238:
+	Name: Concentration GREATER than or equal to 20%
+	Description: Concentration GREATER than or equal to 20%
+	Alert Text: Concentration greater than or equaled to 20%
+	Last changed on 06/12/2020 by Jeferson  Moreira (180)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Holding Market Value is greater or equal to Account Market Value * 20
+		percent
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3), Jeferson  Moreira (180)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 607 results
+		Pass: Build SQL returned 607 results
+	Rule 238 passed.
+ 
+Rule 239:
+	Name: Concentration GREATER than or equaled to 40%
+	Description: Concentration GREATER than or equaled to 40%
+	Alert Text: Concentration less than or equaled to 40%
+	Last changed on 08/04/2020 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Value of Holding Market Value is greater or equal to Account Equity * 40 percent
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 160 results
+		Pass: Build SQL returned 160 results
+	Rule 239 passed.
+ 
+Rule 240:
+	Name: Concentration BETWEEN 20% and 40%
+	Description: Concentration BETWEEN 20% and 40%
+	Alert Text: Concentration between 20% and 40%
+	Last changed on 08/05/2020 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: every month
+	Conditions:
+		Value of Holding Market Value is greater or equal to Account Equity * 20 percent
+		and Value of Holding Market Value is less than Account Equity * 40 percent
+	Users:
+		Bartosz  Daszkiewicz (185), Don Christopher Lee (3)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 306 results
+		Pass: Build SQL returned 306 results
+	Rule 240 passed.
+ 
+Rule 241:
+	Name: Employee/Client Trading
+	Description: One or more Clients made a trade on the same day as an employee
+	Alert Text: Shows a list of trades where an employee and one or more clients made the same trade
+	Last changed on 07/31/2020 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Employee Trade is equal to Y and Value of Customer Has Employee
+		Trade is equal to Y
+	Users:
+		Don Christopher Lee (3), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 944
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 241 failed.
+ 
+Rule 242:
+	Name: Emp/Client Same Side Trading
+	Description: One or more clients made a trade on the same side as an employee at a worse price
+	Alert Text: One or more clients made a trade on the same side as an employee at a worse price
+	Last changed on 05/21/2020 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Employee Trade is equal to Y and Value of Customer Has Employee
+		Trade is equal to Y
+	Users:
+		Don Christopher Lee (3), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 944
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 242 failed.
+ 
+Rule 243:
+	Name: Emp/Client Opposite Trading
+	Description: One or more clients made a trade on the opposite side as an employee at a worse price
+	Alert Text: One or more clients made a trade on the opposite side as an employee at a worse price
+	Last changed on 05/21/2020 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Is Employee Trade is equal to Y and Value of Customer Opp Side Trade is
+		equal to Y
+	Users:
+		Don Christopher Lee (3), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1000
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 243 failed.
+ 
+Number of rules tested: 78 out of 78
+
+Done at 12:38:08

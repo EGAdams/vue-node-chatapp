@@ -1,0 +1,5142 @@
+rulesUnitTest starting at 06/07/2021% H:50:17...
+Testing all rules
+
+Rule 89:
+	Name: Incoming Wire amount > 70% of Net Worth
+	Description: Incoming Wire amount > 70% of Net Worth
+	Alert Text: Incoming wire amount significantly larger than customer's Net Worth.
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than Net Worth * 70 percent
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 89 passed.
+ 
+Rule 90:
+	Name: Incoming wire greater than 15% of Customer Stated Income
+	Description: Incoming wire greater than 15% of Customer Stated Income
+	Alert Text: Incoming wires larger than 15% of customer's Income Level
+	Last changed on 08/03/2020 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than Income Level * 15 percent
+	No users on this rule
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 90 passed.
+ 
+Rule 91:
+	Name: Outgoing Wire Amount greater than 80% of Account Equity
+	Description: Outgoing Wire Amount greater than 80% of Account Equity
+	Alert Text: Outgoing wires greater than 80% of Account Equity
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 80 percent
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 699
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1072 results
+		Pass: Build SQL returned 1 results
+	Rule 91 failed.
+ 
+Rule 92:
+	Name: When outgoing wire amount > 60% of account equity
+	Description: When outgoing wire amount > 60% of account equity
+	Alert Text: Outgoing wires larger than 30% of Account Equity
+	Last changed on 09/19/2019 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 60 percent
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 92 passed.
+ 
+Rule 93:
+	Name: When debit card Cash Advances > 30 % of account equity over 30 days
+	Description: When debit card Cash Advances > 30 % of account equity over 30 days
+	Alert Text: Large debit card withdrawals greater than 30% of Account Equity
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than Account Equity * 30
+		percent over  a 30 day period and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1207
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 93 failed.
+ 
+Rule 95:
+	Name: Low priced securities purchased less than $5.00
+	Description: Low priced securities purchased
+	Alert Text: Low priced security purchase.
+	Last changed on 05/20/2020 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less than 5 and Value of Security Type
+		(text) is equal to Stock and Value of Trade Flagged Party (text) is not equal to
+		Employee and Value of Trade Symbol Length is greater than 3
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Don Christopher Lee (3), Donald One Lee (159), James  Bello (180)	Mark David Edwards (2), Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1251
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 121 results
+		Pass: Build SQL returned 121 results
+	Rule 95 failed.
+ 
+Rule 97:
+	Name: Incoming wire greater than $100,000
+	Description: Incoming wire greater than $100,000
+	Alert Text: Large incoming wire transfers ($100,000 or more).
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 100000
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 397
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 436 results
+		Pass: Build SQL returned 0 results
+	Rule 97 failed.
+ 
+Rule 98:
+	Name: Outgoing Wire greater than $500,000
+	Description: Outgoing Wire greater than $500,000
+	Alert Text: Outgoing wire greater than $500,000.
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than 500000 and Value of Wire Type
+		(text) is equal to Wire Transfer
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Donald One Lee (159), James  Bello (180)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 687
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 98 failed.
+ 
+Rule 99:
+	Name: Outgoing Wire frequency greater than 5 per month
+	Description: Outgoing Wire frequency greater than 5 per month
+	Alert Text: More than 5 outgoing wires per month.
+	Last changed on 05/20/2020 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Wire is greater than 5 over  a 30 day period and Value of Wire
+		Type (text) is equal to Wire Transfer
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Donald One Lee (159), James  Bello (180), John  Coolong (182)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1242
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 99 failed.
+ 
+Rule 100:
+	Name: Low priced stock trade in elderly account
+	Description: Low priced stock trade in elderly account
+	Alert Text: Elderly client with a low priced stock
+	Last changed on 10/22/2020 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less or equal to 5 and Value of Customer Age
+		is greater than 70 and Value of Security Purchase Type (text) is equal to
+		%Stock%
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) James  Bello (180)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1096
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 11 results
+		Pass: Build SQL returned 11 results
+	Rule 100 failed.
+ 
+Rule 101:
+	Name: Security purchases greater than 10 per month
+	Description: Security purchases greater than 10 per month
+	Alert Text: 10 or more security purchases over the last month
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Security Purchase is greater than 10 over  a 30 day period and Value of
+		Security Type (text) is not equal to Money Market
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Donald One Lee (159)
+		James  Bello (180)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 70
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from TradeBlotter  join ( select CustomerInformation.ID as 'CustomerNumber' from' at line 1]
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 101 failed.
+ 
+Rule 104:
+	Name: Outgoing wire greater than  5% of account equity
+	Description: Outgoing wire greater than  5% of account equity
+	Alert Text: This account has outgoing wires greater than 5% of  Account Equity.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than Account Equity * 5 percent
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 700
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 3151 results
+		Pass: Build SQL returned 4 results
+	Rule 104 failed.
+ 
+Rule 105:
+	Name: Incoming wire greater than 50% of net worth
+	Description: Incoming wire greater than 50% of net worth
+	Alert Text: This account has incoming wire(s) greater than 50% of net worth
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than Net Worth * 50 percent
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 570
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 70 results
+		Pass: Build SQL returned 0 results
+	Rule 105 failed.
+ 
+Rule 106:
+	Name: Outgoing debit card transactions greater than 5 over 30 days
+	Description: Outgoing debit card transactions greater than 5 over 30 days
+	Alert Text: This account had 5 or more debit card cash advances over 30 days
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Debit Card Transactions is greater than 5 over  a 30 day
+		period
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 20
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 121 results
+		Pass: Build SQL returned 0 results
+	Rule 106 failed.
+ 
+Rule 120:
+	Name: Outgoing Debit Card Transaction > $5K
+	Description: Outgoing Debit Card Transaction > $5K
+	Alert Text: Large debit card transactions (over $5,000)
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Debit Card Transactions is greater than 5000
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 568
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 388 results
+		Pass: Build SQL returned 0 results
+	Rule 120 failed.
+ 
+Rule 128:
+	Name: High Risk customer outgoing wire transactions exceeding expected number
+	Description: High Risk customer outgoing wire transactions exceeding expected number
+	Alert Text: High Risk customer with wire transactions exceeding expected number.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Wire is greater than Anticipated # Wire Trans   over  a 30 day
+		period and Value of Risk Score is greater than 75
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 62
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'CustomerNumber' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 128 failed.
+ 
+Rule 129:
+	Name: High Risk Account Incoming Wire Alert greater than $50,000
+	Description: High Risk Account Incoming Wire Alert greater than $50,000
+	Alert Text: High Risk customer has an incoming wire greater than $50,000
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 50000 and Value of Risk Score is
+		greater than 75
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 539
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 129 failed.
+ 
+Rule 160:
+	Name: Concentrated positions greater than 60% of account equity
+	Description: Concentrated positions greater than 60% of account equity
+	Alert Text: This account has a concentrated position greater than 5% of account equity.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Holding Market Value is greater than Account Market Value * 60 percent
+		and Value of Account Equity is greater or equal to Account Market Value * 50
+		percent
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 217
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2284 results
+		Pass: Build SQL returned 2284 results
+	Rule 160 failed.
+ 
+Rule 178:
+	Name: Account Turnover Ratio Greater than 3 over 120 days
+	Description: Account Turnover Ratio Greater than 3 over 120 days
+	Alert Text: Please review this alert
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 3 over  a 120 day period
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 456
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 281 results
+		Pass: Build SQL returned 281 results
+	Rule 178 failed.
+ 
+Rule 179:
+	Name: High Risk account placing a trade
+	Description: High Risk account placing a trade
+	Alert Text: Please review this alert.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Trade Quantity is
+		greater or equal to 1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 55
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 179 failed.
+ 
+Rule 180:
+	Name: High Risk Account receiving a wire
+	Description: High Risk Account receiving a wire
+	Alert Text: Please review this alert.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Incoming Wire is
+		greater or equal to 1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 79
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 180 failed.
+ 
+Rule 181:
+	Name: Turnover Ratio > 2 in Long term growth Account
+	Description: Turnover Ratio is greater than 2 in an account with an investment objective  of Long term growth
+	Alert Text: Turnover ratio is greater than 2 in accounts with Long term growth investment objectives
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 2 and Value of Investment
+		Objective (text) is equal to Long term growth
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 684
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 23 results
+		Pass: Build SQL returned 23 results
+	Rule 181 failed.
+ 
+Rule 182:
+	Name: Turnover Ratio > 4 in Income Account
+	Description: The turnover ratio is greater than 4 in accounts with Income investment objectives.
+	Alert Text: Turnover ratio is greater than 4 in accounts with Income investment objectives.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 and Value of Investment
+		Objective (text) is equal to Income
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 674
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 182 failed.
+ 
+Rule 183:
+	Name: Turnover Ratio > 6 in Growth and Income accounts
+	Description: The turnover ratio is greater than 6 in an account with a Growth and Income investment objective
+	Alert Text: Turnover ratio is greater than 6 in an account with a Growth and Income investment objective
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 6 and Value of Investment
+		Objective (text) is equal to Growth and Income
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 183 passed.
+ 
+Rule 184:
+	Name: Turnover Ratio > 8 in Balanced account
+	Description: The turnover ratio is greater than 8 in an account with a Balanced account investment objective
+	Alert Text: Turnover ratio is greater than 8 in an account with a Balanced account investment objective
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 8 and Value of Investment
+		Objective (text) is equal to Balanced
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 676
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 184 failed.
+ 
+Rule 186:
+	Name: Turnover Ratio > 10 in Speculative account
+	Description: The turnover ratio is greater than 10 in an account with a Speculative investment objective
+	Alert Text: Turnover ratio is greater than 10 in an account with a Speculative investment objective
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 10 and Value of Investment
+		Objective (text) is equal to Speculative
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 186 passed.
+ 
+Rule 187:
+	Name: Turnover Ratio > 2 in Conservative account
+	Description: Turnover Ratio is greater than 2 in an account with an investment objective of Conservative
+	Alert Text: Turnover ratio is greater than 2 in accounts with Conservative investment objectives
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 2 and Value of Investment
+		Objective (text) is equal to Conservative
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 680
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 187 failed.
+ 
+Rule 188:
+	Name: Turnover Ratio > 4 in Moderate Account
+	Description: The turnover ratio is greater than 4 in accounts with Moderate investment objectives
+	Alert Text: Turnover ratio is greater than 4 in accounts with Moderate investment objectives
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 and Value of Investment
+		Objective (text) is equal to Moderate
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 676
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 188 failed.
+ 
+Rule 189:
+	Name: Commissions to Equity Ratio is between 12.5 and 14.99
+	Description: The commissions to equity ratio is between 12.5 and 14.99
+	Alert Text: The commissions to equity ratio is between 12.5 and 14.99
+	Last changed on 09/19/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between12.5 and 14.99
+	Users:
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 189 passed.
+ 
+Rule 190:
+	Name: Commissions to Equity Ratio is between 15 and 17.49
+	Description: The commissions to equity ratio is between 15 and 17.49
+	Alert Text: The commissions to equity ratio is between 15 and 17.49
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission/Equity Ratio is between15 and 17.49
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 343
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 190 failed.
+ 
+Rule 191:
+	Name: Flat CommEQ Ratio greater than 20% with a trade
+	Description: The flat commissions to equity ratio is greater than 20% and a trade was made on the last business day
+	Alert Text: The commissions to equity ratio is greater than 20% and a trade was made on the last business day
+	Last changed on 09/19/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Flat COA With Trade Purchase is greater or equal to 0.2
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		John  Coolong (182), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 191 passed.
+ 
+Rule 192:
+	Name: Turnover Ratio > 10
+	Description: Turnover Ratio > 10
+	Alert Text: Turnover Ratio is greater than 10
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 10
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 67 results
+		Pass: Build SQL returned 67 results
+	Rule 192 passed.
+ 
+Rule 194:
+	Name: PEP trade over 30 days
+	Description: PEP conducting a trade over 30 days
+	Alert Text: Please review alert
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Political Exposed Person (text) is equal to PEP and Count of Trade
+		Quantity is greater or equal to 1 or Count of Account Age In Days is greater
+		than 1 over  a 30 day period
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 113
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '', cust.CustomerNumber  from IndividualAccount  join ( select CustomerInformatio' at line 1]
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 194 failed.
+ 
+Rule 195:
+	Name: PEP Wire over 30 days
+	Description: PEP wire over 30 days
+	Alert Text: Please review alert
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Political Exposed Person (text) is equal to PEP and Count of Wires is
+		greater than 1 over  a 30 day period and Value of Client Type (text) is equal to
+		Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 129
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 195 failed.
+ 
+Rule 201:
+	Name: High Risk Customer Conducted Security Transaction
+	Description: High Risk Customer Conducted Security Transaction
+	Alert Text: High Risk Customer Conducted Security Transaction.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater than 75 and Count of Security Transaction is
+		greater or equal to 1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 55
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 201 failed.
+ 
+Rule 203:
+	Name: High Risk Customers Conducting Outgoing Wire Transaction
+	Description: High Risk Customers Conducting Outgoing Wire Transaction
+	Alert Text: High Risk Customers Conducting Outgoing Wire Transaction
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Risk Score is greater or equal to 75 and Count of Outgoing Wire is
+		greater or equal to 1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 79
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 203 failed.
+ 
+Rule 205:
+	Name: High Risk account debit card withdrawals
+	Description: High Risk account with  more than 1 debit card withdrawals
+	Alert Text: High Risk account with more than 1 debit card withdrawals.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Debit Card Withdrawal is greater than 1 and Value of Risk Level (text)
+		is equal to High
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 20
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 205 failed.
+ 
+Rule 206:
+	Name: Account Equity drops by 10% from previous day
+	Description: Account Equity drop of 10% or more
+	Alert Text: Account Equity drop of 10% or more.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Equity Drop is greater than 0.1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 795
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 29 results
+		Pass: Build SQL returned 29 results
+	Rule 206 failed.
+ 
+Rule 207:
+	Name: High Fixed Income Markup
+	Description: Fixed Income Markup Over 2.5%
+	Alert Text: High Fixed Income Markup.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Bonds and Value of Commission is
+		greater than Trade Principle * 2.5 percent
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 202
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 207 failed.
+ 
+Rule 208:
+	Name: Structured Deposits
+	Description: Three or more low value deposits in 30 days
+	Alert Text: Three or more deposits under $10,000 in last 30 days
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Cash Deposit is greater or equal to 3 over  a 30 day period and Value
+		of Cash Deposit is less than 10000
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 20
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 13 results
+		Pass: Build SQL returned 0 results
+	Rule 208 failed.
+ 
+Rule 209:
+	Name: Employee Trade
+	Description: Trades made by employees
+	Alert Text: Trades made by employees.
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Flagged Party (text) is equal to Employee and Value of Security
+		Type (text) is not equal to Money Market
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Donald One Lee (159), James  Bello (180), John  Coolong (182)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 734
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 4 results
+		Pass: Build SQL returned 4 results
+	Rule 209 failed.
+ 
+Rule 210:
+	Name: Check Withdrawals
+	Description: Account Check Withdrawals
+	Alert Text: Check Withdrawals
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Check Withdrawal is greater than 1
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 210 passed.
+ 
+Rule 211:
+	Name: Mutual Fund Purchase
+	Description: Fires on any MF purchase
+	Alert Text: A Mutual Fund has been purchased..
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds and Value of Buy/Sell
+		Code is equal to B
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 508
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 748 results
+		Pass: Build SQL returned 0 results
+	Rule 211 failed.
+ 
+Rule 212:
+	Name: Mutual Fund Buy/Sell Alert
+	Description: Alerts when mutual funds are purchased and sold within 90 days regardless of fund family.
+	Alert Text: A Mutual Fund has been bought or sold
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds over  a 90 day period and
+		Value of Buy/Sell Code is equal to B over  a 90 day period or Value of Buy/Sell
+		Code is equal to S over  a 90 day period
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 387
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'TradeBlotter2.BuySellCode' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 201 results
+	Rule 212 failed.
+ 
+Rule 213:
+	Name: Concentrated bond positions greater than 25% of account equity
+	Description: Concentrated positions greater than 25% of account equity
+	Alert Text: This account has a concentrated position greater than 25% of account equity
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Holding Bond is greater than Account Equity * 25 percent and Value of
+		Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 937
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 213 failed.
+ 
+Rule 214:
+	Name: Turnover Ratio > 8 in High Risk account
+	Description: The turnover ratio is greater than 8 in an account with a High Risk tolerance
+	Alert Text: Turnover ratio is greater than 8 in an account with a High Risk tolerance.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 8 and Sum of Risk Tolerance is
+		equal to High Risk
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 129
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+	Exception caught in getResults: [1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' .ID, .DateAdded from InvestmentProfile     ) union  ( select  InvestmentProfile' at line 1]
+		FAIL: Error returned for Build SQL
+	Rule 214 failed.
+ 
+Rule 215:
+	Name: Turnover Ratio > 8 in Unknown account
+	Description: The turnover ratio is greater than 8 in an account with an Unknown risk tolerance
+	Alert Text: Turnover ratio is greater than 8 in an account with an Unknown risk tolerance
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 8 and Value of Risk Tolerance is
+		equal to Unknown
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 650
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 215 failed.
+ 
+Rule 216:
+	Name: Turnover Ratio > 4 in Conservative account
+	Description: Turnover Ratio is greater than 4 in an account with risk tolerance of Conservative
+	Alert Text: Turnover ratio is greater than 4 in accounts with Conservative risk tolerance
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 4 and Value of Risk Tolerance is
+		equal to Conservative
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 655
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 216 failed.
+ 
+Rule 217:
+	Name: Turnover Ratio > 6 in Moderate Account
+	Description: The turnover ratio is greater than 6 in accounts with Moderate risk tolerance
+	Alert Text: Turnover ratio is greater than 6 in accounts with Moderate risk tolerance
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater than 6 and Value of Risk Tolerance is
+		equal to Moderate
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 651
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 6 results
+		Pass: Build SQL returned 6 results
+	Rule 217 failed.
+ 
+Rule 221:
+	Name: PEP Wire over 30 days
+	Description: PEP Wire over 30 days
+	Alert Text: PEP Wire over the last 30 days
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Count of Wires is greater than 1 and
+		Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 107
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 221 failed.
+ 
+Rule 222:
+	Name: Option security purchased in low risk account
+	Description: Option security purchased in low risk account based on customer investment profile
+	Alert Text: Option security purchased in low risk account based on customer investment profile.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Options Purchase is greater or equal to 1 and Value of Risk Tolerance
+		is equal to Conservative and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 927
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 222 failed.
+ 
+Rule 224:
+	Name: Elderly customer investing in options
+	Description: Customer 65 and older purchasing options
+	Alert Text: Customer 65 and older purchasing options
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Security Type (text) is equal to Options and Value of Customer Age is
+		greater or equal to 65 and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 20
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 224 failed.
+ 
+Rule 225:
+	Name: Customer deposits between $9500 and $9999
+	Description: Customer deposits just below the $10,000 threshold
+	Alert Text: Customer deposits just below the $10,000 threshold.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Customer Deposits is between9500 and 9999 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 559
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 225 failed.
+ 
+Rule 226:
+	Name: Cash advances over 30 days greater than 30% of account equity
+	Description: Outgoing Cash advances ATM card greater than 30% of account equity over 30 days.
+	Alert Text: Outgoing Cash advances ATM card greater than 30% of account equity over 30 days.
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Outgoing Debit Card Cash Advances is greater than Account Equity * 30
+		percent over  a 30 day period and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 8
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 226 failed.
+ 
+Rule 227:
+	Name: Outgoing Checks over 30 days greater than 30% of account equity
+	Description: Outgoing Checks over 30 days greater than 30% of account equity
+	Alert Text: Outgoing Checks over 30 days greater than 30% of account equity
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Outgoing Debit Card Check is greater than Account Equity * 30 percent
+		over  a 30 day period and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 8
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 227 failed.
+ 
+Rule 228:
+	Name: Low priced security deposit (Journal)
+	Description: Low priced security deposit less than $5.00 (Journal)
+	Alert Text: Low priced security deposit less than $5.00 (Journal)
+	Last changed on 01/19/2021 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Transfer Price is between0.01 and 5 and Value of Wire Type (text) is
+		equal to Journal and Value of Direction (text) is equal to deposit and Value of
+		Transfer Market Symbol (text) is not equal to
+	Users:
+		Don Christopher Lee (3)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 9 results
+		Pass: Build SQL returned 9 results
+	Rule 228 passed.
+ 
+Rule 229:
+	Name: Deposit and subsequent wires in accounts marked long term
+	Description: Deposit and subsequent wires in accounts marked long term
+	Alert Text: Deposit and subsequent wires in accounts marked long term
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Customer Deposits is greater or equal to 2 over  a 30 day period and
+		Count of Wires is greater or equal to 2 over  a 30 day period and Value of
+		Investment Objective (text) is equal to Long term growth
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 20
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'WireTransfer2.ID' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 11 results
+	Rule 229 failed.
+ 
+Rule 230:
+	Name: Account Turnover Ratio Greater than 3 over 120 days
+	Description: Account Turnover Ratio Greater than 3 over 120 days
+	Alert Text: Account Turnover Ratio Greater than 3 over 120 days.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Turnover Ratio is greater or equal to 3 over  a 120 day period
+		and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 136
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 230 failed.
+ 
+Rule 231:
+	Name: Low priced security purchased in Low Risk account
+	Description: Low priced security purchased in accounts with low risk tolerance
+	Alert Text: Low priced security purchased in accounts with low risk tolerance
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Price is less or equal to 2 and Value of Risk
+		Tolerance is equal to Conservative and Value of Client Type (text) is equal to
+		Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 915
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 231 failed.
+ 
+Rule 232:
+	Name: High Risk Account Incoming Wire Alert greater than $50,000
+	Description: High Risk Account Incoming Wire Alert greater than $50,000
+	Alert Text: High Risk Account Incoming Wire Alert greater than $50,000
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 50000 and Value of Risk Level
+		(text) is equal to High and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 799
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 232 failed.
+ 
+Rule 233:
+	Name: Outgoing debit card transactions with no securities purchases over 30 days
+	Description: Customer use of debit card with no securities purchased over a 30 days period.
+	Alert Text: Customer use of debit card with no securities purchased over a 30 days period.
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Debit Card Transactions is greater than 1 over  a 30 day
+		period and Count of Security Purchase is equal to 0 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 26
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 233 failed.
+ 
+Rule 234:
+	Name: Incoming Wire and Outgoing Wire less than 30 days
+	Description: Incoming wire and subsequent outgoing wire within 30 days of deposit; replaced with rule # 421
+	Alert Text: Incoming wire and subsequent outgoing wire within 30 days of deposit.
+	Last changed on 04/29/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Incoming Wire Amount is greater than 0 over  a 30 day period and Sum of
+		Outgoing Wire Amount is greater than 0 over  a 30 day period
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Donald One Lee (159)
+		Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 234 passed.
+ 
+Rule 235:
+	Name: Incoming Security Deposit, Liquidation and Outgoing Wire within 30 days
+	Description: Security Deposit, subsequent liquidation and outgoing wire all within 30 days of deposit.
+	Alert Text: Security Deposit, subsequent liquidation and outgoing wire all within 30 days of deposit.
+	Last changed on 09/19/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Sum of Account Age In Days is greater than Sum Account Age In Days
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Donald One Lee (159), FWT  Testing (184), James  Bello (180)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 8
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '))  order by cust.CustomerNumber' at line 1]
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 235 failed.
+ 
+Rule 236:
+	Name: Stock Trade Cost greater than 2.5% in Retail account
+	Description: Stock Trade Cost greater than 2.5% in Retail account
+	Alert Text: Stock Trade Cost greater than 2.5% in Retail account
+	Last changed on 01/19/2021 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Cost is greater than Security Purchase * 2.0001 percent and Value
+		of Security Type (text) is equal to %Stock% and Value of Client Type (text) is
+		equal to Retail and Value of Trade Cost is greater than 25
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Donald One Lee (159), James  Bello (180)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1302
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 236 failed.
+ 
+Rule 237:
+	Name: Expiring IDs
+	Description: IDs expiring within 30 days
+	Alert Text: IDs expiring within 30 days.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Days Until ID Expiration is between0 and 30 and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 679
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 237 failed.
+ 
+Rule 238:
+	Name: SAR Filing Reminder
+	Description: SAR Filing reminder 30 days after date of suspicion
+	Alert Text: SAR Filing reminder 30 days after date of suspicion.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Investigation Age is greater than 30
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 183
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 238 failed.
+ 
+Rule 239:
+	Name: Account Value exceeds stated Net Worth
+	Description: Account Value exceeds stated Net Worth
+	Alert Text: Account Value exceeds stated Net Worth.
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Equity is greater than Net Worth   and Value of Client Type
+		(text) is equal to Retail
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 239 passed.
+ 
+Rule 240:
+	Name: Wires in accounts domiciled in high risk jurisdictions
+	Description: Customer wires in accounts in High Risk Countries (Basel Score >= 6.501)
+	Alert Text: Customer wires in accounts in High Risk Countries (Basel Score >= 6.501)
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Wires is greater or equal to 1 and Value of Basel Score is greater or
+		equal to 6.501 and Value of Client Type (text) is equal to Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 36
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 240 failed.
+ 
+Rule 241:
+	Name: Account Added
+	Description: Shows accounts that were automatically added
+	Alert Text: Shows accounts that were automatically added
+	Last changed on 03/25/2020 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account System Age In Days is equal to 0
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 92
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 241 failed.
+ 
+Rule 242:
+	Name: Purchases greater than 40% of account equity in low risk
+	Description: Concentration alert for purchases greater than 40% of account equity in low risk
+	Alert Text: Concentration alert for purchases greater than 40% of account equity in low risk
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is greater than Account Equity * 40 percent and Value
+		of Client Type (text) is equal to Retail and Value of Risk Level (text) is equal
+		to Low
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 8
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 242 failed.
+ 
+Rule 243:
+	Name: Outgoing debit card transactions with no securities purchases over 30 days
+	Description: Customer use of debit card with no securities purchased over a 60 days period.
+	Alert Text: Customer use of debit card with no securities purchased over a 60 days period.
+	Last changed on 09/19/2019 by NA
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Debit Card Transactions is greater or equal to 1 and Count of
+		Security Purchase is equal to 0 and Value of Client Type (text) is equal to
+		Retail
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 20
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 243 failed.
+ 
+Rule 244:
+	Name: Stock concentration > 30% in low tolerance risk account (34 years old)
+	Description: Stock concentration > 30% in low tolerance risk account (34 years old)
+	Alert Text: Stock concentration > 30% in low tolerance risk account (34 years old)
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Equity is greater than Account Market Value * 30 percent and
+		Value of Holding Type (text) is equal to Stock and Value of Customer Age is less
+		or equal to 34 and Value of Risk Tolerance is equal to Conservative
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1288
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 244 failed.
+ 
+Rule 245:
+	Name: PEP trade in low priced security
+	Description: PEP trade in low priced security
+	Alert Text: PEP trade in low priced security.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of PEP Account is equal to Y and Count of Security Transaction is greater
+		or equal to 1 and Value of Client Type (text) is equal to Retail and Sum of
+		Account Age In Days is greater than Sum Account Age In Days
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 91
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '', TIMESTAMPDIFF( DAY,  Account4.RecordOpenedDt,  CURDATE()) as 'Account Age' ',' at line 1]
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 245 failed.
+ 
+Rule 246:
+	Name: Wash Trade
+	Description: When the value of a purchase transaction = sale transation
+	Alert Text: Wash Trade Alert.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is equal to Security Sale   and Value of Account Cash
+		Balance is greater than Sum Account Cash Balance
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 8
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '))  order by cust.CustomerNumber, TradeBlotter.ID desc, AccountBalance.Type1Bala' at line 1]
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 0 results
+	Rule 246 failed.
+ 
+Rule 247:
+	Name: Incoming Wire in PEP account
+	Description: Incoming wire transaction conducted by account marked PEP
+	Alert Text: Incoming wire transaction conducted by account marked PEP.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Political Exposed Person (text) is equal to Yes and Count of Incoming
+		Wire is greater or equal to 1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 137
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 247 failed.
+ 
+Rule 248:
+	Name: Outgoing Wire in PEP account
+	Description: Outgoing wire transaction conducted by account marked PEP
+	Alert Text: Outgoing wire transaction conducted by account marked PEP.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Political Exposed Person (text) is equal to Yes and Value of Outgoing
+		Wire is greater or equal to 1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 729
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 248 failed.
+ 
+Rule 249:
+	Name: Transaction in PEP account
+	Description: Any transaction conducted by account marked PEP
+	Alert Text: Any transaction conducted by account marked PEP.
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Political Exposed Person (text) is equal to Yes and Count of Security
+		Transaction is greater or equal to 1
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 113
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 249 failed.
+ 
+Rule 250:
+	Name: Number of security transactions exceeding expected number
+	Description: Accounts with security transactions exceeding stated expected amount of securities trades.
+	Alert Text: Accounts with security transactions exceeding stated expected amount of securities trades
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Security Transaction is greater than Anticipated # Security Trans
+		over  a 30 day period
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 20
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1054 (42S22): Unknown column 'CustomerNumber' in 'field list']
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 480 results
+	Rule 250 failed.
+ 
+Rule 251:
+	Name: Account purchase greater than 60% of account equity
+	Description: Concentration alert for purchases greater than 60% of account equity
+	Alert Text: Concentration alert for purchases greater than 60% of account equity
+	Last changed on 09/19/2019 by Donald One Lee (159)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase is greater than Account Equity * 5 percent
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 8
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 91881 results
+		Pass: Build SQL returned 142 results
+	Rule 251 failed.
+ 
+Rule 252:
+	Name: Big Option alert - transaction quantity greater than 50 contracts
+	Description: Big Option alert
+	Alert Text: Big Option alert
+	Last changed on 06/21/2021 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Quantity is greater than 50 and Value of Security Type (text) is
+		equal to Options
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Don Christopher Lee (3), James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 582
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 252 failed.
+ 
+Rule 253:
+	Name: Incoming wire alert - 2 in Same Day
+	Description: where the incoming wire count is greater than 1 - 2 in Same Day
+	Alert Text: Please review alert
+	Last changed on 09/19/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Incoming Wire is greater than 1
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Don Christopher Lee (3), James  Bello (180), Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 253 passed.
+ 
+Rule 254:
+	Name: Outgoing wire alert - 2 in Same Day
+	Description: Where the count of outgoing wires is greater than 1 - 2 in Same Day
+	Alert Text: Please review  alert
+	Last changed on 09/19/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Count of Outgoing Wire is greater than 1
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Don Christopher Lee (3), James  Bello (180)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 254 passed.
+ 
+Rule 255:
+	Name: ETF Holding Age
+	Description: Shows ETF holdings that are 5 days old or older
+	Alert Text: ETF Holding held longer than 5 days.
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of ETF Holding Age is greater or equal to 5
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Don Christopher Lee (3), James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 255 passed.
+ 
+Rule 256:
+	Name: Big Options Report  Purchase and Sale > 200 contracts
+	Description: Options transactions with contracts greater than 200
+	Alert Text: Option transactions with contracts greater than 200
+	Last changed on 03/25/2020 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Quantity is greater than 200 and Value of Security Type (text) is
+		equal to options
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Don Christopher Lee (3), FWT  Testing (184)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 583
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 256 failed.
+ 
+Rule 257:
+	Name: New Account Opened and Customer Age > 70
+	Description: New Account Opened and Customer Age > 70
+	Alert Text: New Account Opened and Customer Age > 70
+	Last changed on 09/19/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account System Age In Days is equal to 0 and Value of Customer Age is
+		greater or equal to 70
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 168
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 257 failed.
+ 
+Rule 258:
+	Name: Mutual Fund purchase and sale within 3 days
+	Description: A Mutual Fund purchase followed by a sell within 3 days
+	Alert Text: A Mutual Fund has been bought and sold within 3 days
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Purchase Type (text) is equal to Mutual Funds and Value of
+		Next Position Trade Buy/Sell is equal to S and Value of Next Position Trade Time
+		(days) is between0 and 3 and Value of Next Position Trade ID is greater than 0
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Don Christopher Lee (3), James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 702
+
+	Running both versions of the SQL...
+	Exception caught in getResults: [1052 (23000): Column 'BuySellCode' in where clause is ambiguous]
+		FAIL: Error returned for DB SQL
+		Pass: Build SQL returned 9 results
+	Rule 258 failed.
+ 
+Rule 259:
+	Name: Employee Trade
+	Description: Trades made by Employees
+	Alert Text: Trades made by Employees
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Flagged Party (text) is equal to Employee and Value of Security
+		Type (text) is not equal to Money Market
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Don Christopher Lee (3)
+		James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 646
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 6067 results
+		Pass: Build SQL returned 4 results
+	Rule 259 failed.
+ 
+Rule 260:
+	Name: Option Commission greater than 4%
+	Description: Option Commission greater than 4%
+	Alert Text: The commission on the option trade is greater than 4% of the principal
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 4 percent and Value of
+		Security Type (text) is equal to Options
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) FWT  Testing (184), James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 797
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 260 failed.
+ 
+Rule 261:
+	Name: Commission > 1% for Active Client - Edited by Laidlaw
+	Description: The commission is higher than 1 percent on trade for an active client; ###MRF moved to Exclusions. rule turned off.
+	Alert Text: Commission over 1% for an active client
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 1.1 percent and Value of
+		Client Type (text) is equal to Active
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 848
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 261 failed.
+ 
+Rule 262:
+	Name: Equity Commission greater than 2.6%
+	Description: The commission on a stock trade is greater than 2.6% of the principal
+	Alert Text: The commission for this equity trade is greater than 2.5% of the principal
+	Last changed on 09/24/2020 by FWT  Testing (184)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 2.6 percent and Value of
+		Security Type (text) is equal to %Stock%
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 798
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 262 failed.
+ 
+Rule 263:
+	Name: Inventory account with closing balance > $0
+	Description: An inventory account has an Account Equity value greater than 0
+	Alert Text: This inventory account has an equity value greater than $0.00
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Account Equity is greater than 0 and Value of Client Type (text) is
+		equal to Inventory
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 263 passed.
+ 
+Rule 264:
+	Name: Mutual Fund sold on Previous Business Day
+	Description: A mutual fund was sold on the previous Business Day
+	Alert Text: A mutual fund was sold yesterday
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Age (days) is equal to 1 and Value of Security Type (text) is
+		equal to Mutual Funds
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 634
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 264 failed.
+ 
+Rule 265:
+	Name: Mutual Fund sold between 2 and 15 days ago
+	Description: A Mutual Fund has been sold between 2 and 15 days ago
+	Alert Text: A Mutual Fund has been sold between 2 and 15 days ago
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Age (days) is between2 and 15 and Value of Security Type (text)
+		is equal to Mutual Funds and Value of Security Sale is greater than 0
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 2 results
+		Pass: Build SQL returned 2 results
+	Rule 265 passed.
+ 
+Rule 266:
+	Name: Mutual Fund Switch within 3 Days
+	Description: A Mutual Fund has been switched within 3 days
+	Alert Text: A mutual fund was switched within 3 days
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Security Type (text) is equal to Mutual Funds and Value of Next Flip
+		Trade Age (Days) is between0 and 3 and Value of Next Flip Trade is not equal to
+		0
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Don Christopher Lee (3), James  Bello (180), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 30 results
+		Pass: Build SQL returned 30 results
+	Rule 266 passed.
+ 
+Rule 268:
+	Name: ATOM traded
+	Description: ATOM Traded
+	Alert Text: The restricted stock ATOM has been traded.
+	Last changed on 01/19/2021 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Market Symbol (text) is equal to ATOM
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		John  Coolong (182), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 268 passed.
+ 
+Rule 269:
+	Name: Backup Withholdings
+	Description: Backup withholdings over $1
+	Alert Text: Backup withholdings in this account over $1
+	Last changed on 09/19/2019 by Mark David Edwards (2)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Wire Description (text) is equal to %TAX - 24% BACKUP WITHHOLDING and
+		Value of Wire Amount is greater than 100
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 612
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 269 failed.
+ 
+Rule 270:
+	Name: unsolicited Employee Trade
+	Description: An employee has made an unsolicited trade
+	Alert Text: Unsolicited Trade in an employee's account
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Flagged Party (text) is equal to Employee and Value of Solicited
+		Trade is equal to N
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 691
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 270 failed.
+ 
+Rule 271:
+	Name: Trades with a loss and commission > $100
+	Description: Commission greater than 100 on a loss
+	Alert Text: Commission greater than 100 on a loss
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Profit/Loss is less than 0 and Value of Commission is greater
+		than 100 and Value of Security Sale is greater than 0 and Value of Security Type
+		(text) is not equal to Money Market
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1175
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 271 failed.
+ 
+Rule 272:
+	Name: Testing Recode Trade Quantities
+	Description: Testing repcode trade quantities over a certain amount
+	Alert Text: Repcode trade quantity exceeded
+	Last changed on 04/21/2020 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Quantity is greater than 2 and Value of Rep Code is equal to WK%
+	Users:
+		Donald One Lee (159)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 24726 results
+		Pass: Build SQL returned 24726 results
+	Rule 272 passed.
+ 
+Rule 273:
+	Name: High Priced Trade
+	Description: Trade with a value over 100k
+	Alert Text: Very high priced trade
+	Last changed on 09/19/2019 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Principle is greater or equal to 100000 and Value of Security
+		Type (text) is not equal to Money Market
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 627
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 35 results
+		Pass: Build SQL returned 35 results
+	Rule 273 failed.
+ 
+Rule 274:
+	Name: Active account commission >1.5% for 40346887
+	Description: Active account commission >1.5% for 40346887; ###MRF moved to exclusions, rule turned off
+	Alert Text: Active account commission >1.5% for 40346887
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.5 percent and
+		Value of AccountNumber is equal to 40346887
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Don Christopher Lee (3)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 274 failed.
+ 
+Rule 275:
+	Name: Commission is > 1.5% for Active Client - Edited by Laidlaw
+	Description: Commission is > 1.5% for Active Client; ###MRF moved to exclusions, rule turned off
+	Alert Text: Commission is > 1.5% for Active Client
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 1.55 percent and Value of
+		AccountNumber is equal to 40346887 or Value of AccountNumber is equal to
+		13681884
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1005
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 275 failed.
+ 
+Rule 276:
+	Name: Commission is > 1.25% for Active Client - Edited by Laidlaw
+	Description: Commission is > 1.25% for Active Client 52672970; moved to exclusions
+	Alert Text: Commission is > 1.25% for Active Client
+	Last changed on 02/10/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 1.26 percent and Value of
+		AccountNumber is equal to 52672970
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 276 failed.
+ 
+Rule 277:
+	Name: Commission is > 2% for Active Client - Edited by Laidlaw
+	Description: Commission is > 2% for Active Client; ###MRF moved to exclusions, rule turned off
+	Alert Text: Commission is > 2% for Active Client
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 2.1 percent and Value of
+		AccountNumber is equal to 32915602
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Dolphin  Rose (173), Mark David Edwards (2)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 860
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 277 failed.
+ 
+Rule 278:
+	Name: Repcode Not Managed
+	Description: Checks to see if a rep code is not on any users list
+	Alert Text: This repcode is not on any users list
+	Last changed on 09/19/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Risk, Active: 0, Only New Data: 0, Ignore RepCode: 1, Period: Daily
+	Conditions:
+		Value of Rep Code Not On List is equal to true
+	Users:
+		Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 6672 results
+		Pass: Build SQL returned 6672 results
+	Rule 278 passed.
+ 
+Rule 279:
+	Name: Commission is > 1% for Active Client - Edited by Laidlaw
+	Description: Commission is > 1% for Active Client - Edited by Laidlaw; ###MRF moved to exclusions, rule turned off
+	Alert Text: Commission is > 1% for Active Client - Edited by Laidlaw
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 1.1 percent and Value of
+		AccountNumber is equal to 26817401
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 860
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 279 failed.
+ 
+Rule 282:
+	Name: Commission is >1.1% for Active Client Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client 15033253; ###MRF moved to exclusions, turned rules off
+	Alert Text: Commission is >1.1% for Active Client 15033253
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 15033253
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 282 failed.
+ 
+Rule 283:
+	Name: Commission is >1.1% for Active Client Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client 16638698; ###MRF moved to exclusions
+	Alert Text: Commission is >1.1% for Active Client 16638698
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 16638698
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 283 failed.
+ 
+Rule 284:
+	Name: Commission is >1.5% for Active Client Edited by Laidlaw
+	Description: Commission is >1.5% for Active Client 22856262; ###MRF moved to exclusions
+	Alert Text: Commission is >1.5% for Active Client 22856262
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.5 percent and
+		Value of AccountNumber is equal to 22856262
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 284 failed.
+ 
+Rule 285:
+	Name: Commission is >1.1% for Active Client Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client 24290582
+	Alert Text: Commission is >1.1% for Active Client 24290582
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 24290582
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 285 failed.
+ 
+Rule 286:
+	Name: Commission is >1.5% for Active Client Edited by  Laidlaw
+	Description: Commission is >1.5% for Active Client 28200256; ### moved to exclusions
+	Alert Text: Commission is >1.5% for Active Client 28200256
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.5 percent and
+		Value of AccountNumber is equal to 28200256
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 286 failed.
+ 
+Rule 287:
+	Name: Commission is >2% for Active Client Edited by Laidlaw
+	Description: Commission is >2% for Active Client 41859883; ### moved to exclusions
+	Alert Text: Commission is >2% for Active Client 41859883
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 2 percent and Value of
+		AccountNumber is equal to 41859883
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 859
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 287 failed.
+ 
+Rule 288:
+	Name: Commission is >1.5% for Active Client Edited by Laidlaw
+	Description: Commission is >1.5% for Active Client 42978611; ### moved to exclusions
+	Alert Text: Commission is >1.5% for Active Client 42978611
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.5 percent and
+		Value of AccountNumber is equal to 42978611
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 288 failed.
+ 
+Rule 289:
+	Name: Commission is >1.1% for Active Client Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client 74903839; ### moved to exclusions
+	Alert Text: Commission is >1.1% for Active Client 74903839
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 74903839
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 289 failed.
+ 
+Rule 290:
+	Name: Commission is >1.1% for Active Client Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client 33702742; ### moved to exclusions
+	Alert Text: Commission is >1.1% for Active Client 33702742
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 33702742
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 290 failed.
+ 
+Rule 291:
+	Name: Commission is >1.1% for Active Client Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client 70347846; ### moved to exclusions
+	Alert Text: Commission is >1.1% for Active Client 70347846
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 70347846
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 291 failed.
+ 
+Rule 292:
+	Name: Commission is >1.5% for Active Client Edited by Laidlaw
+	Description: Commission is >1.5% for Active Client 72975887; turned off. changed to 2% and moved to exclusions.
+	Alert Text: Commission is >1.5% for Active Client 72975887
+	Last changed on 02/11/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.6 percent and
+		Value of AccountNumber is equal to 72975887
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 292 failed.
+ 
+Rule 293:
+	Name: Commission Greater than 100 for Active Account - Edited by Laidlaw
+	Description: Commission greater than 100 for account 42153356; ### moved to exclusions
+	Alert Text: Commission greater than 100 for account 42153356
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 42153356
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 293 passed.
+ 
+Rule 294:
+	Name: Commission is >1.1% for Active Client - Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client -33609197; ### moved to exclusions
+	Alert Text: Commission is >1.1% for Active Client -33609197
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 33609197
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 294 failed.
+ 
+Rule 295:
+	Name: Commission is >1.1% for Active Client - Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client - 41564115; ### moved to exclusions
+	Alert Text: Commission is >1.1% for Active Client - 41564115
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 41564115
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 295 failed.
+ 
+Rule 296:
+	Name: Commission Greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission Greater than 1% for Active Account - 43798729; ### moved to exclusions
+	Alert Text: Commission Greater than 1% for Active Account - 43798729
+	Last changed on 03/12/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 43798729
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 296 failed.
+ 
+Rule 297:
+	Name: Commission is greater than 1.1% for Active Account - Edited By Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -46033289; ### moved to exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account -46033289
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 46033289
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 297 failed.
+ 
+Rule 299:
+	Name: Commission Greater than 100 for Active Account-Edited by Laidlaw
+	Description: Commission Greater than 100 for Active Account-26817401; ###moved to exclusions
+	Alert Text: Commission Greater than 100 for Active Account-26817401
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 26817401
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 299 passed.
+ 
+Rule 300:
+	Name: Commission Greater than 100 for Active Account-Edited by Laidlaw
+	Description: Commission Greater than 100 for Active Account-86558845; ### moved to exclusions
+	Alert Text: Commission Greater than 100 for Active Account- 86558845
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 86558845
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 300 passed.
+ 
+Rule 301:
+	Name: Commission Greater than 100 for Active Account-Edited by Laidlaw
+	Description: Commission Greater than 100 for Active Account-74058275; ### moved to exclusions
+	Alert Text: Commission Greater than 100 for Active Account-74058275
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 74058275
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 301 passed.
+ 
+Rule 302:
+	Name: Commission greater than >1.1% for active client -Edited by Laidlaw
+	Description: Commission greater than >1.1% for active client -13878889; ### moved to eclusions
+	Alert Text: Commission greater than >1.1% for active client -13878889
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 13878889
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 302 failed.
+ 
+Rule 303:
+	Name: Commission is >1.1% for Active Client Edited by Laidlaw
+	Description: Commission is >1.1% for Active Client -88638086; ### moved to exclusions
+	Alert Text: Commission is >1.1% for Active Client -88638086
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 88638086
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 303 failed.
+ 
+Rule 304:
+	Name: Commission greater than 2.1 % for active account- Edited by Laidlaw
+	Description: Commission greater than 2.1 % for active account-10072789; ### moved to exclusions
+	Alert Text: Commission greater than 2.1 % for active account-10072789
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 2.1 percent and
+		Value of AccountNumber is equal to 10072789
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 304 failed.
+ 
+Rule 305:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account - 11855387; ### moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account - 11855387
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 11855387
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 305 passed.
+ 
+Rule 306:
+	Name: Commission is Greater than $100 for Active Account-Edited by Laidlaw
+	Description: Commission is Greater than $100 for Active Account- 17698478; moved to exclusions
+	Alert Text: Commission is Greater than $100 for Active Account- 17698478
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 17698478
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 306 passed.
+ 
+Rule 307:
+	Name: Commission is Greater than 1.1% for Active Account- Edited by Laidlaw
+	Description: Commission is Greater than 1.1% for Active Account- 25897907; moved to exclusions
+	Alert Text: Commission is Greater than 1.1% for Active Account- 25897907
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 25897907
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 307 failed.
+ 
+Rule 308:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account - 31208468; MRF converted to using the Exclusions table instead. This has Trade Principle instead of Account Number;
+	Alert Text: Commission is greater than $100 for Active Account - 31208468
+	Last changed on 12/18/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of Trade Principle
+		is equal to 31208468
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 687
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 308 failed.
+ 
+Rule 309:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account - 50729089; MRF turned off moved to Exclusions
+	Alert Text: Commission is greater than $100 for Active Account - 50729089
+	Last changed on 12/23/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 50729089
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 309 passed.
+ 
+Rule 310:
+	Name: Commission is greater than $100 for Active Account -Edited By Laidlaw
+	Description: Commission is greater than $100 for Active Account -80688971; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account - 80688971
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 80688971
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 310 passed.
+ 
+Rule 311:
+	Name: Commission is greater than $100 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account - 49354124
+	Alert Text: Commission is greater than $100 for Active Account - 49354124
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 49354124
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 311 passed.
+ 
+Rule 312:
+	Name: Commission is greater than $100 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -76559694; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account -76559694
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 76559694
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 312 passed.
+ 
+Rule 313:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account - 64219948; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account - 64219948
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 64219948
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 313 passed.
+ 
+Rule 314:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -30412463; moved to exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account -30412463
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 30412463
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 314 failed.
+ 
+Rule 315:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -53662472; moved to exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account -53662472
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 53662472
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 315 failed.
+ 
+Rule 316:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account - 21289227; moved to exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account - 21289227
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 21289227
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 316 failed.
+ 
+Rule 317:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account - 25348206; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account - 25348206
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 25348206
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 317 passed.
+ 
+Rule 318:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account - 24803507; turned off. changed to $100 and moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account - 24803507
+	Last changed on 02/10/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 2 percent and Value of
+		AccountNumber is equal to 24803507
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 859
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 318 failed.
+ 
+Rule 319:
+	Name: Commission is greater than 1.1% for Active Account - 30896252 - Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account - 30896252; moved to Exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account - 30896252
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 30896252
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 319 failed.
+ 
+Rule 321:
+	Name: Commission is greater than 1.1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -45353218; MRF turned off, moved to Exclusions table
+	Alert Text: Commission is greater than 1.1% for Active Account -45353218
+	Last changed on 12/24/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 45353218
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 321 failed.
+ 
+Rule 322:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -46546112; moved to exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account -46546112
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 46546112
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 322 failed.
+ 
+Rule 323:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -47769853; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account -47769853
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 47769853
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 323 passed.
+ 
+Rule 324:
+	Name: Commission is greater than $100 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -56373016; remove restriction per Deborah
+	Alert Text: Commission is greater than $100 for Active Account -56373016
+	Last changed on 02/11/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 56373016
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 324 passed.
+ 
+Rule 325:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -63022451; moved to Exclusions table
+	Alert Text: Commission is greater than 1.1% for Active Account -63022451
+	Last changed on 01/29/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.5 percent and
+		Value of AccountNumber is equal to 60322451
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 325 failed.
+ 
+Rule 326:
+	Name: Commission is greater than $100.00 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -45826697
+	Alert Text: Commission is greater than $100 for Active Account -45826697
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 45826697
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 326 passed.
+ 
+Rule 327:
+	Name: Commission is greater than $100 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -47266341; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account -47266341
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 47266341
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 327 passed.
+ 
+Rule 328:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -54589602; moved to exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account -54589602
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 54589602
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 328 failed.
+ 
+Rule 329:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -62785861; turned off moved to exclusions changed from 1 to 1.5%
+	Alert Text: Commission is greater than 1.1% for Active Account -62785861
+	Last changed on 02/10/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 62785861
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 329 failed.
+ 
+Rule 330:
+	Name: Commission is greater than $100 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -15102981; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account -15102981
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 15102981
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 330 passed.
+ 
+Rule 331:
+	Name: Commission is greater than $100 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -34837726; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account -34837726
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 34837726
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 331 passed.
+ 
+Rule 332:
+	Name: Commission is greater than 1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account -46023026; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account -46023026
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 46023026
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 332 failed.
+ 
+Rule 333:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -63560821; moved to exclusions
+	Alert Text: Commission is greater than 1.1% for Active Account -63560821
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 63560821
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 333 failed.
+ 
+Rule 335:
+	Name: Commission is greater than $100 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -22940659; moved to exclusions
+	Alert Text: Commission is greater than $100 for Active Account -22940659
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 22940659
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 335 passed.
+ 
+Rule 336:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 44929164; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account - 44929164
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 44929164
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 336 failed.
+ 
+Rule 337:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 48140025; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account - 48140025
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 48140025
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 337 failed.
+ 
+Rule 338:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 59322616; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account - 59322616
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 1.1 percent and Value of
+		AccountNumber is equal to 59322616
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 860
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 338 failed.
+ 
+Rule 339:
+	Name: Commission is greater than 1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 60814950; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account - 60814950
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 60814950
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 339 failed.
+ 
+Rule 340:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 86443301; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account - 86443301
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 864433014
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 862
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 340 failed.
+ 
+Rule 341:
+	Name: Commission is grater than 1% for Active Account -Edited by Laidlaw
+	Description: Commission is grater than 1% for Active Account - 27311242; moved to exclusions
+	Alert Text: Commission is grater than 1% for Active Account - 27311242
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 27311242
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 341 failed.
+ 
+Rule 342:
+	Name: Commission is grater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is grater than 1% for Active Account - 42278519; remove account restriction 1/28/2020
+	Alert Text: Commission is grater than 1% for Active Account - 42278519
+	Last changed on 01/29/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 42278519
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 342 failed.
+ 
+Rule 343:
+	Name: Commission is grater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is grater than 1% for Active Account - 85664760; moved to exlcusions
+	Alert Text: Commission is grater than 1% for Active Account - 85664760
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 85664760
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 343 failed.
+ 
+Rule 344:
+	Name: Commission is greater than 1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 59572498; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account - 59572498
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 59572498
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 344 failed.
+ 
+Rule 345:
+	Name: Commission is greater than 2% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 2% for Active Account-77574896; MRF moved to Exclusions and turned off
+	Alert Text: Commission is greater than 2% for Active Account 77574896
+	Last changed on 03/02/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 2.1 percent and
+		Value of AccountNumber is equal to 77574896
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 345 failed.
+ 
+Rule 346:
+	Name: Commission is greater than 1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 77970551; moved to exclusions
+	Alert Text: Commission is greater than 1% for Active Account - 77970551
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 77970551
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 346 failed.
+ 
+Rule 347:
+	Name: Commission is greater than 1% on active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 43916786; moved to exclusions
+	Alert Text: Commission is greater than 1% for an active account - 43916786
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 43916786
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 347 failed.
+ 
+Rule 348:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 67374310; moved to exclusions
+	Alert Text: Commission is greater than 1% for an active account - 67374310
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 67374310
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 348 passed.
+ 
+Rule 349:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 75571570; moved to exclusions
+	Alert Text: Commission is greater than 1% for an active account - 75571570
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 75571570
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 349 failed.
+ 
+Rule 350:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 41328692; move to exclusions
+	Alert Text: Commission is greater than 1% for an active account - 41328692
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 41328692
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 350 failed.
+ 
+Rule 352:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than $100 for an active account - 81845324; moved to exclusions
+	Alert Text: Commission is greater than $100 for an active account - 81845324
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 81845324
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 352 failed.
+ 
+Rule 353:
+	Name: Commission is greater than $100 for an active account - Edited by Laidlaw
+	Description: Commission is greater than $100 for an active account - 12919049; remove 1/14/2020 per Deborah
+	Alert Text: Commission is greater than $100 for an active account - 12919049
+	Last changed on 01/15/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 12919049
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 353 passed.
+ 
+Rule 354:
+	Name: Commission is greater than $100 for an active account - Edited by Laidlaw
+	Description: Commission is greater than $100 for an active account - 39301476; moved to exclusions
+	Alert Text: Commission is greater than $100 for an active account - 39301476
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 39301476
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 354 passed.
+ 
+Rule 355:
+	Name: Commission is greater than 1% for an active account -Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account -33308699; moved to exclusions
+	Alert Text: Commission is greater than 1% for an active account -33308699
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 33308699
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 355 failed.
+ 
+Rule 356:
+	Name: Commission is greater than 2% for an active account -Edited by Laidlaw
+	Description: Commission is greater than 2% for an active account - 24990974; MRF - Deactivated changed to Exclusions table
+	Alert Text: Commission is greater than 2% for an active account - 24990974
+	Last changed on 11/29/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 2.1 percent and
+		Value of AccountNumber is equal to 24990974
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 356 failed.
+ 
+Rule 357:
+	Name: Commission is greater than 1.5% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1.5% for an active account - 34003198; moved to exclusions
+
+	Alert Text: Commission is greater than 1.5% for an active account - 34003198
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.5 percent and
+		Value of AccountNumber is equal to 34003198
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 357 failed.
+ 
+Rule 358:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 62311972; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for an active account - 62311972
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 62311972
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 358 failed.
+ 
+Rule 359:
+	Name: Commission is greater than 1% for an active account -Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 62240390; Remove this restriction per Deborah
+	Alert Text: Commission is greater than 1% for an active account - 62240390
+	Last changed on 01/08/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 62240390
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 359 failed.
+ 
+Rule 360:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 62948977; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for an active account - 62948977
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 62948977
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 360 failed.
+ 
+Rule 361:
+	Name: Commission is greater than 1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account- 11726339; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account- 11726339
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 11726339
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 361 failed.
+ 
+Rule 362:
+	Name: Commission is greater than 2% for Active Account- Edited by Laidlaw
+	Description: Commission is greater than 2% for Active Account- 17240996; moved to exclusions
+
+	Alert Text: Commission is greater than 2% for Active Account- 17240996
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 2.1 percent and
+		Value of AccountNumber is equal to 17240996
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 362 failed.
+ 
+Rule 363:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 46424100; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for an active account - 46424100
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 46424100
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 363 failed.
+ 
+Rule 364:
+	Name: Commission is greater than 1% for an active account -Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 56952648; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for an active account - 56952648
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 56952648
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 364 failed.
+ 
+Rule 365:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account -65375571; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for an active account -65375571
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 65375571
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 365 failed.
+ 
+Rule 366:
+	Name: Commission is greater than 1% for an active account - Edited by Laidlaw
+	Description: Commission is greater than 1% for an active account - 60550549; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for an active account - 60550549
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 60550549
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 366 failed.
+ 
+Rule 367:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -71386040; moved to exclusions
+
+	Alert Text: Commission is greater than 1.1% for Active Account -71386040
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 71386040
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 367 failed.
+ 
+Rule 368:
+	Name: Commission is greater than 2% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 2% for Active Account -77621482; MRF changed to use the Exclusions table
+	Alert Text: Commission is greater than 2% for Active Account -77621482
+	Last changed on 12/20/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 2.0 percent and
+		Value of AccountNumber is equal to 77621482
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 860
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 368 failed.
+ 
+Rule 369:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -78464526; moved to exclusions
+
+	Alert Text: Commission is greater than 1.1% for Active Account -78464526
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 78464526
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 369 failed.
+ 
+Rule 370:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -83884231; MRF - deactivated rule, moved to Exclusions table
+	Alert Text: Commission is greater than 1.1% for Active Account -83884231
+	Last changed on 11/29/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 83884231
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 370 failed.
+ 
+Rule 371:
+	Name: Commission is greater than $100 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100 for Active Account -72612954; moved to exclusions
+
+	Alert Text: Commission is greater than $100.00 for Active Account -72612954
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 72612954
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 371 passed.
+ 
+Rule 372:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -56841909; moved to exclusions
+
+	Alert Text: Commission is greater than 1.1% for Active Account -56841909
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 56841909
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 372 failed.
+ 
+Rule 373:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -74109954; moved to exclusions
+
+	Alert Text: Commission is greater than 1.1% for Active Account -74109954
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 74109954
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 373 failed.
+ 
+Rule 374:
+	Name: Commission is greater than 1.1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -29592997; moved to exclusions
+
+	Alert Text: Commission is greater than 1.1% for Active Account -29592997
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 29592997
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 374 failed.
+ 
+Rule 375:
+	Name: Commission is greater than $0.00 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $0.00 for Active Account -69002514; MRF turned off, moved to Exclusions table
+	Alert Text: Commission is greater than 0.00 for Active Account -69002514
+	Last changed on 12/24/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 0.00 and Value of AccountNumber is
+		equal to 69002514
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 375 passed.
+ 
+Rule 376:
+	Name: Commission is greater than $50.00 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $50.00 for Active Account -82822866; moved to exclusions
+
+	Alert Text: Commission is greater than 50.00 for Active Account -82822866
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 51.00 and Value of AccountNumber is
+		equal to 82822866
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 376 passed.
+ 
+Rule 377:
+	Name: Commission is greater than $50.00 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $50.00 for Active Account -85453293; moved to exclusions
+
+	Alert Text: Commission is greater than $50.00 for Active Account -85453293
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 51.00 and Value of AccountNumber is
+		equal to 85453293
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 377 passed.
+ 
+Rule 378:
+	Name: Commission is greater than $100.00 for Active Account -Edited by Laidlaw
+	Description: Commission is greater than $100.00 for Active Account -21992420; moved to exclusions
+
+	Alert Text: Commission is greater than $100.00 for Active Account -21992420
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 21992420
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 378 passed.
+ 
+Rule 379:
+	Name: Incoming wire alert
+	Description: Any incoming wire transfer
+	Alert Text: Please check alert
+	Last changed on 09/19/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Incoming Wire Amount is greater than 0
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Don Christopher Lee (3), James  Bello (180), Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 1 results
+		Pass: Build SQL returned 1 results
+	Rule 379 passed.
+ 
+Rule 380:
+	Name: Outgoing wire alert
+	Description: Any outgoing wire transfer
+	Alert Text: Please check alert
+	Last changed on 09/19/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Outgoing Wire Amount is greater than 0
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Don Christopher Lee (3), James  Bello (180), Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 5 results
+		Pass: Build SQL returned 5 results
+	Rule 380 passed.
+ 
+Rule 381:
+	Name: Commission is greater than $100 for an active account - Edited by Laidlaw
+	Description: Commission is greater than $100 for an active account - 41859883; delete per Deborah. Just turning off for now.
+	Alert Text: Commission is greater than $100 for an active account - 41859883
+	Last changed on 10/18/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 41859883
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 381 passed.
+ 
+Rule 382:
+	Name: Commission is greater than $100.00 for Active Account - Edited by Laidlaw
+	Description: Commission is greater than $100.00 for Active Account - 79957506; MRF - turned off now in the Exclusions table
+	Alert Text: Commission is greater than $100.00 for Active Account - 79957506
+	Last changed on 12/23/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to 101.00 and Value of AccountNumber is
+		equal to 79957506
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 382 passed.
+ 
+Rule 383:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 80346008; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account - 80346008
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 80346008
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 383 failed.
+ 
+Rule 384:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account -80647720; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account -80647720
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 80647720
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 384 failed.
+ 
+Rule 385:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 52904526; MRF - moved to Exclusions turned this off
+	Alert Text: Commission is greater than 1% for Active Account - 52904526
+	Last changed on 01/02/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 52904526
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 385 failed.
+ 
+Rule 386:
+	Name: Commission is greater than 1% for Active Account - Edited By Laidlaw
+	Description: Commission is greater than 1% for Active Account - 15706331; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account - 15706331
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 15706331
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 386 failed.
+ 
+Rule 387:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 83527733; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account - 83527733
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 83527733
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 387 failed.
+ 
+Rule 388:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 88421658; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account - 88421658
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 88421658
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 388 failed.
+ 
+Rule 390:
+	Name: Commission is greater than 1.5% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.5% for Active Account -21941514; moved to exclusions
+
+	Alert Text: Commission is greater than 1.5% for Active Account -21941514
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.5 percent and
+		Value of AccountNumber is equal to 21941514
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 390 failed.
+ 
+Rule 391:
+	Name: Commission is greater than 1.5% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.5% for Active Account - 13073367; moved to exclusions
+
+	Alert Text: Commission is greater than 1.5% for Active Account - 13073367
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.6 percent and
+		Value of AccountNumber is equal to 13073367
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 391 failed.
+ 
+Rule 392:
+	Name: Commission is greater than 1.5% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.5% for Active Account - 23655729; moved to exclusions
+
+	Alert Text: Commission is greater than 1.5% for Active Account - 23655729
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 23655729
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 392 failed.
+ 
+Rule 393:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 40697400; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account - 40697400
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 40697400
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 393 failed.
+ 
+Rule 395:
+	Name: Commission is greater than 1.5% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.5% for Active Account - 88475714; moved to exclusions
+
+	Alert Text: Commission is greater than 1.5% for Active Account - 88475714
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.6 percent and
+		Value of AccountNumber is equal to 88475714
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 395 failed.
+ 
+Rule 396:
+	Name: Commission is greater than 2% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 2% for Active Account - 57463649; moved to exclusions
+
+	Alert Text: Commission is greater than 2% for Active Account - 57463649
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: AML, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 2.1 percent and
+		Value of AccountNumber is equal to 57463649
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 396 failed.
+ 
+Rule 397:
+	Name: Commission is greater than 2% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 2% for Active Account - 86533846; moved to exclusions
+
+	Alert Text: Commission is greater than 2% for Active Account - 86533846
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 2.1 percent and
+		Value of AccountNumber is equal to 86533846
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 397 failed.
+ 
+Rule 398:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 86936666; moved to exclusions
+
+	Alert Text: Commission is greater than 2% for Active Account - 86936666
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 86936666
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 398 failed.
+ 
+Rule 399:
+	Name: Commission is greater than 1.5% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.5% for Active Account - 63895047; moved to exclusions
+
+	Alert Text: Commission is greater than 1% for Active Account - 63895047
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.6 percent and
+		Value of AccountNumber is equal to 63895047
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 399 failed.
+ 
+Rule 401:
+	Name: Commission is greater than 1.5% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.5% for Active Account -20598829
+	Alert Text: Commission is greater than 1.5% for Active Account -20598829
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.6 percent and
+		Value of AccountNumber is equal to 20598829
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 401 failed.
+ 
+Rule 402:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 62550134
+	Alert Text: Commission is greater than 1% for Active Account - 62550134
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 62550134
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 402 failed.
+ 
+Rule 403:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 89342357; Moved to Exclusions and changed to $100
+	Alert Text: Commission is greater than 1% for Active Account - 89342357
+	Last changed on 02/03/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 89342357
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 403 failed.
+ 
+Rule 404:
+	Name: HCYT Traded - Edited by Laidlaw
+	Description: HCYT Traded
+	Alert Text: The Restricted Stock HCYT has been traded
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Market Symbol (text) is equal to HCYT
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 404 passed.
+ 
+Rule 405:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account -85755177
+	Alert Text: Commission is greater than 1% for Active Account -85755177
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 85755177
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 405 failed.
+ 
+Rule 406:
+	Name: Commission is greater than 1% for Active Account -Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account -38054410
+	Alert Text: Commission is greater than 1% for Active Account -38054410
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 38054410
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 856
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 406 failed.
+ 
+Rule 408:
+	Name: Commission is greater than 1.1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1.1% for Active Account -65785905
+	Alert Text: Commission is greater than 1.1% for Active Account -65785905
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 65785905
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 408 failed.
+ 
+Rule 409:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 63621771
+	Alert Text: Commission is greater than 1% for Active Account - 63621771
+	Last changed on 09/19/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 63621771
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 409 failed.
+ 
+Rule 410:
+	Name: No Alerts in 30 Days
+	Description: Alerts when a Rule has not generated an Alert in the last 30 days
+	Alert Text: Rules that have not generated an Alert in 30 days
+	Last changed on 04/23/2020 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: Risk, Active: 1, Only New Data: 0, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Last Alert Age in Days is greater or equal to 30 or Value of Last Alert
+		Age in Days is equal to -1
+	Users:
+		Charles  Smulevitz (183), FWT  Testing (184)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 215 results
+		Pass: Build SQL returned 215 results
+	Rule 410 passed.
+ 
+Rule 411:
+	Name: Transaction in Leveraged ETF Fund
+	Description: Transaction in Leveraged ETF Fund
+	Alert Text: Transaction in Leveraged ETF Fund
+	Last changed on 10/17/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Leveraged Fund is equal to Y and Value of Buy/Sell Code is equal to B
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 648
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 411 failed.
+ 
+Rule 412:
+	Name: Transaction in Inverse ETF Fund
+	Description: Transaction in Inverse ETF Fund
+	Alert Text: Transaction in Inverse ETF Fund
+	Last changed on 10/17/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Inverse Fund is equal to Y and Value of Buy/Sell Code is equal to B
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 642
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 412 failed.
+ 
+Rule 413:
+	Name: Transaction in NTETP ETF Fund
+	Description: Transaction in NTETP ETF Fund
+	Alert Text: Transaction in NTETP ETF Fund
+	Last changed on 10/17/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of NTETP Fund is equal to Y and Value of Buy/Sell Code is equal to B
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185) Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 636
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 413 failed.
+ 
+Rule 414:
+	Name: Holding Leveraged ETF fund > 5 days
+	Description: Holding Leveraged ETF fund > 5 days
+	Alert Text: Holding Leveraged ETF fund > 5 days
+	Last changed on 10/31/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Leveraged Fund Holding is equal to Y and Value of Holding Age is
+		greater than 5
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 19 results
+		Pass: Build SQL returned 19 results
+	Rule 414 passed.
+ 
+Rule 415:
+	Name: Commission is greater than %1 for an active account - Edited by Laidlaw
+	Description: Commission is greater than %1 for an active account - 39832482
+	Alert Text: Commission is greater than %1 for an active account - 39832482
+	Last changed on 10/17/2019 by Deborah  Wright (185)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater or equal to Trade Principle * 1.1 percent and
+		Value of AccountNumber is equal to 39832482
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 861
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 415 failed.
+ 
+Rule 416:
+	Name: Holding Inverse ETF fund > 5 days
+	Description: Holding Inverse ETF fund > 5 days
+	Alert Text: Holding Inverse ETF fund > 5 days
+	Last changed on 10/31/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Inverse Fund Holding is equal to Y and Value of Holding Age is greater
+		than 5
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 12 results
+		Pass: Build SQL returned 12 results
+	Rule 416 passed.
+ 
+Rule 417:
+	Name: Holding NTETP ETF fund > 5 days
+	Description: Holding NTETP ETF fund > 5 days
+	Alert Text: Holding NTETP ETF fund > 5 days
+	Last changed on 10/31/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of NTETP Fund Holding is equal to Y and Value of Holding Age is greater
+		than 5
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+		Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 17 results
+		Pass: Build SQL returned 17 results
+	Rule 417 passed.
+ 
+Rule 418:
+	Name: Commission is greater than 1% for Active Account - Edited by Laidlaw
+	Description: Commission is greater than 1% for Active Account - 79935771
+	Alert Text: Commission is greater than 1% for Active Account - 79935771
+	Last changed on 10/23/2019 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 1 percent and Value of
+		AccountNumber is equal to 79935771
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 859
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 418 failed.
+ 
+Rule 419:
+	Name: Commission is >1% for Active Client Edited by Laidlaw
+	Description: Commission is >1% for Active Client 50967153; MRF turning off, moved to Exclusions table
+	Alert Text: Commission is >1% for Active Client 50967153
+	Last changed on 01/28/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 0, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Trade Principle * 1 percent and Value of
+		AccountNumber is equal to 50967153
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Deborah  Wright (185)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 859
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 419 failed.
+ 
+Rule 420:
+	Name: Commision > max commission allowed for account
+	Description: Commision > max commission allowed for account
+	Alert Text: Commision > max commission allowed for account
+	Last changed on 04/23/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Commission is greater than Max Commission   and Value of Max Commission
+		is greater than 0
+	Users:
+		Alex Shtaynberger (181), Charles Smulevitz (183), Deborah Wright (185) Marlo Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 990
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 5 results
+		Pass: Build SQL returned 5 results
+	Rule 420 failed.
+ 
+Rule 421:
+	Name: Incoming Wire and Outgoing Wire within previous 30 days
+	Description: Incoming Wire and Outgoing Wire within previous 30 days
+	Alert Text: Incoming Wire and Outgoing Wire within previous 30 days
+	Last changed on 04/29/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Has Deposits and Withdrawals Within 30 Days is equal to Y
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183), Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 421 passed.
+ 
+Rule 422:
+	Name: Low priced security deposit (Securities Received)
+	Description: Low priced security deposit less than $5.00 (Securities Received)
+	Alert Text: Low priced security deposit less than $5.00 (Securities Received)
+	Last changed on 07/02/2020 by Marlo  Fullerton (179)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Trade Price is between0.01 and 5 and Value of Wire Type (text) is equal
+		to Securities Received and Value of Direction (text) is equal to deposit and
+		Value of Transfer Market Symbol (text) is not equal to
+	Users:
+		Don Christopher Lee (3)
+
+	Checking DB vs. Build SQL...
+		FAIL: SQL is not the same at char 1132
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 422 failed.
+ 
+Rule 423:
+	Name: Flat CommEQ Ratio Prior Day Equity greater than 8% with a trade
+	Description: The flat commissions to prior day equity ratio is greater than 8% and a trade was made on the last business day
+	Alert Text: The flat commissions to prior day equity ratio is greater than 8% and a trade was made on the last business day
+	Last changed on 01/12/2021 by FWT  Testing (184)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Flat COA With Trade Purchase Prior Day Equity is greater than 0.08
+	Users:
+		Charles  Smulevitz (183), Don Christopher Lee (3), Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 423 passed.
+ 
+Rule 424:
+	Name: BIVI traded
+	Description: BIVI traded
+	Alert Text: The restricted stock BIVI has been traded.
+	Last changed on 01/19/2021 by Charles  Smulevitz (183)
+	Settings:
+		Alert Type: Trading, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Transfer Market Symbol (text) is equal to BIVI
+	Users:
+		Alex  Shtaynberger (181), Charles  Smulevitz (183)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 424 passed.
+ 
+Rule 425:
+	Name: Watched Account Purchases a Stock
+	Description: Watched Account Purchases a Stock
+	Alert Text: Watched Account Purchases a Stock
+	Last changed on 07/02/2021 by Don Christopher Lee (3)
+	Settings:
+		Alert Type: AML, Active: 1, Only New Data: 1, Ignore RepCode: 0, Period: Daily
+	Conditions:
+		Value of Stock Purchase Price is greater than 0 and Value of Watched AML Account
+		is equal to Y
+	Users:
+		Charles  Smulevitz (183), Don Christopher Lee (3), Marlo  Fullerton (179)
+
+	Checking DB vs. Build SQL...
+		Pass: SQL is the same
+
+	Running both versions of the SQL...
+		Pass: DB SQL returned 0 results
+		Pass: Build SQL returned 0 results
+	Rule 425 passed.
+ 
+Number of rules tested: 242 out of 242
+
+Done at 16:06:49

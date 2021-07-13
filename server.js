@@ -20,7 +20,6 @@ let users = [];
 let messages = [];
 let output = [];
 let index = 0;
-let command = "";
 
 io.on("connection", socket => {
     console.log( "someone connected.");
@@ -104,31 +103,41 @@ io.on("connection", socket => {
 
             // execute command...
 
-        var executor = new CommandExecutor();
-        executor.executeCommand( commandObject, io );
+        var executor = new CommandExecutor( commandObject );
+        executor.executeCommand();
+
+            // process output here or in the Vue component
+
+            // let's do it here until we find out how vue components can use the code on this machine easier
         
-        // var storage = new Storage( commandObject.name )
-        // stream.end('ls\nexit\n');
-        // conn.exec( commandObject.executable, function(err, stream) {
-        //     if (err) {
-        //       console.log('SECOND :: exec error: ' + err);
-        //       return conn1.end();
-        //     }
-        //     stream.on('end', function() {
-        //       // conn.end(); // close parent (and this) connection
-        //     }).on('data', function(data) {
-        //       console.log(data.toString());
+    });
 
-        //         // store this data somewhere
+    socket.on( 'commandFinished', function( commandObject ) {
+        console.log( "commandObject output length in commandFinished handler: " + commandObject.output.length );
+    
+            // this is where we process the output for the command object.
 
-        //       storage.store( data.toString());
-              
-        //         // emit data
-              
-        //       commandObject[ "output" ] = data.toString();
-        //       io.emit("gotData", commandObject );   
-        //     });
-        //   });
+            // all output processors need this initialization
+
+            // need a populator to create a regex
+
+            // a file manager is a populator
+
+            // set up populator for regex
+            
+        var populator   = new ArrayPopulator( new FileManager, "parsingTools/" + commandObject.regex_map_filename );
+
+            // regex needs a populator to fill it's clip
+
+            // populators have a populateArray() method
+
+        var regex           = new Regex( populator );
+        var OutputProcessor = require( "./parsingTools/" + commandObject.outputProcessor );
+        console.log( "creating new output processor..." );
+        var outputProcessor = new OutputProcessor();
+        commandObject.processedOutput = outputProcessor.processOutput( commandObject.output.split( /\r?\n/ ), regex ); 
+        io.emit( "gotData", commandObject );
+
     });
 
     socket.on( 'checkRunStatus' , command => {

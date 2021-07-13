@@ -15,8 +15,6 @@
       v-on:processCommand="this.processCommand"
     />
 
-    <Monitor v-bind:customers="customers" />
-
     <GenericCommand
       v-on:sendCommand="this.sendCommand"
       v-bind:output="output"
@@ -29,28 +27,18 @@
 <script>
 import io from "socket.io-client";
 import ChatRoom from "./components/ChatRoom";
-import Monitor from './components/Monitor.vue';
+
 import GenericCommand from './components/genericCommand.vue';
 
 export default {
   name: "app",
-//   props: {
-//     outputText: {
-//       type: String,
-//       default: "generic-command default",
-//     },
-//   },
   computed: {
     output: function () {
         return this.outputText
     },
-    commandObject: function() {
-        return this.command
-    }
   },  
   components: {
     ChatRoom,
-    Monitor,
     GenericCommand,
   },
   data: function () {
@@ -59,20 +47,19 @@ export default {
       socket: io("http://localhost:3000"),
       messages: [],
       customers: [],
-      command: {},
+      commandObject: {},
       commands: {},
       users: [],
       outputText: "generic default.",
       currentCommand: "ls",
       styleObject: {
-          background: "blue"
+          background: "yellow"
       }
     };
   },
   methods: {
     joinServer: function () {
       this.socket.on("loggedIn", (data) => {
-        // console.log( "loggedIn fired!" );
         this.messages = data.messages;
         this.users = data.users;
         this.socket.emit("newuser", this.username);
@@ -83,63 +70,55 @@ export default {
 
     listen: function () {
       
-      this.socket.on("userOnline", (user) => {
-        // console.log( "userOnline fired!" );
+      this.socket.on( "userOnline", ( user ) => {
         this.users.push(user);
       });
       
-      this.socket.on("userLeft", (user) => {
-        // console.log( "user left!" );
-        this.users.splice(this.users.indexOf(user), 1);
+      this.socket.on("userLeft", ( user ) => {
+        this.users.splice(this.users.indexOf( user ), 1);
       });
       
-      this.socket.on("msg", (message) => {
-        this.messages.push(message);
+      this.socket.on("msg", ( message ) => {
+        this.messages.push( message );
       });
 
-      this.socket.on( "gotData" , ( commandObject ) => {
+      this.socket.on( "gotData" , function( commandObject ) {
           this.outputText = commandObject.output;
           this.styleObject.background = "yellow";
-          this.command = commandObject;
-          
-      });
+          this.commandObject = commandObject;
+
+      }.bind( this ));
     },
 
     sendMessage: function (message) {
-      // console.log( "sendMessage called...");
       this.socket.emit("msg", message);
     },
 
     sendCommand: function ( commandObject ) {
-        // console.log( "sending " + commandObject.description );
-        this.socket.emit("sendCommand", commandObject );
+        this.socket.emit( "sendCommand", commandObject );
     },
 
-    checkRunStatus: function (message) {
-    //   console.log("caught sendCommand.  sending command..." + message);
-      this.socket.emit("checkRunStatus", message);
+    checkRunStatus: function ( message ) {
+      this.socket.emit( "checkRunStatus", message);
     },
 
-    alertCheck: function (message) {
-    //   console.log("caught alertcheck.  sending command..." + message);
-      this.socket.emit("alertCheck", message);
+    alertCheck: function ( message ) {
+      this.socket.emit( "alertCheck", message );
     },
 
-    blotterCheck: function (message) {
-    //   console.log("caught blotterCheck.  sending command..." + message);
-      this.socket.emit("blotterCheck", message);
+    blotterCheck: function ( message ) {
+      this.socket.emit("blotterCheck", message );
     },
 
     processCommand: function( commandObject ) {
-        // console.log( "emitting process command to socket from App.vue... " );
         this.socket.emit( "processCommand", commandObject );
     }
 
   },
   mounted: function () {
-    this.username = "jane doe"; //prompt("What is your username?", "Anonymous");
+    this.username = "jane doe"; 
 
-    if (!this.username) {
+    if ( !this.username ) {
       this.username = "Anonymous";
     }
 
