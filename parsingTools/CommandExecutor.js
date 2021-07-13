@@ -1,3 +1,5 @@
+const Socket = require( "./Socket" );
+
 /*
  *  CommandExecutor
  */
@@ -16,9 +18,9 @@ class CommandExecutor {
      *  ( 2 ) server is then notified and sent this populated command object.
      * 
      */
-    executeCommand( ioArg ) {
+    executeCommand() {
         // this.commandObject  = commandObjectArg;
-        this.io             = ioArg;
+        this.io             = new Socket();
         // console.log( "loaded " + commandObjectArg.description + " into CommandExecutor... " );
         console.log( "processing command..." );
   
@@ -31,7 +33,7 @@ class CommandExecutor {
      *  private void execute()
      */
     execute() {
-        var that = this;
+        var self = this;
         console.log( "executable: " + this.commandObject.executable );
         if ( this.commandObject.targetMachine == "thispc" ) {
             const { exec } = require( "child_process" );
@@ -47,7 +49,9 @@ class CommandExecutor {
                 }
                 
                 console.log( "stdout: " + stdout );
-                that.commandObject.output = stdout;             // populate output here
+                self.commandObject.output = stdout;             // populate output here
+                console.log( "emitting command finished... " );
+                this.io.emit( "commandFinished", self.commandObject )
                 
             } );
         } else {

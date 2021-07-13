@@ -36,9 +36,6 @@ export default {
     output: function () {
         return this.outputText
     },
-    commandObject: function() {
-        return this.command
-    }
   },  
   components: {
     ChatRoom,
@@ -50,7 +47,7 @@ export default {
       socket: io("http://localhost:3000"),
       messages: [],
       customers: [],
-      command: {},
+      commandObject: {},
       commands: {},
       users: [],
       outputText: "generic default.",
@@ -85,12 +82,12 @@ export default {
         this.messages.push( message );
       });
 
-      this.socket.on( "gotData" , ( commandObject ) => {
+      this.socket.on( "gotData" , function( commandObject ) {
           this.outputText = commandObject.output;
           this.styleObject.background = "yellow";
-          this.command = commandObject;
-          
-      });
+          this.commandObject = commandObject;
+
+      }.bind( this ));
     },
 
     sendMessage: function (message) {

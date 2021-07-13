@@ -4,6 +4,9 @@
       Hello! Im the command processor
       {{ processedOutput }}
     </h1>
+    <h1>
+        {{ commandObject.description }}
+    </h1>    
   </div>
 </template>
 

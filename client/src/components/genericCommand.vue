@@ -22,10 +22,9 @@
       v-bind:styleObject="styleObject"
     />
 
-    <Monitor v-bind:customers="customers"
-             v-bind:commandObject="commandObject" />
+    <Monitor v-bind:commandObject="commandObject" />
 
-    <div :style="styleObject" class="stat">status</div>
+    <div :style="styleObject" class="stat">stat</div>
     <div class="execute">
       <button @click="execute">Execute Command</button>
     </div>

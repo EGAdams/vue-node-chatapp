@@ -18,6 +18,7 @@ var customers = {};
     // a file manager is a populator
 
     // set up populator for regex
+    
 var regexMapFile = "./customerAlertRegex.txt"
 var populator   = new ArrayPopulator( fileManager, regexMapFile );
 

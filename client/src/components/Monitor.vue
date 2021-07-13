@@ -6,18 +6,18 @@
       <div class="grid-item"></div>
       <div class="grid-item"></div>
 
-      <div class="grid-item">Run Status</div>
+      <div class="grid-item">ACP</div>
       <div class="grid-item acprunstatus">acp run status</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
 
-      <div class="grid-item">Alert Count</div>
-      <div class="grid-item">{{ customers.acp.numberOfAlerts }}</div>
+      <div class="grid-item">ACP</div>
+      <div class="grid-item">{{ commandObject.processedOutput.acp.numberOfAlerts }}</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
-      <div class="grid-item"></div>
+      <div class="grid-item">Allaria</div>
 
-      <div class="grid-item">Blotter Count</div>
+      <div class="grid-item">{{ commandObject.processedOutput.allaria.numberOfAlerts }}</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
@@ -27,28 +27,49 @@
       <div class="grid-item"></div>
       <div class="grid-item"></div>
     </div>
+
   </div>
 </template>
 
 
 <script>
 
-import Regex from "../../src/Regex";
 
 
 export default {
   name: "monitor",
+  data() {
+    return {
+        customers: {},
+        // commandObject: {
+        //     processedOutput: { 
+        //         acp: {
+        //             numberOfAlerts: "0"
+        //         }
+        //     },
+
+        // }
+    }
+  },  
+
   props: {
-    customers: {
-      type: Object,
-      default: function () {},
+    output: {
+      type: String,
+      default: "generic-command default",
     },
 
     commandObject: {
-      type: Object,
-      default: function () {},
+        processedOutput: { 
+            acp: {
+                numberOfAlerts: "0"
+            }
+        },
+
     },
 
+    styleObject: {
+      background: "yellow",
+    },
   },
 
   computed: {
@@ -56,11 +77,13 @@ export default {
     //     this.customers = this.commandObject.processedOutput; 
     //     return "output changed to this on Saturday:" + this.output;
     // },
+    
   },  
     
   mounted() {
-      this.regex            = new Regex();
-      this.alertPopulator   = require ( "../../../parsingTools/AlertPopulator.js" );
+      // this.regex            = new Regex();
+      // this.alertPopulator   = require ( "../../../parsingTools/AlertPopulator.js" );
+      this.commandObject.processedOutput.acp.numberOfAlerts = '0';
   },
 
   methods: {
@@ -80,7 +103,7 @@ export default {
 <style scoped>
 .grid-container {
   /* variables */
-  --normal_cell_width: 0.6fr;
+  --normal_cell_width: 0.5fr;
 
   display: grid;
   grid-template-columns:

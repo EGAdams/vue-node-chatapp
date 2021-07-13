@@ -8,10 +8,12 @@ class Tester {
 
     start() {
         testableObjects.forEach( specimen => {
-            if ( specimen.length != 0 ) {
+            if ( specimen.length != 0 && !specimen.match( /^#/ )) {
                 var Subject = require( "./" + specimen );
                 var subject = new Subject();
+                console.log( "\nbegin " + specimen + " test..." );
                 subject.testMe();
+                console.log( "end " + specimen + " test.\n" );
             }
         });
     }   
@@ -22,4 +24,4 @@ var testableObjects = fileManager.populateArray( "parsingTools/test_plan.txt" );
 var tester = new Tester( testableObjects );
 tester.start();
 
-console.log( "end test." );
+console.log( "end testing testable objects." );

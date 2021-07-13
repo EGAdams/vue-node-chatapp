@@ -1,9 +1,12 @@
+
+
+const FileManager = require( "./FileManager" );
+
 /*
  *  Regex class
  *
  *  populator already constructed at this point.
- *  all that needs to be done is fire the populate array
- *  method.
+ *  all that needs to be done is fire the populateArray() method.
  * 
  *  this object is used to find any string of interest in an array of strings
  *  it was originally designed to pull a list of targeted regular expresions
@@ -52,6 +55,47 @@ function Regex( populator ) {
         }
         return false;
     }
+
+    this.testMe = function() {
+        var errors = [];
+
+            // all populators need a type and a source
+            
+        ArrayPopulator = require( "./ArrayPopulator" );
+        var populator = new ArrayPopulator( new FileManager(), "parsingTools/testRegex.txt" );
+            
+            // regex needs a populator to fill it's clip.  populators have a populateArray() method
+
+        var regex           = new Regex( populator );
+        var testLine        = "ok: [acp] => {";
+
+        var result          = regex.matchedString( testLine );
+        if ( result.name.includes( "alertCustomerName")) {
+            console.log( "Regex passes regex name test.")
+        } else {
+            errors.push( "*** ERROR: Regex fails regex name test. ***")
+        }
+
+        if ( result.regex.includes( "ok: \\[(\\w+)\\] =>" )) {
+            console.log( "Regex passes regex regex text test." );
+        } else {
+            errors.push( "*** ERROR: Regex fails regex regex text test. ***" );
+        }
+
+        if ( result.matchedString == "acp" ) {
+            console.log( "Regex passes customer match test." );
+        } else {
+            errors.push( "*** ERROR: Regex fails customer match test" );
+        }
+
+        if ( errors.length == 0 ) {
+            console.log( "Regex Object passsed all tests." );
+        } else {
+            errors.forEach(error => {
+                console.error( error );
+            });
+        }
+ }
 }
 
 module.exports = Regex;
