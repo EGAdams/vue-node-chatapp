@@ -27,6 +27,7 @@
     <div :style="styleObject" class="stat">stat</div>
     <div class="execute">
       <button @click="execute">Execute Command</button>
+      <button @click="reExecute">Re-execute Command</button>
     </div>
   </div>
 </template>
@@ -77,9 +78,19 @@ export default {
 
   methods: {
     execute() {
-        
       this.$emit( "sendCommand", this.commands[ this.selected ]);
     },
+    reExecute() {
+
+      var newCommand = this.commands[ this.selected ];
+      this.commandObject.executable = newCommand.executable;
+      this.commandObject.args       = newCommand.args;
+      this.commandObject.description = newCommand.description;
+      this.commandObject.targetMachine = "thispc";
+      this.commandObject.regex_map_filename = newCommand.regex_map_filename;
+
+      this.$emit( "sendCommand", this.commandObject );
+    }
   },
 
   mounted: function () {
@@ -116,6 +127,18 @@ export default {
         commandMethod: "execute",
         regex_map_filename: "customerAlertRegex.txt",
         outputProcessor: "AlertPopulator"
+    }),
+        (this.commands[ "testBlotterCheck" ] = {
+        executable: "cat ",
+        args: " blotterCheck_1616503957611.txt ",
+        description: "The Blotter Populator",
+        targetMachine: "thispc",
+        commandObject: "CommandExecutor",
+        output: "",
+        status: "",
+        commandMethod: "execute",
+        regex_map_filename: "customerAlertRegex.txt",
+        outputProcessor: "BlotterPopulator"
     }),
     (this.commands[ "showAlerts" ] = {
         executable: "alertCheck.sh ",

@@ -1,31 +1,76 @@
 <template>
   <div class="content">
     <div class="grid-container" style="border: 1px solid">
-      <div class="grid-item"></div>
-      <div class="grid-item">ACP</div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-
-      <div class="grid-item">ACP</div>
-      <div class="grid-item acprunstatus">acp run status</div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-
       <div class="grid-item">ACP</div>
       <div class="grid-item">{{ commandObject.processedOutput.acp.numberOfAlerts }}</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
+
+      <div class="grid-item">Aegis</div>
+      <div class="grid-item acprunstatus">{{ commandObject.processedOutput.aegis.numberOfAlerts }}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">BDB</div>
+      <div class="grid-item">{{ commandObject.processedOutput.bdb.numberOfAlerts }}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">dev</div>
+      <div class="grid-item">{{ commandObject.processedOutput.dev.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">Gamma</div>
+      <div class="grid-item">{{ commandObject.processedOutput.gamma.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">kovack</div>
+      <div class="grid-item">{{ commandObject.processedOutput.kovack.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">ldl</div>
+      <div class="grid-item">{{ commandObject.processedOutput.ldl.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">kovack</div>
+      <div class="grid-item">{{ commandObject.processedOutput.kovack.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
       <div class="grid-item">Allaria</div>
-
-      <div class="grid-item">{{ commandObject.processedOutput.allaria.numberOfAlerts }}</div>
-      <div class="grid-item"></div>
+      <div class="grid-item">{{ commandObject.processedOutput.allaria.numberOfAlerts}}</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
 
-      <div class="grid-item">TAC</div>
+      <div class="grid-item">OFS</div>
+      <div class="grid-item">{{ commandObject.processedOutput.ofs.numberOfAlerts}}</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
+
+      <div class="grid-item">UCAP</div>
+      <div class="grid-item">{{ commandObject.processedOutput.ucap.numberOfAlerts}}</div>
       <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">Ultralat</div>
+      <div class="grid-item">{{ commandObject.processedOutput.ultralat.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">WCM</div>
+      <div class="grid-item">{{ commandObject.processedOutput.wcm.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
+      <div class="grid-item">Newb</div>
+      <div class="grid-item">{{ commandObject.processedOutput.newb.numberOfAlerts}}</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+
     </div>
 
   </div>
@@ -109,7 +154,7 @@ export default {
   grid-template-columns:
     var(--normal_cell_width) var(--normal_cell_width) var(--normal_cell_width)
     1.9fr;
-  grid-template-rows: 0.8fr 0.3fr 0.3fr 0.3fr 0.3fr 4fr;
+  grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
   gap: 0px 0px;
 }
 
