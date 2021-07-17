@@ -5,7 +5,7 @@
       {{ processedOutput }}
     </h1>
     <h1>
-      {{ commandObject.description }}
+      {{ commandObject.executable }}
     </h1>
   </div>
 </template>
@@ -29,13 +29,13 @@ export default {
 
     styleObject: {
       background: 'yellow'
-    }
+    } 
   },
 
   computed: {
     processedOutput: function () {
       if (!(typeof this.commandObject.regex_map == 'undefined')) {
-        this.regex.setClip(this.commandObject.regex_map.regexClip)
+        this.regex.setClip( this.commandObject.regex_map.regexClip )
         var serverRunning = this.checkServerStatus(
           this.commandObject.output.split(/\r?\n/)
         )

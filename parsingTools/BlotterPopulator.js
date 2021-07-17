@@ -59,7 +59,7 @@ function BlotterPopulator( customers ) {
 
                         // populate new customer name
                         
-                    if ( customers[ result.matchedString == undefined ]) {
+                    if ( customers[ result.matchedString ] == undefined ) {
 
                             // initialize new customer
                         

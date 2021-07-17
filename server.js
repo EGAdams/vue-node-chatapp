@@ -86,6 +86,11 @@ io.on("connection", socket => {
 	});
 
     socket.on( 'sendCommand' , function command( commandObject ) {
+        if ( commandObject == null || commandObject == undefined ) {
+            console.error( "*** ERROR: the command object is invalid here! " +
+                         " exiting socket on send command handler... *** " );
+            return;
+        }
         console.log( 'catching send command in server.js ...' );
         console.log( "getting regex map from server..." );
 
